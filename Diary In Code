@@ -1,0 +1,88 @@
+#Diary In Code
+#### Short answer
+
+**Don’t wait until you finish all the physics before learning to program.**  
+Python (and Jupyter) are *tools* that will make every physics concept you learn easier to explore, verify, and remember. You can learn the basics of programming **in parallel** with the early math/physics courses, and you’ll feel more confident when you hit the more advanced topics.
+
+---
+
+## Why Programming Helps (and How It Fits Into Your Plan)
+
+| What you’ll learn first | How it supports physics |
+|--------------------------|-------------------------|
+| **Python basics** (variables, loops, functions, lists, arrays) | Allows you to write quick scripts to check algebraic manipulations or generate data for graphs. |
+| **Jupyter notebooks** | Keeps code, equations, and notes together. Great for debugging and presenting solutions. |
+| **NumPy / SciPy** | Handles large arrays, linear‑algebra operations, and differential‑equation solvers—core to many physics problems. |
+| **Matplotlib** | Visualize vectors, fields, trajectories, probability distributions—all essential for learning intuition. |
+
+> **Bottom line:** *Programming is a skill, not a prerequisite.*  
+> You can read a physics textbook, solve the problem on paper, then **test** your solution with a tiny Python script. Doing this repeatedly turns abstract concepts into concrete, observable patterns.
+
+---
+
+## Suggested Learning Order (Hybrid)
+
+| Phase | What to do | Why |
+|-------|------------|-----|
+| **0–1 month** | • Install Anaconda (Python + Jupyter). <br>• Complete a 1‑week “Python for beginners” tutorial (e.g., *Python Crash Course* or *Codecademy*). | Get comfortable with syntax, loops, and basic data structures. |
+| **1–3 months** | • Start the **Calculus 1** course (MIT OCW 18.01). <br>• In parallel, practice a few Python exercises that mimic calculus operations (derivatives, integrals, plotting functions). | Builds math foundation while reinforcing programming as a “toolkit.” |
+| **3–6 months** | • Continue with **Linear Algebra** (MIT OCW 18.06). <br>• Write Python scripts that compute eigenvalues, solve linear systems, and visualize eigenvectors. | Physics heavily relies on linear algebra; coding these concepts solidifies understanding. |
+| **6–12 months** | • Begin **Classical Mechanics** (MIT OCW 8.01). <br>• Use Python to simulate simple systems (harmonic oscillator, pendulum, two‑body problem). | Physics becomes tangible when you see it “run” on the computer. |
+| **12–18 months** | • Dive into **Electromagnetism** and **Statistical Mechanics**. <br>• Write more advanced simulations (e.g., Maxwell’s equations in 1‑D, Monte‑Carlo for Ising model). | At this point, you’re comfortable with both the physics and the code. |
+
+> **Tip:** Keep a *shared notebook* (GitHub repo or local folder) for each major topic. Include the textbook notes, code, plots, and a short summary. You’ll have a living portfolio that proves your progress and is great for grad‑school applications.
+
+---
+
+## What to Focus on in Python Early On
+
+| Concept | Example in Physics |
+|---------|--------------------|
+| **Variables & Types** | Storing numbers for masses, charges, time steps. |
+| **Functions** | Defining an equation of motion `def f(t, y): ...`. |
+| **Loops / Comprehensions** | Iterating over time steps or arrays of particles. |
+| **NumPy arrays** | Vectorized operations on position & velocity arrays. |
+| **Matplotlib plots** | Visualizing trajectories, fields, energy vs. time. |
+| **SymPy** | Symbolic algebra to verify calculus derivatives, integrals. |
+
+A **mini‑project** idea: simulate a simple pendulum and plot angle vs. time. It’s a single, self‑contained task that covers all the above skills.
+
+---
+
+## Resources That Pair Physics & Programming
+
+| Resource | Description |
+|----------|-------------|
+| **MIT OCW 6.0001 & 6.0002** | Intro to Python + computational thinking. |
+| **“Python for Data Analysis” by Wes McKinney** | Good for learning NumPy, Pandas (useful for data‑heavy physics). |
+| **“Computational Physics” by Mark Newman** | Focused on numerical methods in physics, uses Python. |
+| **SciPy.org tutorials** | Step‑by‑step guides for numerical integration, optimization, differential equations. |
+| **Stack Overflow / Physics Stack Exchange** | Ask specific coding questions while learning. |
+| **Jupyter Notebook Viewer** | View and run examples without installing anything. |
+
+---
+
+## Practical Checklist for the First 30 Days
+
+1. **Install Anaconda** (Python 3 + Jupyter) – done.  
+2. **Open a new notebook** – name it `01-Intro-Python.ipynb`.  
+3. **Run a simple “Hello, world” cell**.  
+4. **Complete the “Python Basics” section of the chosen tutorial** (3–5 days).  
+5. **Create a second notebook** `02-Calculus-1-Plot.ipynb` and:
+   - Plot `f(x) = sin(x)` over `[0, 2π]`.  
+   - Compute its numerical derivative using finite differences.  
+6. **Save everything in a GitHub repo** (or local folder) called `physics‑learning`.  
+7. **Reflect**: Write a 1‑paragraph diary entry in the notebook describing what you learned and what you still find confusing.  
+
+Repeat this cycle with each new physics topic.
+
+---
+
+## Final Words
+
+- **Programming is a *supporting skill***, not a hurdle.  
+- Start with **Python basics** in the very first month; you’ll gain confidence and a framework that will make every physics concept feel more concrete.  
+- Treat each new physics topic as an opportunity to **write, test, and visualize** – the act of coding itself reinforces learning.  
+- Keep your notebooks organized; they’ll become an invaluable reference when you start graduate school or even when you write a paper later on.
+
+Good luck, and enjoy the *hands‑on* part of learning physics! If you hit a roadblock (Python syntax, a math concept, a simulation issue), just ping me—happy to help troubleshoot.
