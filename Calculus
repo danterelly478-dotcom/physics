@@ -1,0 +1,76 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 定义x的取值范围，从 -10 到 10，间隔为0.1
+x = np.arange(1, 21, 0.1)
+# 根据公式计算y的值
+y = -1 / x**2
+# 绘制图形
+plt.plot(x, y)
+# 添加标题0
+plt.title('y = -1/x**2')
+# 添加x轴标签
+plt.xlabel('x')
+# 添加y轴标签
+plt.ylabel('y')
+# 显示图形
+plt.show()
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+# 原函数
+def original_function(x):
+    return 1 / x
+
+
+# 导函数
+def derivative_function(x):
+    return -1 / (x ** 2)
+
+
+# 生成x值
+x = np.linspace(1, 10, 100)
+
+# 计算y值
+y_original = original_function(x)
+y_derivative = derivative_function(x)
+
+
+# 绘制原函数
+plt.plot(x, y_original, label='Original Function')
+
+# 绘制导函数
+plt.plot(x, y_derivative, label='Derivative Function')
+
+# 添加标签和图例
+plt.xlabel='x'
+plt.ylabel='y'
+plt.title='Function and Derivative Plot'
+plt.legend()
+
+# 显示图像
+plt.show()
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# 定义x的取值范围，从 -10 到 10，间隔为0.1
+x = np.arange(1, 21, 0.1)
+# 根据公式计算y的值
+y = 1 / x
+y1 = -x * 0.1 + 1
+# 绘制图形
+plt.plot(x, y)
+plt.plot(x, y1)
+# 添加标题0
+plt.title('')
+# 添加x轴标签
+plt.xlabel('x')
+# 添加y轴标签
+plt.ylabel('y')
+# 显示图形
+plt.show()
