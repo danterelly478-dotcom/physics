@@ -1,3 +1,5 @@
+#1.生成函数图像
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -74,3 +76,19 @@ plt.xlabel('x')
 plt.ylabel('y')
 # 显示图形
 plt.show()
+
+#2.求导公式
+
+
+# symbols def variable
+# diff for derivative
+from sympy import symbols, diff
+# 定义符号变量
+x = symbols('x')
+u = symbols('u')
+v = symbols('v')
+# 定义函数表达式
+y = u * v
+# 求导
+derivative = diff(y,v,u)
+print(derivative)
