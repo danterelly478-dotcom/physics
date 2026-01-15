@@ -1,0 +1,34 @@
+#1.2
+
+
+def fa():
+    print('ifa')
+    return 1
+def fb(z):
+    print('ifb')
+    return z()
+print (fb(fa))
+
+
+#1.1
+
+
+def f(x):
+    x = x + 1
+    print('in f(x) : x =', x)
+    return x
+x = 3
+z = f(x)
+
+
+#1.0
+
+
+s1 = 'mit u rock'
+s2 = 'i rule mit'
+# if len(s1) == len(s2):
+for char1 in s1:
+    for char2 in s2:
+        if char1 == char2:
+            print('common letter')
+            break
