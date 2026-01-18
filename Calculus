@@ -1,4 +1,4 @@
-#1.生成函数图像
+#1.0生成函数图像
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -17,6 +17,9 @@ plt.xlabel('x')
 plt.ylabel('y')
 # 显示图形
 plt.show()
+
+
+#1.1生成原函数与导函数共同图像
 
 
 import numpy as np
@@ -57,6 +60,9 @@ plt.legend()
 plt.show()
 
 
+#1.2
+
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -77,7 +83,7 @@ plt.ylabel('y')
 # 显示图形
 plt.show()
 
-#2.求导公式
+#2.0求导公式
 
 
 # symbols def variable
@@ -93,7 +99,9 @@ y = u * v
 derivative = diff(y,v,u)
 print(derivative)
 
-#原函数图像绘制
+#2.1原函数图像绘制
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -114,7 +122,10 @@ plt.legend()
 # 显示图像
 plt.show()
 
-#导函数图像绘制
+
+#2.2导函数图像绘制
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -126,3 +137,78 @@ derivative_expr = diff(y, x)
 derivative_vals = [derivative_expr.subs(x, val) for val in x_vals]
 x_vals = np.linspace(0.1,10,100)
 plt.plot(x_vals,derivative_vals, label='Derivative Function')
+
+
+#3.0 proof:Formula f(x)=f(x0)+f'(x0)(x-x0)
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+from sympy import symbols, diff, ln,log
+from sympy.utilities.lambdify import lambdify
+
+x0 = symbols('x')
+f_x0 = ln(x0)
+dy_x0 = diff(f_x0, x0)
+x = symbols('x')
+f_x = ln(x)
+approx_f_x = f_x0 + dy_x0 * (x - x0)
+x_vals = np.linspace(0.1,10,100)
+approx_f_x_func = lambdify(x, approx_f_x, 'numpy')
+approx_f_x_vals = [approx_f_x_func(val) for val in x_vals]
+plt.plot(x_vals,approx_f_x_vals, label='Derivative Function')
+
+
+#3.1.0 compare:Formula f(x)&f(x0)+f'(x0)(x-x0)
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+from sympy import symbols, diff, ln,log
+from sympy.utilities.lambdify import lambdify
+
+x0 = symbols('x')
+f_x0 = ln(x0)
+dy_x0 = diff(f_x0, x0)
+x = symbols('x')
+f_x = ln(x)
+approx_f_x = f_x0 + dy_x0 * (x - x0)
+x_vals = np.linspace(0.1,10,100)
+approx_f_x_func = lambdify(x, approx_f_x, 'numpy')
+approx_f_x_vals = [approx_f_x_func(val) for val in x_vals]
+
+f_x_func = lambdify(x, f_x, 'numpy')
+f_x_vals = [f_x_func(val) for val in x_vals]
+
+
+plt.plot(x_vals, f_x_vals, label='Original Function')
+
+plt.plot(x_vals,approx_f_x_vals, label='Derivative Function')
+
+plt.show()
+
+
+#3.1.1 compare:Formula f(x):f(x0)+f'(x0)(x-x0)
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+from sympy import symbols, diff, ln,log
+from sympy.utilities.lambdify import lambdify
+
+x0 = symbols('x')
+f_x0 = ln(x0)
+dy_x0 = diff(f_x0, x0)
+x = symbols('x')
+f_x = ln(x)
+approx_f_x = f_x0 + dy_x0 * (x - x0)
+x_vals = np.linspace(0.1,10,100)
+
+plt.plot(x_vals, f_x_vals, label='Original Function')
+
+plt.plot(x_vals,approx_f_x_vals, label='Derivative Function')
+
+plt.show()
