@@ -92,3 +92,37 @@ y = u * v
 # 求导
 derivative = diff(y,v,u)
 print(derivative)
+
+#原函数图像绘制
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+from sympy import symbols, diff
+
+x = symbols('x')
+x = np.linspace(0.1, 10, 100)
+y = np.log(x)
+
+# 绘制导函数
+plt.plot(x, y, label='Original Function')
+
+# 添加标签和图例
+plt.ylabel='y'
+plt.title='Function and Derivative Plot'
+plt.legend()
+
+# 显示图像
+plt.show()
+
+#导函数图像绘制
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+from sympy import symbols, diff, ln
+
+x = symbols('x')
+y = ln(x)
+derivative_expr = diff(y, x)
+derivative_vals = [derivative_expr.subs(x, val) for val in x_vals]
+x_vals = np.linspace(0.1,10,100)
+plt.plot(x_vals,derivative_vals, label='Derivative Function')
