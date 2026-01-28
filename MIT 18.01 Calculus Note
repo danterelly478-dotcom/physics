@@ -1,0 +1,318 @@
+Lec 1
+ 
+- 幂函数求导：(x^n)' = n \cdot x^{n-1}
+​
+- 导数定义：
+f'(x_0) = \lim_{\Delta x \to 0} \frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}
+​
+- 切线方程：y-y_0 = f'(x_0)(x-x_0)
+​
+- 函数 f(x)=\frac{1}{x} 的导数：f'(x_0) = -\frac{1}{x_0^2}
+
+
+
+Lec 2
+​
+- 重要极限：
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+\lim_{x \to 0} \frac{1-\cos x}{x} = 0
+
+
+
+Lec 3
+ 
+- 三角函数和角公式：
+\sin(x\pm y) = \sin x \cos y \pm \cos x \sin y
+\cos(x\pm y) = \cos x \cos y \mp \sin x \sin y
+​
+- 乘积法则：(uv)' = u'v + uv'
+​
+- 商法则：\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}
+​
+- 三角函数导数（x 为弧度制）：
+\frac{d}{dx}\sin x = \cos x
+\frac{d}{dx}\cos x = -\sin x
+
+
+
+Lec 4
+ 
+- 常数倍数法则：(cu)' = cu'
+​
+- 负指数幂求导：\left(\frac{1}{x^n}\right)' = (x^{-n})' = -n x^{-n-1}，由此推导幂函数求导法则 (x^n)' = n x^{n-1}
+​
+- 链式法则：\frac{dy}{dt} = \frac{dy}{dx} \cdot \frac{dx}{dt}
+示例：\frac{d}{dt}\sin(10t) = \cos(10t) \cdot 10
+​
+- 高阶导数记号：u' = \frac{du}{dx} = D u，u'' = (u')'，u''' = (u'')'，D^n u = u^{(n)}
+​
+- 特殊高阶导数：D^n x^n = n!
+​
+- 常数的导数：C' = 0
+
+
+
+Lec 5
+ 
+- 隐函数求导（Implicit Differentiation）
+​
+- 幂函数求导推广：\frac{d}{dx}x^a = a x^{a-1}
+​
+- 隐函数求导示例：\frac{d}{dx}(x^2 + y^2 = 1) \implies 2x + 2y y' = 0
+​
+- 反三角函数：\arcsin x = \sin^{-1}x
+​
+- 隐函数求导示例：\tan y = x
+
+
+
+Lec 6
+ 
+- 指数运算法则：
+a^{x_1+x_2} = a^{x_1} \cdot a^{x_2}
+a^{x_1 x_2} = (a^{x_1})^{x_2}
+a^m = \sqrt[n]{a^{mn}}
+​
+- 指数函数导数：
+\frac{d}{dx}a^x = a^x \lim_{\Delta x \to 0} \frac{a^{\Delta x} - 1}{\Delta x}
+\frac{d}{dx}e^x = e^x
+​
+- 对数函数导数：
+\frac{d}{dx}\ln x = \frac{1}{x}
+\frac{d}{dx}\log_a u = \frac{u'}{u \ln a}
+
+- 自然对数定义：\ln = natural logarithm
+​
+- \ln(1+x) 的泰勒展开：
+\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} + \dots + (-1)^{n+1}\frac{x^n}{n} + \dots
+
+
+
+
+Lec 7
+ 
+- 对数函数导数：
+(\ln x)' = \frac{1}{x}
+(\log_a x)' = \frac{1}{x \cdot \ln a}
+(\ln u)' = \frac{u'}{u}
+ 
+ 
+REVIEW
+ 
+- 复习内容：隐函数求导（Implicit Differentiation）、反函数求导、对数求导
+​
+- 基本求导法则：
+​
+- 和差法则：(u+v)' = u' + v'
+​
+- 常数倍数法则：(cu)' = cu'
+​
+- 乘积法则：(uv)' = u'v + uv'
+​
+- 商法则：\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}
+​
+- 链式法则：\frac{d}{dx}f(u) = f'(u) \cdot u'(x)（其中 u=u(x)）
+​
+- 常见具体函数：
+x^r,\ \sin x,\ \cos x,\ \tan x,\ \sec x,\ e^x,\ \ln x,\ \tan^{-1}x\ (\arctan x),\ \sin^{-1}x\ (\arcsin x)
+​
+- 三角函数关系：
+\sec x = \frac{1}{\cos x}
+\tan x = \frac{\sin x}{\cos x}
+\sin^2 x + \cos^2 x = 1
+
+
+
+Lec 9
+ 
+- 近似条件：x \approx x_0,\ \Delta x \to 0
+​
+- 线性近似公式：
+f(x) \approx f(x_0) + f'(x_0)(x-x_0) \quad (x \approx x_0)
+f(x) \approx f(0) + f'(0)x \quad (x \approx 0)
+​
+- 导数的近似意义：
+\frac{\Delta f}{\Delta x} \approx f'(x) \quad (x \approx x_0)
+
+- 线性近似公式（x \approx 0 时）：
+f(x) \approx f(0) + f'(0)x
+​
+- 常见函数的线性近似（x \approx 0）：
+\sin x \approx x
+\cos x \approx 1
+e^x \approx 1+x
+\ln(1+x) \approx x
+(1+x)^r \approx 1+rx
+​
+- 相关函数在 x=0 处的取值与导数值：
+对于 \cos x：f(0)=1，f'(0)=0
+对于 e^x：f(0)=1，f'(0)=1
+对于 \frac{1}{1+x}：f(0)=1，f'(0)=-1
+对于 (1+x)^r：f(0)=1，f'(0)=r
+ 
+ 
+ 
+Lec 10：二次近似
+ 
+- 二次近似公式（x \approx 0 时）：
+f(x) \approx f(0) + f'(0)x + \frac{f''(0)}{2}x^2
+​
+- 常见函数的二次近似（x \approx 0）：
+\sin x \approx x
+\cos x \approx 1 - \frac{1}{2}x^2
+e^x \approx 1 + x + \frac{1}{2}x^2
+\ln(1+x) \approx x - \frac{1}{2}x^2
+(1+x)^r \approx 1 + rx + \frac{r(r-1)}{2}x^2
+​
+- 二次多项式系数推导：
+设 f(x) = a + bx + cx^2，则
+f(0) = a
+f'(0) = b
+f''(0) = 2c \implies c = \frac{f''(0)}{2}
+​
+- 单调性与导数的关系：
+f' > 0 \implies f 单调递增
+f' < 0 \implies f 单调递减
+
+ 
+f''>0 \implies f' is increasing \implies f concave up
+f''<0 \implies f concave down
+ 
+Defn: if f'(x_0)=0 we call x_0 a critical point
+y_0=f(x_0) is a critical value
+ 
+ 
+ 
+Lec 11
+ 
+GENERAL STRATEGY
+ 
+1. Plot
+a. discover discontinuities (especially infinite)
+b. endpoints (or x \to \pm\infty)
+c. easy pts (optional)
+​
+2. a. Solve f'(x)=0
+b. Plot critical point and value
+​
+3. Decide whether f'>0 on each interval between
+critical points / discontinuities (consistent with 1,2)
+​
+4. f''>0 concave up/down
+f''(x_0)=0 \iff x_0 inflection point
+​
+5. combine
+
+
+Lec 12
+ 
+MAX/MIN (cont'd) 
+ 
+ 
+ 
+Lec 13
+ 
+Newton's Method
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+ 
+ 
+ 
+Lec 14
+ 
+Applications to graphing
+ 
+1. If f'>0, then f is increasing
+​
+2. If f'<0, then f is decreasing
+​
+3. If f'=0, then f is constant
+ 
+\frac{f(b)-f(a)}{b-a} = f'(c) \iff f(b)=f(a)+f'(c)(b-a)
+ 
+MVT mean value theorem
+\min f' \le \frac{f(b)-f(a)}{b-a} = f'(c) \le \max f'
+on a \le x \le b
+ 
+ 
+ 
+Lec 15
+ 
+Differential of y:
+dy = f'(x) dx
+ 
+f(x) \approx f(a) + f'(a)(x-a) \quad (\text{or } f)
+\frac{dy}{dx} = f'(x)
+G(x) = \int g(x) dx
+
+
+Lec 16
+ 
+\ln y = -\frac{x}{2} + C \; ; \; y = A e^{-\frac{x}{2}} \; (A=e^C)
+ 
+1. Linear / Quadratic Approx.
+​
+2. SKETCH A GRAPH
+​
+3. MAX / MIN
+​
+4. RELATED RATES
+​
+5. ANTIDERIVATIVE + SOLVE O.D.E.
+​
+6. M.V.T.
+ 
+ 
+ 
+Lec 18
+ 
+INTRO TO INTEGRATION
+\int_a^b x^2 dx = \frac{1}{3}b^3 \quad [a=0]
+[Riemann Sum]
+(b/n)(b/n)^2 + b/n(2b/n)^2 + \dots + (b/n)(nb/n)^2 = \sum_{i=1}^n \frac{b}{n} \left(\frac{ib}{n}\right)^2 = \frac{b^3}{n^3} \sum_{i=1}^n i^2
+= \frac{b^3}{n^3} \sum_{i=1}^n i^2 \approx \frac{b^3}{n^3} \int_0^n x^2 dx = \frac{b^3}{n^3} \cdot \frac{1}{3}n^3 = \frac{1}{3}b^3
+= \lim_{n \to \infty} \frac{1}{3}b^3
+Hence \int_0^b x^2 dx = \frac{1}{3}b^3
+ 
+ 
+ 
+Lec 19
+ 
+If F'(x) = f(x), then \int_a^b f(x) dx
+F = \int f(x) dx
+F(b) - F(a) = F(x) \bigg|_a^b = F(x) \bigg|_{x=a}^{x=b} = F(b) - F(a)
+
+Properties of integrals
+ 
+1. \int_a^b (f(x) + g(x)) dx = \int_a^b f(x) dx + \int_a^b g(x) dx
+​
+2. \int_a^b c f(x) dx = c \int_a^b f(x) dx
+​
+3. \int_a^b f(x) dx = \int_a^c f(x) dx + \int_c^b f(x) dx
+​
+4. \int_a^a f(x) dx = 0 \quad (=F(a)-F(a))
+​
+5. \int_a^b f(x) dx = - \int_b^a f(x) dx
+​
+6. If f(x) \le g(x), then
+\int_a^b f(x) dx \le \int_a^b g(x) dx \quad (a < b)
+ 
+ 
+ 
+Lec 20
+ 
+(Fundamental Theorem of Calculus) {FTC}
+FTC1: \Delta F = \int_a^b f(x) dx
+\frac{\Delta F}{\Delta x} = \left[ \frac{1}{b-a} \int_a^b f(x) dx \right] \text{Average}(f)
+\Delta F = \left[ \text{Ave}(F') \right] \Delta x
+\Delta F = F'(c) \Delta x \implies \text{MVT (Mean Value Theory)}
+
+FTC 2: If f is continuous,
+and G(x) = \int_a^x f(t) dt \; (a \le t \le x)
+then G'(x) = f(x)
+ 
+ 
+ 
+Lec 21
+ 
+FTC 2
+\frac{d}{dx} \int_a^x f(t) dt = f(x)
