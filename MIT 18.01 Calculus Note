@@ -316,3 +316,36 @@ Lec 21
  
 FTC 2
 \frac{d}{dx} \int_a^x f(t) dt = f(x)
+
+
+
+Lec 22
+ 
+SOLIDS OF REVOLUTION
+(revolve around x-axis)
+Method 1: method of discs
+ 
+VOLUMES BY SLICING
+\Delta V \approx A \Delta x one slice
+dV = A(x) dx
+V = \int A(x) dx \approx \sum A_i \Delta x
+ 
+ 
+ 
+Discs:
+dV = \pi y^2 dx
+V_x = \pi \int_a^b f^2(x) dx
+V_x = \pi \int_a^b [f_1^2(x) - f_2^2(x)] dx
+ 
+V_y = \pi \int_a^b g^2(y) dy
+V_y = \pi \int_a^b [g_1^2(y) - g_2^2(y)] dy
+dV = (\pi y^2) dx
+ 
+ 
+ 
+METHOD OF SHELLS
+(revolve around y-axis)
+ 
+Shells:
+V = \frac{\pi}{2} a^2
+BEWARE OF UNITS
