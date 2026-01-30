@@ -349,3 +349,108 @@ METHOD OF SHELLS
 Shells:
 V = \frac{\pi}{2} a^2
 BEWARE OF UNITS
+
+
+Lec 23
+ 
+
+a \le x_1 < x_2 \le b
+
+
+P(x_1 < X < x_2) = \frac{\int_{x_1}^{x_2} w(x) dx}{\int_a^b w(x) dx} = \frac{\text{Part}}{\text{Whole}}
+
+
+\Delta x = \frac{b-a}{n}
+
+
+\frac{1}{b-a} \int_a^b f(x) dx
+
+ 
+ 
+ 
+Lec 24
+ 
+circumference of a circle ○
+perimeter of a square □
+ 
+
+\#\ \text{hits} = C e^{-r^2} \Delta A
+
+ 
+shells:
+
+\text{PART} = \int_{r_1}^{r_2} (2\pi r) e^{-r^2} dr
+
+
+= -\pi e^{-r^2} \Big|_{r_1}^{r_2}
+
+
+= \pi \left(e^{-r_1^2} - e^{-r_2^2}\right)
+
+ 
+
+\text{WHOLE} = 0 \le r < \infty
+
+
+= C\pi \left(e^{-0^2} - e^{-\infty^2}\right)
+
+
+= C\pi
+
+ 
+
+P(r_1 < r < r_2) = \frac{\text{PART}}{\text{WHOLE}}
+
+
+= e^{-r_1^2} - e^{-r_2^2}
+
+ 
+
+P(0 \le r \le \infty) = 1
+
+ 
+Weight:
+
+w(r) = 2\pi C r e^{-r^2}
+
+
+Lec 25
+ 
+NUMERICAL INTEGRATION
+ 
+Simpson's Rule:
+
+\frac{\Delta x}{3} \left(y_0 + 4y_1 + 2y_2 + 4y_3 + \dots + 4y_{n-1} + y_n\right)
+
+
+|\text{Simpson's} - \text{Exact ans}| \approx (\Delta x)^4
+
+ 1, 4, 2, 4, 2, 4, 1 
+ 
+Watchout for \frac{1}{x}, x near 0.
+ 
+ 
+ 
+
+V = \int_0^\infty 2\pi r e^{-r^2} dr = \pi
+
+
+Q = \int_0^\infty e^{-t^2} dt;\quad \boxed{V = Q^2}
+
+
+\boxed{V = Q^2} \implies Q = \sqrt{\pi}
+
+ 
+ 
+ 
+Shells:
+
+0 \le y \le x - x^3
+
+
+\int_0^1 2\pi x \left(x - x^3\right) dx
+
+ 
+Washer:
+
+\int \pi \left(x_2^2 - x_1^2\right) dy
