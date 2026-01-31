@@ -454,3 +454,98 @@ Shells:
 Washer:
 
 \int \pi \left(x_2^2 - x_1^2\right) dy
+
+
+
+Lec 27
+ 
+- \sin^2\theta + \cos^2\theta = 1
+​
+- \cos(2\theta) = \cos^2\theta - \sin^2\theta
+​
+- \sin(2\theta) = 2\sin\theta\cos\theta
+ 
+Half-angle formula:
+ 
+- \cos^2\theta = \frac{1+\cos(2\theta)}{2}
+​
+- \sin^2\theta = \frac{1-\cos(2\theta)}{2}
+ 
+Easy case:
+At least one exponent Odd
+ 
+- Substitution:
+​
+- u = \sin x \quad du = \cos x\,dx
+​
+- u = \cos x \quad du = -\sin x\,dx
+ 
+Harder case:
+Only even exponent, Use "half-angle formula"
+ 
+Example:
+\sin^2x \cos^2x = (\sin x \cos x)^2 = \left(\frac{\sin(2x)}{2}\right)^2 = \frac{\sin^2(2x)}{4} = \frac{1}{4}\left(\frac{1-\cos(4x)}{2}\right)
+ 
+Area:
+\int y\,dx
+Or: \int x\,dy
+
+
+
+
+Lec 28:
+
+TRIG SUBS (SUBSTITUTION)
+ 
+numerator / denominator
+ 
+Basic Trigonometric Definitions
+sec = 1/cos (secant)
+csc = 1/sin (cosecant)
+tan = sin/cos (tangent)
+cot = cos/sin (cotangent)
+ 
+Identities & Derivatives
+sec² = 1 + tan²
+tan' = sec²
+sec' = sec·tan
+ 
+Integration Formulas
+∫tanx dx = -ln(cosx) + C
+∫secx dx = ln(secx + tanx) + C
+ 
+Typical Substitution
+∫dx/(x²√(1+x²))
+x = tanθ
+√(1+x²) = secθ
+dx = sec²θ dθ
+θ = arctanx
+ 
+Another substitution:
+u = tanx
+du = sec²x dx
+ 
+ 
+ 
+Summary of TRIG Subs
+If integrand contains √(a²−x²)
+make substitution x = a cosθ or x = a sinθ
+to get a sinθ or a cosθ
+ 
+If integrand contains √(a²+x²)
+make substitution x = a tanθ
+to get a secθ
+ 
+If integrand contains √(x²−a²)
+make substitution x = a secθ
+to get a tanθ
+ 
+ 
+ 
+Right Triangle Trigonometric Relationships
+sinθ = y/r
+cosθ = x/r
+tanθ = y/x
+cotθ = x/y
+secθ = r/x
+cscθ = r/y
