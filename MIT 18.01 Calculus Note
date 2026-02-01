@@ -549,3 +549,115 @@ tanθ = y/x
 cotθ = x/y
 secθ = r/x
 cscθ = r/y
+
+
+
+
+Lec 29
+ 
+\frac{P(x)}{Q(x)} = \text{rational function}
+ 
+ 
+ 
+Case 1: \boldsymbol{\text{degree } P < \text{degree } Q}
+ 
+Cover-up method
+ 
+Example 1:
+\frac{4x-1}{(x-1)(x+2)} = \frac{A}{x-1} + \frac{B}{x+2}
+ 
+Example 2:
+\frac{x^2+2}{(x-1)^2(x+2)} = \frac{A}{(x-1)} + \frac{B}{(x-1)^2} + \frac{C}{(x+2)}
+ 
+Example 3:
+\frac{x^2}{(x-1)(x^2+1)} = \frac{A}{(x-1)} + \frac{Bx+C}{(x^2+1)}
+ 
+ 
+ 
+Case 2: \boldsymbol{\text{degree } P \ge \text{degree } Q}
+ 
+This is an improper fraction → cannot use cover-up method directly.
+ 
+Example:
+\frac{x^3}{(x-1)(x+2)} = \frac{x^3}{x^2+x-2}
+We use long division first:
+ 
+x - 1
+____________
+x²+x-2 | x³
+x³ + x² - 2x
+-------------
+-x² + 2x
+-x² - x + 2
+-------------
+3x - 2
+ 
+So:
+\frac{x^3}{x^2+x-2} = \underbrace{x-1}_{\text{quotient}} + \underbrace{\frac{3x-2}{x^2+x-2}}_{\text{remainder (proper fraction)}}
+
+
+
+
+Lec 30 
+
+PARTIAL FRACTIONS
+ 
+STEP 0: LONG DIVISION
+ 
+For a rational function \frac{P(x)}{Q(x)}:
+\frac{P(x)}{Q(x)} = \text{quotient} + \frac{R(x)}{Q(x)}
+where \text{degree } R < \text{degree } Q
+ 
+ 
+ 
+Integration by Parts
+ 
+Indefinite form:
+\int u v' dx = uv - \int u' v dx
+ 
+Definite form:
+\int_a^b u v' dx = uv\bigg|_a^b - \int_a^b u' v dx
+ 
+ 
+ 
+Example 1: \int \ln x \, dx
+ 
+Let:
+ 
+- u = \ln x → u' = \frac{1}{x}
+​
+- v = x → v' = 1
+ 
+
+\begin{align*}
+\int \ln x \, dx &= x \ln x - \int \frac{1}{x} \cdot x \, dx \\
+&= x \ln x - \int 1 \, dx \\
+&= x \ln x - x + C
+\end{align*}
+
+Result:
+\int \ln x \, dx = x \ln x - x + C
+ 
+ 
+ 
+Example 2: \int (\ln x)^n \, dx
+ 
+Let:
+ 
+- u = (\ln x)^n → u' = n (\ln x)^{n-1} \cdot \frac{1}{x}
+​
+- v = x → v' = 1
+ 
+
+\int (\ln x)^n \, dx = x (\ln x)^n - n \int (\ln x)^{n-1} \, dx
+
+ 
+Reduction method:
+F_n(x) = x (\ln x)^n - n F_{n-1}(x)
+ 
+ 
+ 
+Example 3: \int x e^x \, dx
+ 
+Result:
+\int x e^x \, dx = x e^x - e^x + C
