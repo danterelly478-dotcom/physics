@@ -661,3 +661,65 @@ Example 3: \int x e^x \, dx
  
 Result:
 \int x e^x \, dx = x e^x - e^x + C
+
+
+
+Lec 31 
+
+ARCLENGTH “S”
+ 
+\begin{align*}
+ds^2 &= dx^2 + dy^2 \\
+ds &= \sqrt{dx^2 + dy^2} \\
+ds &= \sqrt{1 + \left(\frac{dy}{dx}\right)^2} dx
+\end{align*}
+
+(TOTAL s_n - s_0)
+
+= \int_a^b \sqrt{1 + \left(\frac{dy}{dx}\right)^2} dx = \int_{s_0}^{s_n} ds
+
+
+= \int_a^b \sqrt{1 + f'(x)^2} dx \quad (y = f(x))
+
+ 
+ 
+ 
+SURFACE AREA
+ 
+
+dA = (2\pi y) dx \quad | \quad dA = (2\pi y) ds
+
+[ y = \sqrt{1 - x^2}; ds = \sqrt{1 + (y')^2} dx; \frac{1}{1 - x^2} = 1 + (y')^2 ]
+ 
+Example:
+y = \sqrt{a^2 - x^2}; ds = \sqrt{\frac{a^2}{a^2 - x^2}} dx; \text{area}(dA) = 2\pi a(x_2 - x_1)
+surface area of sphere = 4\pi r^2
+ 
+ 
+ 
+Lec 32
+ 
+
+\frac{ds}{dt} = \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}
+
+
+\left(\frac{dx}{dt}\right)^2 \implies (x'(t))^2 \quad ; \quad \frac{d^2x}{dt^2} \implies x''(t)
+
+ 
+
+\begin{cases}
+x = r\cos\theta \\
+y = r\sin\theta
+\end{cases}
+\quad ; \quad
+\begin{cases}
+r = \sqrt{x^2 + y^2} \\
+\theta = \tan^{-1}\left(\frac{y}{x}\right)
+\end{cases}
+
+ 
+Off center circle:
+
+r = 2a\cos\theta \quad \left(-\frac{\pi}{2} \le \theta \le \frac{\pi}{2}\right)
+
+(sketch of circle centered at (a,0) with radius a, passing through (2a,0))
