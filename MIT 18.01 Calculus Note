@@ -723,3 +723,74 @@ Off center circle:
 r = 2a\cos\theta \quad \left(-\frac{\pi}{2} \le \theta \le \frac{\pi}{2}\right)
 
 (sketch of circle centered at (a,0) with radius a, passing through (2a,0))
+
+
+
+Lec 33: VARIABLE PIE
+ 
+Area Formulas
+ 
+
+\Delta A = \frac{1}{2}a^2\Delta\theta
+
+
+dA = \frac{1}{2}r^2d\theta
+
+
+A = \int_{\theta_1}^{\theta_2} \frac{1}{2}r^2 d\theta \quad (r=r(\theta))
+
+ 
+Kepler’s law
+ 
+
+\frac{dA}{dt} = \text{constant} \ (c)
+
+
+\frac{dA}{dt} = \frac{1}{2}r^2 \frac{d\theta}{dt}
+
+ 
+Conservation of angular momentum
+ 
+
+r^2 \frac{d\theta}{dt} = \text{constant} \ (c)
+
+ 
+ 
+ 
+Lec 34/35: L’Hôpital’s Rule
+ 
+Derivation (where f(a)=g(a)=0)
+ 
+
+\lim_{x\to a}\frac{f(x)}{g(x)}
+= \lim_{x\to a}\frac{f(x)/(x-a)}{g(x)/(x-a)}
+= \frac{\lim_{x\to a}\frac{f(x)-f(a)}{x-a}}{\lim_{x\to a}\frac{g(x)-g(a)}{x-a}}
+= \frac{f'(a)}{g'(a)} \quad (\text{works if }g'(a)\neq0)
+
+ 
+L’Hôpital’s Rule (VERSION 1)
+ 
+
+\lim_{x\to a}\frac{f(x)}{g(x)}
+= \lim_{x\to a}\frac{f'(x)}{g'(x)}
+
+Provided:
+ 
+- f(a)=g(a)=0
+​
+- and the right-hand limit exists.
+ 
+Other cases allowed:
+ 
+- a=\pm\infty
+​
+- f(a),g(a)\to\infty (the \frac{\infty}{\infty} case)
+​
+- R.H.S exists or \to\pm\infty
+​
+- Applied to \frac{f(a)}{g(a)} \to \frac{0}{0} or \frac{\infty}{\infty}
+ 
+Additional Result
+ 
+
+\lim_{x\to0^+}x^x=1
