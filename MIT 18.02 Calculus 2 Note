@@ -1,0 +1,351 @@
+Multi Variable Calculus
+
+
+Lec 1
+
+
+Vectors
+ 
+Vector Definition
+ 
+\vec{A} = \langle a_1, a_2, a_3 \rangle
+Magnitude:
+|\vec{A}| = \sqrt{a_1^2 + a_2^2 + a_3^2}
+ 
+ 
+ 
+Vector Addition
+ 
+\vec{A} + \vec{B} = \langle a_1+b_1, a_2+b_2, a_3+b_3 \rangle
+ 
+ 
+ 
+DOT PRODUCT
+ 
+Formula:
+\vec{A} \cdot \vec{B} = |\vec{A}||\vec{B}|\cos(\theta)
+ 
+Definition:
+\vec{A} \cdot \vec{B} = \sum a_i b_i = a_1b_1 + a_2b_2 + a_3b_3
+(This result is a SCALAR!)
+ 
+Geometric Interpretation:
+\vec{A} \cdot \vec{B} = |\vec{A}| \cdot |\vec{B}| \cos(\theta)
+where \theta is the angle between vectors \vec{A} and \vec{B}.
+ 
+ 
+ 
+Law of Cosines
+ 
+For \vec{C} = \vec{A} - \vec{B}:
+|\vec{C}|^2 = |\vec{A}|^2 + |\vec{B}|^2 - 2|\vec{A}||\vec{B}|\cos\theta
+From this, we derive:
+\vec{A} \cdot \vec{B} = |\vec{A}| \cdot |\vec{B}| \cos\theta
+\cos\theta = \frac{\vec{A} \cdot \vec{B}}{|\vec{A}| \cdot |\vec{B}|}
+ 
+ 
+ 
+Orthogonality Condition
+ 
+\vec{A} \cdot \vec{B} = 0 \quad \Longleftrightarrow \quad \cos\theta = 0
+\quad \Longleftrightarrow \quad \theta = 90^\circ
+\quad \Longleftrightarrow \quad \vec{A} \perp \vec{B}
+ 
+Sign of the Dot Product
+ 
+$$
+\vec{A} \cdot \vec{B}
+\begin{cases}
+ 
+0 & \text{if } \theta < 90^\circ \
+= 0 & \text{if } \theta = 90^\circ \
+< 0 & \text{if } \theta > 90^\circ
+
+\end{cases}
+$$
+
+
+
+Lec 2
+ 
+ 
+ 
+Review: Dot Product
+ 
+\vec{A} \cdot \vec{B} = \sum a_i b_i = |\vec{A}||\vec{B}|\cos\theta
+ 
+ 
+ 
+Applications of the Dot Product
+ 
+1. Find lengths & angles
+\cos\theta = \frac{\vec{A} \cdot \vec{B}}{|\vec{A}||\vec{B}|}
+​
+2. Detect orthogonality
+\vec{A} \perp \vec{B} \quad \Longleftrightarrow \quad \vec{A} \cdot \vec{B} = 0
+(Note: \hat{u} is a unit vector, so |\hat{u}|=1)
+​
+3. Components of \vec{A} along direction \hat{u}
+The scalar component of \vec{A} along \hat{u} is:
+|\vec{A}|\cos(\theta) = |\vec{A}||\hat{u}|\cos\theta = \vec{A} \cdot \hat{u}
+ 
+ 
+ 
+Related Concepts
+ 
+- Work done by a force:
+W = F \cdot s \cdot \cos\theta
+​
+- Area of a triangle (formed by vectors \vec{A} and \vec{B}):
+\text{Area} = \frac{1}{2}|\vec{A}||\vec{B}|\sin\theta
+(To find \sin\theta, first compute \cos\theta from the dot product, then use \sin^2\theta + \cos^2\theta = 1)
+ 
+ 
+ 
+2D Perpendicular Vectors & Determinants
+ 
+- For a vector \vec{A} = \langle a_1, a_2 \rangle, a perpendicular vector is \vec{A}' = \langle -a_2, a_1 \rangle, so \vec{A} \perp \vec{A}'.
+​
+- The magnitude |\vec{A}||\vec{B}|\sin\theta (which relates to the area of the parallelogram formed by \vec{A} and \vec{B}) can be expressed as:
+|\vec{A}||\vec{B}|\sin\theta = \vec{A}' \cdot \vec{B} = \langle -a_2, a_1 \rangle \cdot \langle b_1, b_2 \rangle = a_1b_2 - a_2b_1
+​
+- This value is the determinant of the matrix formed by \vec{A} and \vec{B}:
+\det(\vec{A}, \vec{B}) = \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} = a_1b_2 - a_2b_1
+It represents the area of the parallelogram spanned by vectors \vec{A} and \vec{B}.
+
+Determinant & Area
+ 
+For vectors \vec{A} and \vec{B} in 2D:
+ 
+- The area of the parallelogram they span is:
+\pm \text{Area}_{\square} = |\vec{A}||\vec{B}|\sin\theta = \det(\vec{A}, \vec{B})
+​
+- The area of the triangle they form is:
+\pm \text{Area}_{\triangle} = \frac{1}{2}|\vec{A}||\vec{B}|\sin\theta = \frac{1}{2}\det(\vec{A}, \vec{B})
+ 
+ 
+ 
+Determinant in 3D Space
+ 
+For three vectors \vec{A} = \langle a_1, a_2, a_3 \rangle, \vec{B} = \langle b_1, b_2, b_3 \rangle, \vec{C} = \langle c_1, c_2, c_3 \rangle:
+
+\det(\vec{A}, \vec{B}, \vec{C}) =
+\begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}
+
+Expanding along the first row:
+$$
+= a_1
+\begin{vmatrix} b_2 & b_3 \ c_2 & c_3 \end{vmatrix}
+ 
+- a_2
+\begin{vmatrix} b_1 & b_3 \ c_1 & c_3 \end{vmatrix}
+ 
+- a_3
+\begin{vmatrix} b_1 & b_2 \ c_1 & c_2 \end{vmatrix}
+$$
+ 
+Theorem (Geometric Interpretation):
+\det(\vec{A}, \vec{B}, \vec{C}) = \pm \text{Volume of the parallelepiped spanned by } \vec{A}, \vec{B}, \vec{C}
+ 
+ 
+ 
+Cross Product of 2 Vectors in 3D Space
+ 
+Definition:
+The cross product \vec{A} \times \vec{B} results in a vector that is perpendicular to both \vec{A} and \vec{B}.
+
+\vec{A} \times \vec{B} =
+\begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3
+\end{vmatrix}
+
+Expanding the determinant:
+
+=
+\begin{vmatrix} a_2 & a_3 \\ b_2 & b_3 \end{vmatrix} \hat{i}
+-
+\begin{vmatrix} a_1 & a_3 \\ b_1 & b_3 \end{vmatrix} \hat{j}
++
+\begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} \hat{k}
+
+Cross Product Magnitude & Direction
+ 
+Theorem:
+The magnitude of the cross product equals the area of the parallelogram spanned by \vec{A} and \vec{B}:
+|\vec{A} \times \vec{B}| = \text{Area of parallelogram}
+ 
+The direction of \vec{A} \times \vec{B} is perpendicular to the plane containing \vec{A} and \vec{B}.
+To determine the exact direction, use the Right-Hand Rule:
+ 
+1. Point your right hand fingers along \vec{A}.
+​
+2. Curl your fingers towards \vec{B}.
+​
+3. Your thumb points in the direction of \vec{A} \times \vec{B}.
+ 
+ 
+ 
+Anti-commutativity of Cross Product
+ 
+\vec{A} \times \vec{B} = - \vec{B} \times \vec{A}
+ 
+ 
+ 
+Volume of a Parallelepiped (Revisited)
+ 
+The volume can be expressed as:
+\text{Volume} = \text{Area of base} \times \text{height}
+Using the cross product and dot product:
+\text{Volume} = |\vec{B} \times \vec{C}| \times (\vec{A} \cdot \hat{n})
+where \hat{n} = \frac{\vec{B} \times \vec{C}}{|\vec{B} \times \vec{C}|} is the unit normal vector to the base.
+ 
+This simplifies to the scalar triple product, which is equivalent to the determinant:
+\det(\vec{A}, \vec{B}, \vec{C}) = \vec{A} \cdot (\vec{B} \times \vec{C})
+ 
+ 
+ 
+Cross Product Magnitude Formula
+ 
+|\vec{A} \times \vec{B}| = |\vec{A}||\vec{B}|\sin\theta
+
+Lec 3: Matrices
+ 
+ 
+ 
+Matrix Multiplication
+ 
+- Dimension Rule: For matrices A and B, the number of columns in A must equal the number of rows in B.
+If A is a (3 \times 4) matrix and B is a (4 \times 2) matrix, then AB is a (3 \times 2) matrix.
+​
+- Interpretation as Transformations:
+The product AB represents applying transformation B first, then transformation A.
+(AB)\vec{x} = A(B\vec{x})
+​
+- Important Note:
+Matrix multiplication is not commutative:
+AB \neq BA
+ 
+ 
+ 
+Identity Matrix
+ 
+The identity matrix I acts like the number 1 for matrices, satisfying:
+I\vec{x} = \vec{x}
+ 
+- General form for an n \times n identity matrix:
+I_{n \times n} = \begin{bmatrix} 1 & & 0 \\ & \ddots & \\ 0 & & 1 \end{bmatrix}
+​
+- Example:
+I_{3 \times 3} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
+ 
+Example: Rotation Matrix
+ 
+A 90^\circ counter-clockwise rotation in the plane is given by:
+R = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}
+Applying it twice results in a 180^\circ rotation:
+R^2 = \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix} = -I_{2 \times 2}
+ 
+ 
+ 
+Inverse Matrix
+ 
+- The inverse of a matrix A, denoted A^{-1}, is the unique matrix such that:
+AA^{-1} = I \quad \text{and} \quad A^{-1}A = I
+​
+- Solving Linear Systems:
+For the equation A\vec{x} = \vec{B}, the solution is:
+\vec{x} = A^{-1}\vec{B}
+​
+- Formula for Inverse:
+A^{-1} = \frac{1}{\det(A)} \text{adj}(A)
+where \text{adj}(A) is the adjoint matrix of A.
+
+Inverse Matrix (Step-by-Step)
+ 
+Inverse Matrix Formula
+ 
+A^{-1} = \frac{1}{\det(A)} \text{adj}(A)
+where \text{adj}(A) is the adjoint matrix.
+ 
+ 
+ 
+Step-by-Step Calculation (3×3 Example)
+ 
+For the matrix:
+A = \begin{bmatrix} 2 & 3 & 3 \\ 2 & 4 & 5 \\ 1 & 1 & 2 \end{bmatrix}
+ 
+1. Calculate Minors
+ 
+For each entry, compute the determinant of the submatrix obtained by removing its row and column.
+
+\text{Minors} = \begin{pmatrix} 3 & -1 & -2 \\ 3 & 1 & -1 \\ 3 & 4 & 2 \end{pmatrix}
+
+ 
+2. Calculate Cofactors
+ 
+Apply a "checkerboard" sign pattern to the minors:
+$$
+\begin{bmatrix}
+ 
+- & - & + \
+ 
+- & + & - \
+ 
+- & - & +
+\end{bmatrix}
+
+\text{Cofactors} = \begin{pmatrix} 3 & +1 & -2 \ -3 & 1 & +1 \ 3 & -4 & 2 \end{pmatrix}
+$$
+ 
+3. Transpose to get the Adjoint Matrix
+ 
+Transpose the cofactor matrix (swap rows and columns):
+
+\text{adj}(A) = \begin{bmatrix} 3 & -3 & 3 \\ 1 & 1 & -4 \\ -2 & 1 & 2 \end{bmatrix}
+
+ 
+4. Compute the Determinant of A
+ 
+
+\det(A) = \begin{vmatrix} 2 & 3 & 3 \\ 2 & 4 & 5 \\ 1 & 1 & 2 \end{vmatrix} = 3
+
+ 
+5. Divide Adjoint by Determinant
+ 
+
+A^{-1} = \frac{1}{3} \begin{bmatrix} 3 & -3 & 3 \\ 1 & 1 & -4 \\ -2 & 1 & 2 \end{bmatrix}
+
+
+
+Lec 4: 
+Invertibility & Solutions to Linear Systems
+ 
+ 
+ 
+Inverse Matrix Formula
+ 
+A^{-1} = \frac{1}{\det(A)} \text{adj}(A)
+ 
+Invertibility Condition
+ 
+A matrix A is invertible if and only if its determinant is not zero:
+A \text{ is invertible} \quad \Longleftrightarrow \quad \det(A) \neq 0
+ 
+ 
+ 
+General Solution to A\vec{x} = \vec{B}
+ 
+The existence and uniqueness of the solution depend on the determinant of A:
+ 
+1. If \det(A) \neq 0
+The matrix is invertible, so there is a unique solution:
+\vec{x} = A^{-1}\vec{B}
+​
+2. If \det(A) = 0
+The matrix is singular, so there is either no solution or infinitely many solutions.
