@@ -349,3 +349,153 @@ The matrix is invertible, so there is a unique solution:
 ​
 2. If \det(A) = 0
 The matrix is singular, so there is either no solution or infinitely many solutions.
+
+
+Lec 5
+ 
+Q(t) = (x(t), y(t), z(t))
+\overrightarrow{Q_0 Q(t)} = t \overrightarrow{Q_0 Q_1} ; Q(t) = Q_0 + \overrightarrow{Q_0 Q_1}
+\overrightarrow{OP} = \overrightarrow{OA} + \overrightarrow{AB} + \overrightarrow{BP}
+ 
+Taylor approximation:
+
+f(t) \approx f(0) + t \frac{f'(0)}{1!} + t^2 \frac{f''(0)}{2!} + \dots + \frac{f^{(n)}(0)}{n!} t^n
+
+ 
+ 
+ 
+Lec 6
+ 
+Parametric equations
+ 
+Position vector: \vec{r}(t) = \langle x(t), y(t), z(t) \rangle
+ 
+Cycloid (wheel radius 1, at unit speed)
+ 
+
+\vec{r}(t) = \langle t - \sin t,\; 1 - \cos t \rangle
+
+ 
+Velocity vector: \vec{v} = \frac{d\vec{r}}{dt} = \langle \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt} \rangle
+
+\vec{v} = \langle 1 - \cos t,\; \sin t \rangle
+
+(At t=0: \vec{v} = 0!)
+ 
+Speed (scalar):
+
+|\vec{v}| = \sqrt{(1 - \cos t)^2 + \sin^2 t} = \sqrt{2 - 2\cos t}
+
+ 
+Acceleration (vector): \vec{a} = \frac{d\vec{v}}{dt}
+
+\vec{a} = \langle \sin t,\; \cos t \rangle
+
+(At t=0: \vec{a} = \langle 0, 1 \rangle)
+
+
+Arc length
+ 
+s = \text{distance travelled along trajectory}
+
+\left|\frac{ds}{dt}\right| = \text{speed} = |\vec{v}|
+
+ 
+Example: Length of one arch of a cycloid:
+
+\int_0^{2\pi} \sqrt{2 - 2\cos t}\, dt
+
+ 
+ 
+ 
+Unit tangent vector
+ 
+
+\hat{T} = \frac{\vec{v}}{|\vec{v}|}
+
+
+\frac{d\vec{r}}{ds} = \hat{T}, \quad \frac{ds}{dt} = |\vec{v}|
+
+
+\vec{v} = \frac{d\vec{r}}{dt} = \frac{d\vec{r}}{ds} \frac{ds}{dt} = \hat{T} \frac{ds}{dt}
+
+ 
+Velocity has:
+ 
+- Direction: Tangent to the trajectory (\hat{T})
+​
+- Length: Speed (\frac{ds}{dt})
+ 
+ 
+ 
+Approximation over time \Delta t
+ 
+
+\frac{\Delta s}{\Delta t} \approx \text{speed}, \quad \frac{\Delta \vec{r}}{\Delta t} \approx \hat{T} \frac{\Delta s}{\Delta t}
+
+Taking the limit as \Delta t \to 0:
+
+\frac{d\vec{r}}{dt} = \hat{T} \frac{ds}{dt}
+
+ 
+ 
+ 
+Example: Kepler's second law (1609)
+ 
+- Motion of planets lies in a plane.
+​
+- The area swept out by the line from the Sun to the planet is at a constant rate.
+​
+- Newton later explained this using the formula for gravitational attraction.
+ 
+Kepler's law in vector terms
+ 
+1. Area swept in time \Delta t:
+
+\text{Area} \approx \frac12 |\vec{r} \times \Delta \vec{r}| \approx \frac12 |\vec{r} \times \vec{v}| \Delta t
+
+​
+2. The law states:
+
+|\vec{r} \times \vec{v}| = \text{constant}
+
+2) Plane of motion
+
+The plane of motion contains \vec{r} and \vec{v}.
+ 
+- The direction of \vec{r} \times \vec{v} is normal to the plane of motion.
+​
+- Kepler’s 2nd law \iff \vec{r} \times \vec{v} = \text{constant vector}
+
+\iff \frac{d}{dt} \left(\vec{r} \times \vec{v}\right) = 0
+
+ 
+ 
+ 
+Product rule for derivatives
+ 
+The product rule applies to both dot and cross products:
+
+\frac{d}{dt}\left(\vec{a} \cdot \vec{b}\right),\quad \frac{d}{dt}\left(\vec{a} \times \vec{b}\right)
+
+ 
+Applying the product rule to \frac{d}{dt}\left(\vec{r} \times \vec{v}\right) = 0:
+
+\frac{d\vec{r}}{dt} \times \vec{v} + \vec{r} \times \frac{d\vec{v}}{dt} = 0
+
+Substitute \frac{d\vec{r}}{dt} = \vec{v} and \frac{d\vec{v}}{dt} = \vec{a}:
+
+\vec{v} \times \vec{v} + \vec{r} \times \vec{a} = 0
+
+Since \vec{v} \times \vec{v} = 0, this simplifies to:
+
+\vec{r} \times \vec{a} = 0
+
+This implies \vec{a} \parallel \vec{r} (the acceleration vector is parallel to the position vector).
+ 
+ 
+ 
+Conclusion
+ 
+Kepler’s 2nd law \iff \vec{a} \parallel \vec{r}
+This corresponds to the gravitational force being parallel to \vec{r}.
