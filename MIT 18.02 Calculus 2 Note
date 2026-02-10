@@ -499,3 +499,178 @@ Conclusion
  
 Kepler’s 2nd law \iff \vec{a} \parallel \vec{r}
 This corresponds to the gravitational force being parallel to \vec{r}.
+
+
+
+Lec 7
+ 
+TOPICS: EVERYTHING!
+ 
+ 
+ 
+1) Vectors, Dot Product
+ 
+
+\vec{A} \cdot \vec{B} = \sum a_i b_i = |\vec{A}| |\vec{B}| \cos\theta
+
+ 
+- Find angles between vectors
+​
+- Detect perpendicularity (\perp)
+ 
+ 
+ 
+2) Cross Product
+ 
+
+\vec{A} \times \vec{B} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3
+\end{vmatrix}
+
+ 
+- Determinants
+​
+- Applications:
+​
+- Area of a triangle formed by \vec{A} and \vec{B}: \frac{1}{2} |\vec{A} \times \vec{B}|
+​
+- Finding the normal vector to a plane
+
+1) Equation of a Plane
+ 
+- Plane equation:
+
+ax + by + cz = d
+
+​
+- Normal vector:
+
+\vec{N} = \langle a, b, c \rangle
+
+​
+- Applications:
+​
+- Equations of lines
+​
+- Finding where a line intersects a plane
+ 
+2) Parametric Line Representation
+ 
+- Point moving on a line with velocity \vec{v}:
+
+P(t) = P_0 + t\vec{v}
+
+where P_0 is the initial position.
+ 
+3) Matrices & Linear Systems
+ 
+- Linear system:
+
+A\mathbf{x} = \mathbf{b}
+
+​
+- Solutions:
+​
+- If \det(A) \neq 0: unique solution \mathbf{x} = A^{-1}\mathbf{b}
+​
+- If \det(A) = 0: no solution or infinitely many solutions
+ 
+4) Parametric Equations & Vector Calculus
+ 
+- Parametric curve:
+
+\vec{r} = \vec{r}(t)
+
+​
+- Velocity \vec{v} = \frac{d\vec{r}}{dt}, acceleration \vec{a} = \frac{d\vec{v}}{dt}
+​
+- Differentiating vector identities:
+​
+- (uv)' = u'v + uv'
+​
+- \frac{d}{dt}(\vec{r} \cdot \vec{r}) = \frac{d\vec{r}}{dt} \cdot \vec{r} + \vec{r} \cdot \frac{d\vec{r}}{dt} = 2\vec{r} \cdot \vec{v}
+ 
+5) Inverse Matrix Formula (Lec 3-2)
+ 
+- A matrix is not invertible if and only if:
+
+\det(M) = 0
+
+ 
+6) Determinant Value Calculation (Lec 2-2)
+ 
+- If |\vec{r}| = \text{constant}, then \vec{r} \cdot \vec{r} = \text{constant}:
+
+\frac{d}{dt}(\vec{r} \cdot \vec{r}) = 0 \implies \vec{r} \cdot \vec{v} = 0 \implies \vec{r} \perp \vec{v}
+
+​
+- If \vec{r} \cdot \vec{v} = 0:
+
+\frac{d}{dt}(\vec{r} \cdot \vec{v}) = 0 \implies \vec{v} \cdot \vec{v} + \vec{r} \cdot \vec{a} = 0 \implies \vec{r} \cdot \vec{a} = -|\vec{v}|^2
+
+
+
+Lec 8: 
+ 
+Graph and Contour Plot
+ 
+- Graph: z = f(x,y)
+​
+- Set each \{z,y,x\} = 0, then draw the graph on the corresponding plane.
+​
+- Example: f(x,y) = 1 - x^2 - y^2
+​
+- Contour plot:
+​
+- If x \nearrow, then f(x,y) \searrow (for f=2,1,0 etc.)
+​
+- If y \nearrow, then f(x,y) \searrow
+ 
+ 
+ 
+Partial Derivatives
+ 
+Single-variable function review
+ 
+- Function: f(x)
+​
+- Derivative:
+
+f'(x) = \frac{df}{dx} = \lim_{\Delta x \to 0} \frac{f(x+\Delta x) - f(x)}{\Delta x}
+
+​
+- Geometric meaning: slope of the tangent line at x
+​
+- Approximation formula:
+
+f(x) \approx f(x_0) + f'(x_0)(x - x_0)
+
+ 
+Partial derivative definition
+ 
+- Partial derivative with respect to x at (x_0, y_0):
+
+\frac{\partial f}{\partial x}(x_0, y_0) = \lim_{\Delta x \to 0} \frac{f(x_0+\Delta x, y_0) - f(x_0, y_0)}{\Delta x}
+
+​
+- Partial derivative with respect to y at (x_0, y_0):
+
+\frac{\partial f}{\partial y}(x_0, y_0) = \lim_{\Delta y \to 0} \frac{f(x_0, y_0+\Delta y) - f(x_0, y_0)}{\Delta y}
+
+​
+- Notation: \frac{\partial f}{\partial x} = f_x, \frac{\partial f}{\partial y} = f_y
+ 
+Example
+ 
+- Let f(x,y) = x^3y + y^2
+​
+- \frac{\partial f}{\partial x}: treat y as constant, x as variable
+
+\frac{\partial f}{\partial x} = 3x^2y + 0 = 3x^2y
+
+​
+- \frac{\partial f}{\partial y}: treat x as constant, y as variable
+
+\frac{\partial f}{\partial y} = x^3 + 2y
