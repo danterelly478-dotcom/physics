@@ -674,3 +674,330 @@ Example
 - \frac{\partial f}{\partial y}: treat x as constant, y as variable
 
 \frac{\partial f}{\partial y} = x^3 + 2y
+
+
+Lec 9
+ 
+Partial derivatives
+ 
+For a function  f(x, y) :
+ 
+-  \frac{\partial f}{\partial x} = f_x  (vary  x ;  y = \text{const.} )
+​
+-  \frac{\partial f}{\partial y} = f_y  (vary  y ;  x = \text{const.} )
+ 
+ 
+ 
+Approximation formula
+ 
+If we change:
+ x \leadsto x + \Delta x 
+ y \leadsto y + \Delta y 
+ 
+Let  z = f(x, y) . Then:
+
+\boxed{\Delta z \approx f_x \Delta x + f_y \Delta y}
+
+ 
+ 
+ 
+Justify this formula: tangent plane to  z = f(x, y) ?
+ 
+We know  f_x  and  f_y  are the slopes of two tangent lines.
+ 
+Let:
+ 
+-  \frac{\partial f}{\partial x}(x_0, y_0) = a 
+
+\Rightarrow L_1 = \begin{cases}
+z = z_0 + a(x - x_0) \\
+y = y_0
+\end{cases}
+
+​
+-  \frac{\partial f}{\partial y}(x_0, y_0) = b 
+
+\Rightarrow L_2 = \begin{cases}
+z = z_0 + b(y - y_0) \\
+x = x_0
+\end{cases}
+
+ 
+ L_1  and  L_2  are both tangent to the graph  z = f(x, y) . Together they determine a plane:
+
+z = z_0 + a(x - x_0) + b(y - y_0)
+
+ 
+The approximation formula says: the graph of  f  is close to its tangent plane.
+
+Application of partial derivatives: OPTIMIZATION PROBLEMS
+ 
+Find min/max of a function  f(x, y) .
+ 
+At a local min. or max.:
+
+f_x = 0 \quad \text{and} \quad f_y = 0
+
+ \Longleftrightarrow  The tangent plane to the graph  z = f(x, y)  is horizontal.
+ 
+ 
+ 
+Definition:
+ (x_0, y_0)  is a critical point of  f 
+if
+
+f_x(x_0, y_0) = 0 \quad \text{and} \quad f_y(x_0, y_0) = 0
+
+ 
+Possibilities:
+ 
+- local min.
+​
+- local max.
+​
+- saddle point
+ 
+ 
+ 
+Example:
+
+f(x, y) = (x - y)^2 + 2y^2 + 2x - 2y
+
+[Complete the square]
+
+f(x, y) = \underbrace{[(x - y) + 1]^2}_{\ge 0} + \underbrace{2y^2}_{\ge 0} - 1 \ge -1 = f(-1, 0)
+
+So  f  has a minimum at  (-1, 0) .
+ 
+ 
+ 
+LEAST-SQUARES INTERPOLATION
+ 
+Given experimental data:
+
+(x_1, y_1),\ (x_2, y_2),\ \dots,\ (x_n, y_n)
+
+Find the "best fit" line  y = ax + b .
+
+Find "best"  a  and  b ?
+→ Minimizing total square deviation.
+ 
+Deviation for each data point:
+
+y_i - (ax_i + b)
+
+ 
+Minimize:
+
+D(a,b) = \sum_{i=1}^n \left[ y_i - (ax_i + b) \right]^2
+
+ 
+ 
+ 
+Compute partial derivatives:
+
+\frac{\partial D}{\partial a} = \sum_{i=1}^n 2\left(y_i - ax_i - b\right)(-x_i) = 0
+
+
+\frac{\partial D}{\partial b} = \sum_{i=1}^n 2\left(y_i - ax_i - b\right)(-1) = 0
+
+ 
+ 
+ 
+Simplify to linear system:
+
+\implies
+\begin{cases}
+\sum_{i=1}^n \left( x_i^2 a + x_i b - x_i y_i \right) = 0 \\
+\sum_{i=1}^n \left( x_i a + b - y_i \right) = 0
+\end{cases}
+
+ 
+
+\implies
+\begin{cases}
+\left( \sum_{i=1}^n x_i^2 \right) a + \left( \sum_{i=1}^n x_i \right) b = \sum_{i=1}^n x_i y_i \\
+\left( \sum_{i=1}^n x_i \right) a + n b = \sum_{i=1}^n y_i
+\end{cases}
+
+ 
+→ This is a 2×2 linear system! Solve for  (a,b) .
+ 
+ 
+ 
+Can show: it's a minimum
+ 
+Least-squares is more general!
+ 
+- Best exponential fit:  y = c e^{ax} 
+
+\implies \ln(y) = \ln(c) + ax \quad \to \quad \text{best line} \dots
+
+​
+- Quadratic law:  y = ax^2 + bx + c 
+
+D(a,b,c) = \sum_{i=1}^n \left( y_i - (a x_i^2 + b x_i + c) \right)^2
+
+
+
+Lec 10
+ 
+Critical points of  f(x, y) :
+Points where  f_x = 0  and  f_y = 0 .
+ 
+Global min/max occur either at critical points, on the boundary, or at infinity.
+ 
+ 
+ 
+Question: How do we decide between:
+ 
+- local min
+​
+- local max
+​
+- saddle point
+ 
+ 
+ 
+Second derivative test
+ 
+First consider the quadratic form:
+
+w = ax^2 + bxy + cy^2
+
+ 
+In general, if  a \neq 0 :
+
+\begin{align*}
+w &= a\left(x^2 + \frac{b}{a}xy\right) + cy^2 \\
+&= a\left(x + \frac{b}{2a}y\right)^2 + \left(c - \frac{b^2}{4a}\right)y^2 \\
+&= \frac{1}{4a}\left[4a^2\left(x + \frac{b}{2a}y\right)^2 + (4ac - b^2)y^2\right]
+\end{align*}
+
+ 
+3 cases:
+ 
+1.  \boxed{4ac - b^2 < 0} 
+→ Saddle point
+(One term ≥ 0, the other ≤ 0)
+​
+2.  \boxed{4ac - b^2 = 0} 
+→ Degenerate critical point
+(Example:  w = x^2 )
+​
+3.  \boxed{4ac - b^2 > 0} 
+
+w = \frac{1}{4a}\left[+(\dots)^2 + (\dots)^2\right] \ge 0
+
+​
+- If  a > 0 : Minimum
+​
+- If  a < 0 : Maximum
+
+Quadratic form  w = ax^2 + bxy + cy^2 :
+ 
+We can rewrite it as:
+
+w = y^2 \left[ a\left(\frac{x}{y}\right)^2 + b\left(\frac{x}{y}\right) + c \right]
+
+Let  t = \frac{x}{y} , then:
+
+w = y^2 (at^2 + bt + c)
+
+ 
+ 
+ 
+Case 1:  b^2 - 4ac > 0 
+ 
+- The quadratic  at^2 + bt + c  has two real roots.
+​
+- It takes both positive and negative values.
+​
+- Therefore,  w  takes both positive and negative values.
+​
+- ⇒ Saddle point
+ 
+ 
+ 
+Case 2:  b^2 - 4ac < 0 
+ 
+- The quadratic  at^2 + bt + c  has no real roots.
+​
+- It is always positive or always negative:
+​
+- If  a > 0 :  w \ge 0  ⇒ Minimum
+​
+- If  a < 0 :  w \le 0  ⇒ Maximum
+ 
+ 
+ 
+In general: look at the second derivative!
+ 
+Define the second partial derivatives:
+
+\frac{\partial^2 f}{\partial x^2} = f_{xx}, \quad
+\frac{\partial^2 f}{\partial x \partial y} = f_{xy} = f_{yx} = \frac{\partial^2 f}{\partial y \partial x}, \quad
+\frac{\partial^2 f}{\partial y^2} = f_{yy}
+
+ 
+ 
+ 
+Second derivative test:
+ 
+At a critical point  (x_0, y_0)  of  f :
+Let:
+
+A = f_{xx}(x_0, y_0), \quad B = f_{xy}(x_0, y_0), \quad C = f_{yy}(x_0, y_0)
+
+ 
+- If  AC - B^2 > 0  and  A > 0 : Local minimum
+​
+- If  AC - B^2 > 0  and  A < 0 : Local maximum
+​
+- If  AC - B^2 < 0 : Saddle point
+​
+- If  AC - B^2 = 0 : Test is inconclusive (degenerate case)
+
+Second derivative test summary:
+ 
+- If  AC - B^2 > 0  and  A < 0 : Local maximum
+​
+- If  AC - B^2 < 0 : Saddle point
+​
+- If  AC - B^2 = 0 : Can't conclude (degenerate case)
+ 
+ 
+ 
+Verify in special case  w = ax^2 + bxy + cy^2 :
+
+\begin{align*}
+w_x &= 2ax + by, & w_y &= bx + 2cy \\
+w_{xx} &= 2a, & w_{xy} &= b, & w_{yy} &= 2c
+\end{align*}
+
+Thus:
+
+A = 2a,\quad B = b,\quad C = 2c
+
+
+AC - B^2 = 4ac - b^2
+
+This matches the quadratic form discriminant.
+ 
+ 
+ 
+Quadratic approximation:
+At a critical point (x_0, y_0), where f_x = f_y = 0:
+
+\begin{align*}
+\Delta f &\approx \underbrace{f_x(x - x_0) + f_y(y - y_0)}_{=0 \text{ at crit. pt.}} \\
+&\approx \frac{1}{2}f_{xx}(x - x_0)^2 + f_{xy}(x - x_0)(y - y_0) + \frac{1}{2}f_{yy}(y - y_0)^2
+\end{align*}
+
+So the general case reduces to the quadratic case:
+
+\frac{1}{2}f_{xx}(x - x_0)^2 + f_{xy}(x - x_0)(y - y_0) + \frac{1}{2}f_{yy}(y - y_0)^2
+
+with:
+
+\frac{1}{2}f_{xx} = a,\quad f_{xy} = b,\quad \frac{1}{2}f_{yy} = c
