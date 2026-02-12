@@ -1,0 +1,239 @@
+Lec 11: 
+
+
+Differentials & Implicit Differentiation
+ 
+ 
+Single-variable case
+ 
+For  y = f(x) :
+
+dy = f'(x) \, dx
+
+ 
+Total differential (for  f(x, y, z) )
+ 
+
+\begin{aligned}
+df &= f_x \, dx + f_y \, dy + f_z \, dz \\
+&= \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz
+\end{aligned}
+
+ 
+Important:  df  is NOT  \Delta f .
+ 
+ 
+ 
+What we can do with differentials:
+ 
+1. Encode how changes in  x, y, z  affect  f .
+​
+2. Use as a placeholder for small variations  \Delta x, \Delta y, \Delta z  to get the approximation formula:
+
+\Delta f \approx f_x \Delta x + f_y \Delta y + f_z \Delta z
+
+​
+3. Divide by something like  dt  to get a rate of change.
+ 
+ 
+ 
+Chain Rule (when  x = x(t), y = y(t), z = z(t) )
+ 
+
+\frac{df}{dt} = f_x \frac{dx}{dt} + f_y \frac{dy}{dt} + f_z \frac{dz}{dt}
+
+As  \Delta t \to 0 :  \frac{\Delta f}{\Delta t} \to \frac{df}{dt} .
+ 
+ 
+ 
+Applications: Justifying product and quotient rules
+ 
+Product rule
+ 
+Let  f = uv , where  u = u(t) ,  v = v(t) :
+
+\begin{aligned}
+\frac{d(uv)}{dt} &= f_u \frac{du}{dt} + f_v \frac{dv}{dt} \\
+&= v \frac{du}{dt} + u \frac{dv}{dt} \\
+&= v u' + u v'
+\end{aligned}
+
+ Chain Rule with More Variables
+ 
+ 
+ 
+Chain Rule for  w = f(x, y) , where  x = x(u, v) ,  y = y(u, v) 
+ 
+Start with the total differential:
+
+dw = f_x \, dx + f_y \, dy
+
+Substitute  dx = x_u \, du + x_v \, dv  and  dy = y_u \, du + y_v \, dv :
+
+\begin{aligned}
+dw &= f_x \left( x_u \, du + x_v \, dv \right) + f_y \left( y_u \, du + y_v \, dv \right) \\
+&= \left( f_x x_u + f_y y_u \right) du + \left( f_x x_v + f_y y_v \right) dv
+\end{aligned}
+
+This gives the partial derivatives:
+
+\frac{\partial f}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u}
+
+
+\frac{\partial f}{\partial v} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v}
+
+ 
+ 
+ 
+Gradient Vector
+ 
+
+\nabla f = \langle f_x, f_y, f_z \rangle
+
+ 
+ 
+ 
+Example: Polar Coordinates
+ 
+Given  f = f(x, y) , with:
+
+x = r \cos \theta, \quad y = r \sin \theta
+
+Compute  \frac{\partial f}{\partial r}  using the chain rule:
+
+\begin{aligned}
+\frac{\partial f}{\partial r} &= \frac{\partial f}{\partial x} \frac{\partial x}{\partial r} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial r} \\
+&= f_x \cos \theta + f_y \sin \theta
+\end{aligned}
+Quotient rule
+ 
+Let  g = \frac{u}{v} , where  u = u(t) ,  v = v(t) :
+
+\begin{aligned}
+\frac{d\left(\frac{u}{v}\right)}{dt} &= \frac{1}{v} \frac{du}{dt} + \left(-\frac{u}{v^2}\right) \frac{dv}{dt} \\
+&= \frac{u'v - v'u}{v^2}
+\end{aligned}
+
+
+
+Lec 12: Chain Rule & Gradient
+ 
+ 
+ 
+Chain Rule for  w = w(x, y, z) , where  x = x(t) ,  y = y(t) ,  z = z(t) 
+ 
+
+\begin{aligned}
+\frac{dw}{dt} &= w_x \frac{dx}{dt} + w_y \frac{dy}{dt} + w_z \frac{dz}{dt} \\
+&= \nabla w \cdot \frac{d\vec{r}}{dt}
+\end{aligned}
+
+ 
+Where:
+ 
+- Gradient of  w  at a point (x, y, z):
+
+\nabla w = \langle w_x, w_y, w_z \rangle
+
+​
+- Position vector derivative:
+
+\frac{d\vec{r}}{dt} = \left\langle \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt} \right\rangle
+
+(Points towards higher values of  w )
+ 
+ 
+ 
+Theorem
+ 
+The gradient is perpendicular to the level surface:
+
+\nabla w \perp \text{level surface } \{w = \text{constant}\}
+
+ 
+ 
+ 
+Example 1
+ 
+Let  w = a_1 x + a_2 y + a_3 z :
+
+\nabla w = \langle a_1, a_2, a_3 \rangle
+
+Level surface:  a_1 x + a_2 y + a_3 z = C 
+This is a plane with normal vector  \langle a_1, a_2, a_3 \rangle .
+ 
+ 
+ 
+Example 2
+ 
+Let  w = x^2 + y^2 :
+
+\nabla w = \langle 2x, 2y \rangle
+
+Level curve  w = C  is a circle  x^2 + y^2 = C .
+ 
+ 
+ 
+Directional Derivative
+ 
+ \frac{dw}{ds}\big|_{\hat{u}}  is the slope of the slice of the graph by a vertical plane parallel to  \hat{u} .
+ 
+By the chain rule:
+
+\frac{dw}{ds} = \nabla w \cdot \frac{d\vec{r}}{ds} = \nabla w \cdot \hat{u}
+
+ 
+Thus:
+
+\boxed{\frac{dw}{ds}\big|_{\hat{u}} = \nabla w \cdot \hat{u}}
+
+This is the component of  \nabla w  in the direction of  \hat{u} .
+
+Geometry of the Directional Derivative
+ 
+ 
+ 
+Recall the directional derivative formula:
+
+\frac{dw}{ds}\big|_{\hat{u}} = \nabla w \cdot \hat{u} = |\nabla w| \, |\hat{u}| \cos\theta
+
+Since  |\hat{u}| = 1 , this simplifies to:
+
+\frac{dw}{ds}\big|_{\hat{u}} = |\nabla w| \cos\theta
+
+where  \theta  is the angle between  \nabla w  and  \hat{u} .
+ 
+ 
+ 
+Maximum value of  \frac{dw}{ds}\big|_{\hat{u}} 
+ 
+- Occurs when  \cos\theta = 1 , i.e.,  \theta = 0^\circ .
+​
+- This means  \hat{u}  is in the direction of  \nabla w .
+​
+- Conclusion: The direction of  \nabla w  is the direction of fastest increase of  w .
+​
+- The maximum rate of change is:
+
+|\nabla w| = \frac{dw}{ds}\big|_{\hat{u} = \text{dir}(\nabla w)}
+
+ 
+ 
+ 
+Minimum value of  \frac{dw}{ds}\big|_{\hat{u}} 
+ 
+- Occurs when  \cos\theta = -1 , i.e.,  \theta = 180^\circ .
+​
+- This means  \hat{u}  is in the direction of  -\nabla w .
+​
+- Conclusion: The direction of  -\nabla w  is the direction of fastest decrease of  w .
+ 
+ 
+ 
+Zero value of  \frac{dw}{ds}\big|_{\hat{u}} 
+ 
+- Occurs when  \cos\theta = 0 , i.e.,  \theta = 90^\circ .
+​
+- This means  \hat{u} \perp \nabla w .
+​
+- Equivalently,  \hat{u}  is tangent to the level curve/surface of  w .
