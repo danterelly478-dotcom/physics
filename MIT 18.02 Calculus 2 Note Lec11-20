@@ -237,3 +237,679 @@ Zero value of  \frac{dw}{ds}\big|_{\hat{u}}
 - This means  \hat{u} \perp \nabla w .
 ​
 - Equivalently,  \hat{u}  is tangent to the level curve/surface of  w .
+
+
+Lec 13
+LAGRANGE MULTIPLIERS
+ 
+Min/max a function  f(x, y, z) 
+where  x, y, z  are not independent
+ g(x, y, z) = c 
+ 
+Example: Point closest to origin on hyperbola  xy = 3 
+ 
+Minimize  f(x, y) = \sqrt{x^2 + y^2} 
+Equivalently, minimize  f(x, y) = x^2 + y^2 
+Subject to constraint  xy = 3 
+Let  g(x, y) = xy 
+ 
+Observe: At minimum, the level curve of  f  is tangent to the hyperbola  g = 3 .
+ 
+How to find (x, y) where level curve of  f  and  g  are tangent to each other?
+ 
+When this happens,  \nabla f \parallel \nabla g 
+So  \nabla f = \lambda \nabla g , where  \lambda  is "lambda".
+
+Min/max  z  in variables  x, y  with constraint  g(x, y) = c 
+ 
+System of equations
+
+\nabla f = \lambda \nabla g \quad \Longleftrightarrow \quad
+\begin{cases}
+f_x = \lambda g_x \\
+f_y = \lambda g_y \\
+\text{constraint } g = c
+\end{cases}
+
+ 
+For  f = x^2 + y^2 ,  g = xy :
+
+\begin{cases}
+2x = \lambda y \\
+2y = \lambda x \\
+xy = 3
+\end{cases}
+
+ 
+Rewriting:
+
+\begin{cases}
+2x - \lambda y = 0 \\
+\lambda x - 2y = 0 \\
+xy = 3
+\end{cases}
+\quad \Longleftrightarrow \quad
+\begin{bmatrix}
+2 & -\lambda \\
+\lambda & -2
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix}
+
+ 
+- Trivial solution (0, 0) does not satisfy  xy = 3 .
+​
+- Non-trivial solutions exist only if  \det(M) = 0 :
+
+\det\begin{vmatrix}
+2 & -\lambda \\
+\lambda & -2
+\end{vmatrix}
+= -4 + \lambda^2 = 0 \quad \Longleftrightarrow \quad \lambda^2 = 4 \quad \Longleftrightarrow \quad \lambda = \pm 2
+
+​
+- For  \lambda = 2 :  x = y ,  x^2 = 3  ⟹  (x, y) = (\sqrt{3}, \sqrt{3})  or  (-\sqrt{3}, -\sqrt{3}) 
+​
+- For  \lambda = -2 :  x = -y ,  -x^2 = 3  ⟹ no real solutions
+ 
+ 
+ 
+Why is this method valid?
+ 
+At a constrained min/max, the rate of change of  f  in any direction along the level set  g = c  must be 0.
+ 
+For any  \hat{u}  tangent to  g = c , we must have:
+
+\frac{df}{ds|_{\hat{u}}} = \nabla f \cdot \hat{u} = 0
+
+This means any such  \hat{u}  is perpendicular to  \nabla f , so  \nabla f \perp  level set of  g .
+ 
+We know  \nabla g \perp  level set of  g , so  \nabla f \parallel \nabla g .
+
+WARNING: The method does not tell whether a solution is a minimum or a maximum!
+CAN'T use second derivatives.
+ 
+< To find min (or max), we compare values of  f  at the various solutions to Lagrange equations. >
+ 
+ 
+ 
+Advanced example:
+We want to build a pyramid with a given triangular base and given volume, and we want to minimize total surface area.
+ 
+Volume:
+
+\text{Vol} = \frac{1}{3} \cdot \text{Area(base)} \cdot \text{height}
+
+Point  P(x,y,h)  is fixed at height  h .
+The base is a triangle with vertices  P_1(x_1,y_1,0) ,  P_2(x_2,y_2,0) ,  P_3(x_3,y_3,0) .
+ 
+Let  u_1, u_2, u_3  be the distances from a point  Q(x,y,0)  (on the base) to the sides of the triangle.
+The heights of the triangular faces are  \sqrt{u_1^2 + h^2} ,  \sqrt{u_2^2 + h^2} ,  \sqrt{u_3^2 + h^2} .
+ 
+Total surface area (excluding base):
+
+\text{Side area} = \frac{1}{2}a_1\sqrt{u_1^2 + h^2} + \frac{1}{2}a_2\sqrt{u_2^2 + h^2} + \frac{1}{2}a_3\sqrt{u_3^2 + h^2} = f(u_1,u_2,u_3)
+
+The area of the base can be expressed as:
+
+\text{Area(base)} = \frac{1}{2}a_1u_1 + \frac{1}{2}a_2u_2 + \frac{1}{2}a_3u_3 = g(u_1,u_2,u_3)
+
+Applying  \nabla f = \lambda \nabla g :
+
+\begin{align*}
+\frac{\partial f}{\partial u_1} &= \frac{1}{2}a_1 \frac{u_1}{\sqrt{u_1^2 + h^2}} = \lambda \cdot \frac{1}{2}a_1 \\
+\frac{\partial f}{\partial u_2} &= \frac{1}{2}a_2 \frac{u_2}{\sqrt{u_2^2 + h^2}} = \lambda \cdot \frac{1}{2}a_2 \\
+\frac{\partial f}{\partial u_3} &= \frac{1}{2}a_3 \frac{u_3}{\sqrt{u_3^2 + h^2}} = \lambda \cdot \frac{1}{2}a_3
+\end{align*}
+
+This implies  u_1 = u_2 = u_3 , meaning  Q  is the incenter of the triangular base.
+
+
+Lec 14
+ 
+Non-independent variables
+ 
+Example:
+ 
+-  f(P, V, T) , where  PV = nRT 
+​
+- Or  f(x, y, z) , where  g(x, y, z) = c 
+ 
+If  g(x, y, z) = c , then  z = Z(x, y) .
+How to find  \frac{\partial z}{\partial x} ,  \frac{\partial z}{\partial y} ?
+ 
+ 
+ 
+Example:
+Given  g(x, y, z) = x^2 + yz + z^3 = 8 , evaluate  \frac{\partial z}{\partial x}  and  \frac{\partial z}{\partial y}  at  (2, 3, 1) .
+ 
+1. Take the differential:
+
+dg = 2x\,dx + z\,dy + (y + 3z^2)\,dz = 0
+
+​
+2. At  (2, 3, 1) :
+
+4\,dx + 1\,dy + (3 + 3(1)^2)\,dz = 0 \implies 4dx + dy + 6dz = 0
+
+​
+3. View  z = Z(x, y) , so  dz = \frac{\partial z}{\partial x}dx + \frac{\partial z}{\partial y}dy :
+
+dz = -\frac{1}{6}(4dx + dy)
+
+Therefore:
+
+\frac{\partial z}{\partial x} = -\frac{4}{6} = -\frac{2}{3}, \quad \frac{\partial z}{\partial y} = -\frac{1}{6}
+
+ 
+ 
+ 
+In general:
+For  g(x, y, z) = c , we have:
+
+dg = g_x\,dx + g_y\,dy + g_z\,dz = 0
+
+Solving for  dz :
+
+dz = -\frac{g_x}{g_z}dx - \frac{g_y}{g_z}dy
+
+To find  \frac{\partial z}{\partial x} , set  y = \text{constant} \implies dy = 0 :
+
+dz = -\frac{g_x}{g_z}dx \implies \frac{\partial z}{\partial x} = -\frac{g_x}{g_z}
+
+Similarly,  \frac{\partial z}{\partial y} = -\frac{g_y}{g_z} .
+ 
+ 
+ 
+Important note on partial derivatives:
+ 
+Consider  f(x, y) = x + y , so  \frac{\partial f}{\partial x} = 1 .
+ 
+If we set  x = u ,  y = u + v , then:
+
+f(x, y) = x + y = u + (u + v) = 2u + v \implies \frac{\partial f}{\partial u} = 2
+
+Here,  \frac{\partial f}{\partial x} \neq \frac{\partial f}{\partial u} , because:
+ 
+-  \frac{\partial f}{\partial x} : change  u = x , keep  y  constant
+​
+-  \frac{\partial f}{\partial u} : change  u = x , keep  v = y - x  constant
+
+Need clearer notation:
+ 
+-  \left(\frac{\partial f}{\partial x}\right)_y : keep  y  constant
+​
+-  \left(\frac{\partial f}{\partial u}\right)_v : keep  v  constant
+ 
+Note:  \left(\frac{\partial f}{\partial x}\right)_y \neq \left(\frac{\partial f}{\partial x}\right)_v = \left(\frac{\partial f}{\partial u}\right)_v 
+ 
+ 
+ 
+Example: Area of a triangle
+ 
+Assume it's a right triangle:
+
+A = \frac{1}{2}ab\sin\theta
+
+This is a function of  a, b, \theta .
+ 
+We want to find the rate of change of  A  with respect to  \theta , under different constraints:
+ 
+1. Treat  a, b, \theta  as independent (keep  a, b  fixed):
+
+\frac{\partial A}{\partial \theta} = \left(\frac{\partial A}{\partial \theta}\right)_{a,b} = \frac{1}{2}ab\cos\theta
+
+​
+2. Keep  a  constant, and  b  changes ( b = b(a, \theta) = \frac{a}{\cos\theta} ) to maintain the right angle:
+
+\left(\frac{\partial A}{\partial \theta}\right)_a
+
+​
+3. Keep  b  constant, and  a  changes ( a = a(b, \theta) = b\cos\theta ):
+
+\left(\frac{\partial A}{\partial \theta}\right)_b
+
+ 
+ 
+ 
+Compute  \left(\frac{\partial A}{\partial \theta}\right)_a :
+ 
+Method 0: Solve for  b  and substitute
+From  a = b\cos\theta , we get  b = \frac{a}{\cos\theta} = a\sec\theta .
+Substitute into  A :
+
+A = \frac{1}{2}ab\sin\theta = \frac{1}{2}a(a\sec\theta)\sin\theta = \frac{1}{2}a^2 \frac{\sin\theta}{\cos\theta} = \frac{1}{2}a^2 \tan\theta
+
+Differentiate with respect to  \theta , keeping  a  constant:
+
+\left(\frac{\partial A}{\partial \theta}\right)_a = \frac{1}{2}a^2 \sec^2\theta
+
+2 Systematic methods:
+ 
+ 
+ 
+1) Differentials method
+ 
+Goal: Compute  \left(\frac{\partial A}{\partial \theta}\right)_a , i.e., keep  a  fixed.
+ 
+1. Constraint:  a = b \cos \theta 
+Take differential:
+
+da = \cos\theta \, db - b \sin\theta \, d\theta
+
+Since  a  is fixed,  da = 0 :
+
+0 = \cos\theta \, db - b \sin\theta \, d\theta
+
+Solve for  db :
+
+\cos\theta \, db = b \sin\theta \, d\theta \quad \Rightarrow \quad db = b \tan\theta \, d\theta
+
+​
+2. Function:  A = \frac{1}{2}ab\sin\theta 
+Take differential:
+
+dA = \frac{1}{2}b\sin\theta \, da + \frac{1}{2}a\sin\theta \, db + \frac{1}{2}ab\cos\theta \, d\theta
+
+Substitute  da = 0  and  db = b \tan\theta \, d\theta :
+
+dA = \frac{1}{2}a\sin\theta (b \tan\theta \, d\theta) + \frac{1}{2}ab\cos\theta \, d\theta
+
+Simplify:
+
+dA = \frac{1}{2}ab \left( \sin\theta \tan\theta + \cos\theta \right) d\theta
+
+
+\sin\theta \tan\theta + \cos\theta = \frac{\sin^2\theta}{\cos\theta} + \cos\theta = \frac{\sin^2\theta + \cos^2\theta}{\cos\theta} = \frac{1}{\cos\theta} = \sec\theta
+
+So:
+
+\left(\frac{\partial A}{\partial \theta}\right)_a = \frac{1}{2}ab \sec\theta
+
+ 
+Summary of differentials method:
+ 
+1. Write  dA  in terms of  da ,  db ,  d\theta .
+​
+2. Set  a = \text{constant} , so  da = 0 .
+​
+3. Differentiate the constraint to solve for  db  in terms of  d\theta .
+​
+4. Substitute back into  dA  to get the result.
+ 
+ 
+ 
+2) Chain rule method
+ 
+We use the chain rule for  \left(\frac{\partial A}{\partial \theta}\right)_a :
+
+\left(\frac{\partial A}{\partial \theta}\right)_a = A_\theta \left(\frac{\partial \theta}{\partial \theta}\right)_a + A_a \left(\frac{\partial a}{\partial \theta}\right)_a + A_b \left(\frac{\partial b}{\partial \theta}\right)_a
+
+ 
+-  \left(\frac{\partial \theta}{\partial \theta}\right)_a = 1 
+​
+-  \left(\frac{\partial a}{\partial \theta}\right)_a = 0  (since  a  is constant)
+​
+-  \left(\frac{\partial b}{\partial \theta}\right)_a  is found using the constraint  a = b\cos\theta .
+
+
+
+Lec 15
+ 
+Topics for Exam 2:
+ 
+ 
+ 
+Functions of several variables
+ 
+- Contour plots
+ 
+Partial derivatives
+ 
+-  f_x = \frac{\partial f}{\partial x} 
+​
+- Gradient:  \nabla f = \langle f_x, f_y, f_z \rangle 
+​
+- Approximation:
+
+\Delta f \approx f_x \Delta x + f_y \Delta y + f_z \Delta z = \nabla f \cdot \Delta \vec{r}
+
+​
+- Tangent plane to surface  f(x,y,z) = c :
+​
+- Normal vector =  \nabla f 
+ 
+Partial differential equations
+ 
+- Equations involving partial derivatives of an unknown function.
+​
+- Heat equation:
+
+\frac{\partial f}{\partial t} = k \left( \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} \right)
+
+where  f(x,y,z,t)  is the temperature at (x,y,z) at time t.
+ 
+Min/max problems
+ 
+- Critical point: All partial derivatives = 0.
+​
+- Second derivative test for a function of 2 variables.
+​
+- Max at critical point; min at boundary.
+​
+- Least-squares approximation.
+ 
+Differentials
+
+df = f_x dx + f_y dy + f_z dz
+
+ 
+Chain rule
+If  x = x(u,v) ,  y = y(u,v) ,  z = z(u,v) :
+
+\frac{\partial f}{\partial u} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u} + \frac{\partial f}{\partial z} \frac{\partial z}{\partial u}
+
+ 
+Non-independent variables
+ 
+-  g(x,y,z) = c
+
+
+Non-independent variables:  g(x,y,z) = c 
+ 
+Min/max problems: Lagrange multipliers
+ 
+Minimize/maximize  f  subject to constraint  g = c :
+ 
+
+\nabla f = \lambda \nabla g \quad \Longleftrightarrow \quad
+\begin{cases}
+f_x = \lambda g_x \\
+f_y = \lambda g_y \\
+f_z = \lambda g_z \\
+g = c
+\end{cases}
+
+ 
+ 
+ 
+Constrained partial derivatives
+ 
+Given  f(x,y,z)  with constraint  g(x,y,z) = c , find  \left(\frac{\partial f}{\partial z}\right)_y :
+ 
+-  y = \text{constant} 
+-  z  varies
+-  x = x(y,z) 
+- This represents the rate of change of  f  with respect to  z , while  y  is held constant.
+ 
+ 
+ 
+1) Using differentials:
+Set  y = \text{const} \implies dy = 0 .
+ 
+1. Differential of  f :
+
+df = f_x dx + f_y dy + f_z dz \quad (*)
+
+2. Differential of constraint  g :
+
+dg = g_x dx + g_y dy + g_z dz = 0
+
+ 
+Substitute  dy = 0 :
+
+g_x dx + g_z dz = 0 \implies dx = -\frac{g_z}{g_x} dz
+
+3. Substitute  dx  into (*):
+
+df = f_x \left(-\frac{g_z}{g_x} dz\right) + f_z dz = \left(-f_x \frac{g_z}{g_x} + f_z\right) dz
+
+ 
+Therefore:
+
+\left(\frac{\partial f}{\partial z}\right)_y = -f_x \frac{g_z}{g_x} + f_z
+
+ 
+ 
+ 
+2) Using chain rule:
+ 
+
+\left(\frac{\partial f}{\partial z}\right)_y = \frac{\partial f}{\partial x} \left(\frac{\partial x}{\partial z}\right)_y + \frac{\partial f}{\partial y} \left(\frac{\partial y}{\partial z}\right)_y + \frac{\partial f}{\partial z} \left(\frac{\partial z}{\partial z}\right)_y
+
+ 
+Since  y = \text{const} ,  \left(\frac{\partial y}{\partial z}\right)_y = 0 , and  \left(\frac{\partial z}{\partial z}\right)_y = 1 :
+ 
+
+\left(\frac{\partial f}{\partial z}\right)_y = \frac{\partial f}{\partial x} \left(\frac{\partial x}{\partial z}\right)_y + \frac{\partial f}{\partial z}
+
+ 
+To find  \left(\frac{\partial x}{\partial z}\right)_y , use the constraint  g :
+ 
+
+0 = \left(\frac{\partial g}{\partial z}\right)_y = \frac{\partial g}{\partial x} \left(\frac{\partial x}{\partial z}\right)_y + \frac{\partial g}{\partial y} \left(\frac{\partial y}{\partial z}\right)_y + \frac{\partial g}{\partial z} \left(\frac{\partial z}{\partial z}\right)_y
+
+ 
+Simplifying:
+ 
+
+0 = g_x \left(\frac{\partial x}{\partial z}\right)_y + g_z \implies \left(\frac{\partial x}{\partial z}\right)_y = -\frac{g_z}{g_x}
+
+ 
+Substituting back:
+ 
+
+\left(\frac{\partial f}{\partial z}\right)_y = \frac{\partial f}{\partial x} \left(-\frac{g_z}{g_x}\right) + \frac{\partial f}{\partial z}
+
+
+
+Lec 16
+ 
+Double integrals
+ 
+Recall: For a function of one variable,
+ 
+
+\int_a^b f(x) \, dx = \text{area below the graph of } f \text{ over } [a,b]
+
+ 
+ 
+ 
+Double integral = volume
+ 
+- The double integral
+ 
+
+\iint_R f(x,y) \, dA
+
+ 
+represents the volume below the graph  z = f(x,y) , over a region  R  in the  xy -plane.
+ 
+ 
+ 
+Definition:
+ 
+1. Cut region  R  into small pieces of area  \Delta A_i .
+2. Form the sum:
+
+\sum_i f(x_i, y_i) \Delta A_i
+
+3. Take the limit as  \Delta A_i \to 0 , which gives the double integral:
+
+\iint_R f(x,y) \, dA
+
+ 
+ 
+ 
+To compute  \iint_R f(x,y) \, dA : take slices
+ 
+Let  S(x)  be the area of the slice of the volume by a plane parallel to the  yz -plane at position  x .
+ 
+Then the total volume is:
+ 
+
+\text{Volume} = \int_{x_{\min}}^{x_{\max}} S(x) \, dx
+
+ 
+For a given  x , the slice area  S(x)  is:
+ 
+
+S(x) = \int_{y_{\min}(x)}^{y_{\max}(x)} f(x,y) \, dy
+
+ 
+Thus, the double integral becomes an iterated integral:
+ 
+
+\iint_R f(x,y) \, dA = \int_{x_{\min}}^{x_{\max}} \left[ \int_{y_{\min}(x)}^{y_{\max}(x)} f(x,y) \, dy \right] dx
+
+Lec 16-2
+ 
+ 
+ 
+Example 1:
+ 
+Function:  z = 1 - x^2 - y^2 
+Region:  0 \le x \le 1 ,  0 \le y \le 1 
+ 
+Compute:
+ 
+
+\int_0^1 \int_0^1 (1 - x^2 - y^2) \, dy \, dx
+
+ 
+1. Inner integral (with respect to  y ):
+ 
+
+\int_0^1 (1 - x^2 - y^2) \, dy = \left[ y - x^2 y - \frac{y^3}{3} \right]_0^1 = 1 - x^2 - \frac{1}{3} = \frac{2}{3} - x^2
+
+ 
+2. Outer integral (with respect to  x ):
+ 
+
+\int_0^1 \left( \frac{2}{3} - x^2 \right) dx = \left[ \frac{2}{3}x - \frac{x^3}{3} \right]_0^1 = \frac{2}{3} - \frac{1}{3} = \frac{1}{3}
+
+ 
+Note:  dA = dx \, dy , because for small rectangles,  \Delta A = \Delta x \Delta y .
+ 
+ 
+ 
+Example 2:
+ 
+Same function  z = 1 - x^2 - y^2 
+Region  R : quarter-disk  x^2 + y^2 \le 1 ,  x \ge 0 ,  y \ge 0 
+ 
+For a given  x ,  y  ranges from  0  to  \sqrt{1 - x^2} .
+ 
+Compute:
+ 
+
+\iint_R (1 - x^2 - y^2) \, dA = \int_0^1 \int_0^{\sqrt{1 - x^2}} (1 - x^2 - y^2) \, dy \, dx
+
+ 
+1. Inner integral:
+ 
+
+\begin{align*}
+\int_0^{\sqrt{1 - x^2}} (1 - x^2 - y^2) \, dy &= \left[ (1 - x^2)y - \frac{y^3}{3} \right]_0^{\sqrt{1 - x^2}} \\
+&= (1 - x^2)\sqrt{1 - x^2} - \frac{(1 - x^2)^{3/2}}{3} \\
+&= (1 - x^2)^{3/2} - \frac{(1 - x^2)^{3/2}}{3} \\
+&= \frac{2}{3}(1 - x^2)^{3/2}
+\end{align*}
+
+ 
+2. Outer integral:
+Use trigonometric substitution  x = \sin\theta , so  \sqrt{1 - x^2} = \cos\theta ,  dx = \cos\theta \, d\theta .
+When  x = 0 ,  \theta = 0 ; when  x = 1 ,  \theta = \frac{\pi}{2} .
+ 
+
+\begin{align*}
+\int_0^1 \frac{2}{3}(1 - x^2)^{3/2} \, dx &= \int_0^{\pi/2} \frac{2}{3} \cos^3\theta \cdot \cos\theta \, d\theta \\
+&= \frac{2}{3} \int_0^{\pi/2} \cos^4\theta \, d\theta \\
+&= \frac{2}{3} \int_0^{\pi/2} \left( \frac{1 + \cos 2\theta}{2} \right)^2 d\theta \\
+&= \frac{2}{3} \int_0^{\pi/2} \frac{1 + 2\cos 2\theta + \cos^2 2\theta}{4} d\theta \\
+&= \frac{1}{6} \int_0^{\pi/2} \left( 1 + 2\cos 2\theta + \frac{1 + \cos 4\theta}{2} \right) d\theta \\
+&= \frac{1}{6} \left[ \frac{3}{2}\theta + \sin 2\theta + \frac{1}{8}\sin 4\theta \right]_0^{\pi/2} \\
+&= \frac{1}{6} \cdot \frac{3\pi}{4} = \frac{\pi}{8}
+\end{align*}
+
+Lec 16-3
+ 
+ 
+ 
+Polar coordinates
+ 
+The computation will be easier in polar coordinates.
+ 
+ 
+ 
+Exchanging order of integration
+ 
+Example 1:
+ 
+
+\int_0^1 \int_0^2 dx\,dy = \int_0^2 \int_0^1 dy\,dx
+
+ 
+ 
+ 
+Example 2:
+Compute:
+ 
+
+\int_0^1 \int_x^{\sqrt{x}} \frac{e^y}{y} \, dy \, dx
+
+ 
+Step 1: Exchange order of integration
+The region is bounded by  y = x  and  y = \sqrt{x}  for  0 \le x \le 1 .
+When exchanging the order,  x  goes from  x = y^2  to  x = y , and  y  goes from  0  to  1 :
+ 
+
+\int_0^1 \int_{y^2}^{y} \frac{e^y}{y} \, dx \, dy
+
+ 
+Step 2: Inner integral (with respect to  x )
+ 
+
+\int_{y^2}^{y} \frac{e^y}{y} \, dx = \left[ \frac{e^y}{y} x \right]_{x=y^2}^{x=y} = \frac{e^y}{y} \cdot y - \frac{e^y}{y} \cdot y^2 = e^y - y e^y
+
+ 
+Step 3: Outer integral (with respect to  y )
+ 
+
+\int_0^1 (e^y - y e^y) \, dy
+
+ 
+Method 1: Integration by parts
+Let  u = y ,  dv = e^y dy , then  du = dy ,  v = e^y .
+ 
+
+\int y e^y \, dy = y e^y - \int e^y \, dy = y e^y - e^y
+
+ 
+Thus:
+ 
+
+\int (e^y - y e^y) \, dy = e^y - (y e^y - e^y) = 2 e^y - y e^y
+
+ 
+Evaluate from  0  to  1 :
+ 
+
+\left[ 2 e^y - y e^y \right]_0^1 = (2e - e) - (2 - 0) = e - 2
+
+ 
+Method 2: Antiderivative recognition
+Notice that:
+ 
+
+\frac{d}{dy} \left( 2 e^y - y e^y \right) = 2 e^y - (e^y + y e^y) = e^y - y e^y
+
+ 
+So the antiderivative is  2 e^y - y e^y , and the result is again  e - 2 .
