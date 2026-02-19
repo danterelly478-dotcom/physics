@@ -1,0 +1,245 @@
+Lec 21
+ 
+ 
+ 
+Last time:
+If \vec{F} = \nabla f (gradient field)
+then
+ 
+
+\int_C \vec{F} \cdot d\vec{r} = f(P_1) - f(P_0)
+
+ 
+“path-independent”
+ 
+Conservative field:
+If C is closed,
+ 
+
+\int_C \vec{F} \cdot d\vec{r} = 0
+
+ 
+ 
+ 
+Testing if \vec{F} = \langle M, N \rangle is a gradient field
+ 
+If \vec{F} = \nabla f:
+ 
+- M = f_x
+- N = f_y
+ 
+By equality of mixed partial derivatives:
+ 
+
+f_{xy} = f_{yx} \quad\Rightarrow\quad M_y = N_x
+
+ 
+Converse:
+If \vec{F} = \langle M, N \rangle is defined and differentiable everywhere,
+and M_y = N_x,
+then \vec{F} is a gradient field.
+ 
+ 
+ 
+Example 1
+ 
+
+\vec{F} = -y\hat{\imath} + x\hat{\jmath}
+
+ 
+
+\frac{\partial M}{\partial y} = -1,\quad \frac{\partial N}{\partial x} = 1
+
+ 
+-1 \neq 1 \implies \vec{F} is not a gradient field.
+ 
+ 
+ 
+Example 2
+ 
+
+\vec{F} = (4x^2 + axy)\hat{\imath} + (3y^2 + 4x^2)\hat{\jmath}
+
+ 
+Find a so that \vec{F} is a gradient field.
+ 
+
+M_y = ax,\quad N_x = 8x
+
+ 
+Set equal:
+ 
+
+ax = 8x \implies a = 8
+
+ 
+ 
+ 
+Finding the potential function (only if M_y = N_x)
+ 
+1. Compute line integral:
+ 
+
+\int_C \vec{F} \cdot d\vec{r} = f(x_1,y_1) - f(0,0)
+
+ 
+
+f(x_1,y_1) = \left(\int_C \vec{F} \cdot d\vec{r}\right) + f(0,0)
+
+ 
+where f(0,0) is a constant.
+
+Lec 21-2
+ 
+ 
+ 
+Given:
+ 
+
+\int_C \vec{F} \cdot d\vec{r} = \int_C (4x^2 + 8xy)\,dx + (3y^2 + 4x^2)\,dy
+
+ 
+
+\vec{F} = \langle 4x^2 + 8xy,\ 3y^2 + 4x^2 \rangle
+
+ 
+ 
+ 
+1) Computing line integrals (to find potential)
+ 
+On C_1:
+ 
+- x from 0 to x_1
+- y = 0, dy = 0
+ 
+
+\int_{C_1} \vec{F} \cdot d\vec{r} = \int_0^{x_1} 4x^2\,dx = \frac{4}{3}x_1^3
+
+ 
+On C_2:
+ 
+- y from 0 to y_1
+- x = x_1, dx = 0
+ 
+
+\int_{C_2} \vec{F} \cdot d\vec{r} = \int_0^{y_1} (3y^2 + 4x_1^2)\,dy
+
+ 
+
+= \left[ y^3 + 4x_1^2 y \right]_0^{y_1} = y_1^3 + 4x_1^2 y_1
+
+ 
+So:
+ 
+
+f(x_1, y_1) = \frac{4}{3}x_1^3 + y_1^3 + 4x_1^2 y_1 + C
+
+ 
+
+f(x, y) = \frac{4}{3}x^3 + y^3 + 4x^2 y + C
+
+ 
+ 
+ 
+2) Antiderivatives (another method)
+ 
+We want to solve:
+ 
+
+\begin{cases}
+f_x = 4x^2 + 8xy \quad (1) \\
+f_y = 3y^2 + 4x^2 \quad (2)
+\end{cases}
+
+ 
+From (1):
+ 
+
+f = \frac{4}{3}x^3 + 4x^2 y + g(y)
+
+ 
+Differentiate with respect to y:
+ 
+
+f_y = 4x^2 + g'(y)
+
+ 
+Match with (2):
+ 
+
+4x^2 + g'(y) = 3y^2 + 4x^2
+
+ 
+
+g'(y) = 3y^2 \implies g(y) = y^3 + C
+
+ 
+Plug back into f:
+ 
+
+f = \frac{4}{3}x^3 + 4x^2 y + y^3 + C
+
+ 
+ 
+ 
+General condition for gradient field
+ 
+\vec{F} = \langle M, N \rangle is a gradient field in a region of the plane if:
+ 
+- N_x = M_y at every point
+- and \vec{F} is defined in the entire plane (or in a simply connected region)
+ 
+Conservative property:
+ 
+
+\oint_C \vec{F} \cdot d\vec{r} = 0 \quad \text{for closed } C
+
+Lec 21-3
+ 
+ 
+ 
+Definition:
+ 
+
+\|\text{curl}(\vec{F})\| = N_x - M_y
+
+ 
+Test for conservativeness: \text{curl}\vec{F} = 0
+(If N_x = M_y, then \text{curl}\vec{F} = 0)
+ 
+ 
+ 
+For a velocity field:
+ 
+- \text{curl} measures the rotation component of motion.
+ 
+Examples:
+ 
+1. \vec{F} = \langle a, b \rangle (constants)
+\text{curl}\vec{F} = 0
+2. \vec{F} = \langle x, y \rangle
+\text{curl}\vec{F} = \frac{\partial}{\partial x}(y) - \frac{\partial}{\partial y}(x) = 0
+3. \vec{F} = \langle -y, x \rangle
+\text{curl}\vec{F} = \frac{\partial}{\partial x}(x) - \frac{\partial}{\partial y}(-y) = 1 - (-1) = 2
+ 
+Interpretation:
+ 
+- \text{curl} measures (2×) the angular velocity of rotation.
+- It captures the rotation component of a velocity field.
+ 
+ 
+ 
+Curl of a force field:
+ 
+- Measures the torque exerted on a test object in the field.
+ 
+Related formula:
+ 
+
+\frac{\text{torque}}{\text{moment of inertia}} = \frac{d}{dt}(\text{angular velocity})
+
+ 
+Analogous to:
+ 
+
+\frac{\text{force}}{\text{mass}} = \frac{d}{dt}(\text{velocity})
