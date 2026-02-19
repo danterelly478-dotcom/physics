@@ -913,3 +913,718 @@ Notice that:
 
  
 So the antiderivative is  2 e^y - y e^y , and the result is again  e - 2 .
+
+
+Lec 17
+ 
+Double Integral:
+ 
+
+\iint_R f(x,y)\,dA = \iint f(x,y)\,dy\,dx
+
+ 
+ 
+ 
+Example:
+ 
+Compute \iint_R (1 - x^2 - y^2)\,dA over the region R defined by x^2 + y^2 \le 1 and x,y \ge 0, using polar coordinates.
+ 
+Area element approximation:
+ 
+
+\Delta A \approx \Delta r \cdot r\Delta\theta
+
+ 
+Exact area element in polar coordinates:
+ 
+
+dA = r\,dr\,d\theta
+
+ 
+Polar coordinate transformation:
+ 
+
+\begin{cases}
+x = r\cos\theta \\
+y = r\sin\theta
+\end{cases}
+
+ 
+Integrand in polar coordinates:
+ 
+
+f = 1 - x^2 - y^2 = 1 - (x^2 + y^2) = 1 - r^2
+
+ 
+Limits of integration: \theta from 0 to \frac{\pi}{2}, r from 0 to 1.
+ 
+
+\begin{align*}
+\iint_R (1 - x^2 - y^2)\,dA &= \int_{0}^{\frac{\pi}{2}} \int_{0}^{1} (1 - r^2) r\,dr\,d\theta \\
+&= \int_{0}^{\frac{\pi}{2}} \left[ \frac{r^2}{2} - \frac{r^4}{4} \right]_{0}^{1} d\theta \\
+&= \int_{0}^{\frac{\pi}{2}} \frac{1}{4}\,d\theta \\
+&= \frac{1}{4} \cdot \frac{\pi}{2} = \frac{\pi}{8}
+\end{align*}
+
+ 
+ 
+ 
+Applications:
+ 
+1. Area of region R:
+
+\text{Area}(R) = \iint_R 1\,dA
+
+2. Mass of a flat object:
+- Density: \delta = \frac{\text{mass}}{\text{unit area}}
+- Mass element: \Delta m = \delta \cdot \Delta A
+- Total mass:
+ 
+
+\text{Mass} = \iint_R \delta\,dA
+
+Lec 17-2
+ 
+ 
+ 
+2) Average Value of  f  in  R 
+ 
+Average of  f = \bar{F} = \frac{1}{\text{Area}(R)} \iint_R f \, dA 
+ 
+Weighted average of  f  (with density  \delta ):
+ 
+
+\frac{1}{\text{Mass}(R)} \iint_R f \delta \, dA
+
+ 
+ 
+ 
+2a) Center of Mass of a Planar Object (with density  \delta )
+ 
+Center of mass: (\bar{x}, \bar{y})
+ 
+
+\bar{x} = \frac{1}{\text{Mass}} \iint x \delta \, dA, \quad \bar{y} = \frac{1}{\text{Mass}} \iint y \delta \, dA
+
+ 
+ 
+ 
+3) Moment of Inertia
+ 
+- Mass: How hard it is to impart translation motion.
+- Moment of inertia: How hard it is to perform rotational motion about an axis.
+ 
+Idea: Kinetic energy
+For a point mass:
+ 
+
+KE = \frac{1}{2} m v^2
+
+ 
+For a mass  m  at distance  r  from the axis, with angular velocity  \omega :
+ 
+
+v = r \omega
+
+ 
+
+\frac{1}{2} m v^2 = \frac{1}{2} \left( m r^2 \right) \omega^2
+
+ 
+Thus, the moment of inertia for a point mass is  I = m r^2 .
+ 
+For a solid with density  \delta :
+ 
+
+\Delta m \approx \delta \Delta A
+
+ 
+The contribution to the moment of inertia is:
+ 
+
+\Delta m \cdot r^2 = r^2 \cdot \delta \Delta A
+
+ 
+- Moment of inertia about the origin:
+ 
+
+I_0 = \iint_R r^2 \delta \, dA \quad (\text{where } r^2 = x^2 + y^2)
+
+ 
+Rotational kinetic energy is:
+ 
+
+KE = \frac{1}{2} I_0 \omega^2
+
+ 
+- Moment of inertia about the x-axis:
+Distance to the x-axis is  |y| , so the squared distance is  y^2 .
+ 
+
+I_x = \iint y^2 \delta \, dA
+
+Lec 17-3
+ 
+ 
+ 
+Example: Moment of Inertia for a Disk
+ 
+Consider a disk of radius  a  with density  \delta = 1 .
+ 
+1. Moment of inertia about the center (origin):
+
+I_0 = \iint r^2 \delta \, dA = \int_{0}^{2\pi} \int_{0}^{a} r^2 \cdot r \, dr d\theta
+
+ 
+(Using polar coordinates:  dA = r \, dr d\theta )
+
+= 2\pi \cdot \frac{a^4}{4} = \frac{\pi a^4}{2}
+
+2. Moment of inertia about a point on the circumference:
+The disk is described by  r = 2a \cos\theta .
+
+I_0 = \iint r^2 dA \quad (\delta = 1) = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \int_{0}^{2a \cos\theta} r^2 \cdot r \, dr d\theta
+
+ 
+Inner integral:
+
+\int_{0}^{2a \cos\theta} r^3 dr = \left[ \frac{r^4}{4} \right]_{0}^{2a \cos\theta} = 4a^4 \cos^4\theta
+
+ 
+Outer integral:
+
+\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} 4a^4 \cos^4\theta \, d\theta = \frac{3}{2} \pi a^4
+
+ 
+ 
+ 
+Lec 18: Changing Variables in Double Integrals
+ 
+ 
+ 
+Example: Area of an Ellipse
+ 
+Find the area of an ellipse with semi-axes  a, b , defined by:
+ 
+
+\left( \frac{x}{a} \right)^2 + \left( \frac{y}{b} \right)^2 = 1
+
+ 
+Use the change of variables:
+ 
+
+\begin{cases}
+\frac{x}{a} = u \implies du = \frac{1}{a} dx \\
+\frac{y}{b} = v \implies dv = \frac{1}{b} dy
+\end{cases}
+
+ 
+This gives  dudv = \frac{1}{ab} dxdy , so  dxdy = ab \, dudv .
+ 
+The integral becomes:
+ 
+
+\iint_{\left( \frac{x}{a} \right)^2 + \left( \frac{y}{b} \right)^2 < 1} dxdy = \iint_{u^2 + v^2 < 1} ab \, dudv = ab \iint_{u^2 + v^2 < 1} dudv
+
+ 
+This is  ab  times the area of the unit disk:
+ 
+
+= ab \cdot \pi = \pi ab
+
+ 
+ 
+ 
+In General: Finding the Scaling Factor ( dxdy  vs.  dudv )
+ 
+Example 2: Consider the linear change of variables:
+ 
+
+\begin{cases}
+u = 3x - 2y \quad (\text{to simplify integrand or bounds}) \\
+v = x + y
+\end{cases}
+
+ 
+We examine the relationship between the area element  dA = dxdy  in the original coordinates and  dA' = dudv  in the new coordinates.
+ 
+For a linear change of variables, the area scaling factor does not depend on the choice of rectangle used to approximate the area.
+
+Lec 18-2
+ 
+ 
+ 
+Example: Linear Transformation
+ 
+Consider the transformation from a unit square in the xy-plane to a parallelogram in the uv-plane:
+ 
+- Original area: A = 1
+- Transformed area: A' = \begin{vmatrix} 3 & 1 \\ -2 & 1 \end{vmatrix} = 5
+ 
+For any other rectangle, the area scaling factor is also 5.
+Thus:
+ 
+
+dA' = 5 \, dA \quad \text{or} \quad dudv = 5 \, dxdy
+
+ 
+This implies:
+ 
+
+\iint \dots \, dxdy = \iint \dots \, \frac{1}{5} dudv
+
+ 
+ 
+ 
+General Case: Change of Variables
+ 
+Given a transformation:
+ 
+
+\begin{cases}
+u = u(x,y) \\
+v = v(x,y)
+\end{cases}
+
+ 
+For small changes:
+ 
+
+\begin{cases}
+\Delta u \approx u_x \Delta x + u_y \Delta y \\
+\Delta v \approx v_x \Delta x + v_y \Delta y
+\end{cases}
+
+ 
+In matrix form:
+ 
+
+\begin{bmatrix}
+\Delta u \\
+\Delta v
+\end{bmatrix}
+\approx
+\begin{bmatrix}
+u_x & u_y \\
+v_x & v_y
+\end{bmatrix}
+\begin{bmatrix}
+\Delta x \\
+\Delta y
+\end{bmatrix}
+
+ 
+The area of the transformed region is proportional to the determinant of this matrix:
+ 
+
+\text{Area}' = \det(\dots) \, \Delta x \Delta y
+
+ 
+Jacobian Determinant:
+ 
+
+J = \frac{\partial(u,v)}{\partial(x,y)} = \begin{vmatrix} u_x & u_y \\ v_x & v_y \end{vmatrix}
+
+ 
+The area element transforms as:
+ 
+
+dudv = |J| \, dxdy = \left| \frac{\partial(u,v)}{\partial(x,y)} \right| dxdy
+
+ 
+ 
+ 
+Example 1: Polar Coordinates
+ 
+For the transformation:
+ 
+
+\begin{cases}
+x = r\cos\theta \\
+y = r\sin\theta
+\end{cases}
+
+ 
+Compute the Jacobian:
+ 
+
+\frac{\partial(x,y)}{\partial(r,\theta)} = \begin{vmatrix} x_r & x_\theta \\ y_r & y_\theta \end{vmatrix} = \begin{vmatrix} \cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta \end{vmatrix} = r\cos^2\theta + r\sin^2\theta = r
+
+ 
+Thus, the area element transforms as:
+ 
+
+dxdy = |r| \, drd\theta = r \, drd\theta
+
+Lec 18-3
+ 
+ 
+ 
+Remark
+ 
+
+\frac{\partial(u,v)}{\partial(x,y)} \cdot \frac{\partial(x,y)}{\partial(u,v)} = 1
+
+ 
+This means we can compute whichever Jacobian is easier.
+ 
+ 
+ 
+Example 2: Compute \int_0^1 \int_0^1 x^2 y \, dxdy using the change of variables u = x, v = xy
+ 
+1. Area element:
+Compute the Jacobian:
+
+\frac{\partial(u,v)}{\partial(x,y)} = \begin{vmatrix} 1 & 0 \\ y & x \end{vmatrix} = x
+
+ 
+So, dudv = x \, dxdy (for x \ge 0).
+2. Integrand in terms of u, v:
+
+x^2 y \, dxdy = x^2 y \cdot \frac{1}{x} dudv = xy \, dudv = v \, dudv
+
+ 
+The integral becomes \iint v \, dudv.
+3. Bounds:
+- When x = 0, u = 0.
+- When x = 1, u = 1.
+- When y = 1, v = u.
+- When xy = \text{constant}, v = \text{constant}.
+ 
+The transformed integral is:
+
+\int_0^1 \int_0^u v \, dvdu
+
+ 
+ 
+ 
+Lec 19: Vector Fields
+ 
+ 
+ 
+A vector field is defined as:
+ 
+
+\vec{F} = M \hat{i} + N \hat{j}
+
+ 
+where M and N are functions of x and y. At each point (x,y), \vec{F} is a vector that depends on (x,y).
+ 
+Examples:
+ 
+- Velocity field in a fluid: \vec{v}
+- Force field: \vec{F}
+ 
+Specific examples of vector fields:
+ 
+- \vec{F} = 2\hat{i} + \hat{j}
+- \vec{F} = x\hat{i}
+- \vec{F} = x\hat{i} + y\hat{j}
+- \vec{F} = -y\hat{i} + x\hat{j} (represents a 90° counterclockwise rotation)
+
+Lec 19-2
+ 
+ 
+ 
+Vector Field: \vec{F} = -y\hat{i} + x\hat{j}
+ 
+This vector field represents a 90° counterclockwise rotation, which is the velocity field for uniform rotation at unit angular velocity.
+ 
+ 
+ 
+Work and Line Integrals
+ 
+Work is defined as the dot product of force and displacement:
+ 
+
+W = (\text{force}) \cdot (\text{distance}) = \vec{F} \cdot \Delta\vec{r}
+
+ 
+Along a trajectory C, the total work is the sum of infinitesimal work elements, which becomes a line integral:
+ 
+
+W = \int_C \vec{F} \cdot d\vec{r} = \lim_{\Delta r_i \to 0} \sum_i \vec{F} \cdot \Delta\vec{r}_i
+
+ 
+This can be expressed using a parameter t:
+ 
+
+\int_C \vec{F} \cdot d\vec{r} = \int_{t_1}^{t_2} \vec{F} \cdot \frac{d\vec{r}}{dt} \, dt
+
+ 
+where \frac{d\vec{r}}{dt} is the velocity vector.
+ 
+ 
+ 
+Example
+ 
+Given \vec{F} = -y\hat{i} + x\hat{j} and the curve C parameterized by:
+ 
+
+\begin{cases}
+x = t \\
+y = t^2
+\end{cases}
+\quad \text{for} \quad 0 \le t \le 1
+
+ 
+Compute the line integral \int_C \vec{F} \cdot d\vec{r}:
+ 
+1. Express \vec{F} in terms of t:
+
+\vec{F} = \langle -y, x \rangle = \langle -t^2, t \rangle
+
+2. Compute the velocity vector:
+
+\frac{d\vec{r}}{dt} = \left\langle \frac{dx}{dt}, \frac{dy}{dt} \right\rangle = \langle 1, 2t \rangle
+
+3. Compute the dot product and integrate:
+
+\begin{align*}
+\int_C \vec{F} \cdot d\vec{r} &= \int_0^1 \langle -t^2, t \rangle \cdot \langle 1, 2t \rangle \, dt \\
+&= \int_0^1 \left( -t^2 + 2t^2 \right) dt \\
+&= \int_0^1 t^2 \, dt \\
+&= \left[ \frac{t^3}{3} \right]_0^1 = \frac{1}{3}
+\end{align*}
+
+ 
+ 
+ 
+Alternative Formulation
+ 
+For a vector field \vec{F} = \langle M, N \rangle, the line integral can be written using differentials:
+ 
+
+d\vec{r} = \langle dx, dy \rangle
+
+ 
+
+\vec{F} \cdot d\vec{r} = M \, dx + N \, dy
+
+ 
+Thus, the line integral is:
+ 
+
+\int_C \vec{F} \cdot d\vec{r} = \int_C M \, dx + N \, dy
+
+Lec 19-3
+ 
+ 
+ 
+Method to Evaluate Line Integrals
+ 
+To evaluate \int_C \vec{F} \cdot d\vec{r}, express x, y in terms of a single variable t and substitute.
+ 
+For example, with \vec{F} = -y\hat{i} + x\hat{j} and C parameterized as x = t, y = t^2:
+ 
+
+\begin{align*}
+\int_C \vec{F} \cdot d\vec{r} &= \int_C -y \, dx + x \, dy \\
+&= \int_C -t^2 \, dt + t \cdot 2t \, dt \\
+&= \int_0^1 t^2 \, dt = \frac{1}{3}
+\end{align*}
+
+ 
+Note: \int_C \vec{F} \cdot d\vec{r} depends on the trajectory C, but not on the specific parameterization. For example, we could also use x = \sin\theta, y = \sin^2\theta for 0 \le \theta \le \frac{\pi}{2}, though this is not practical.
+ 
+ 
+ 
+Geometric Approach
+ 
+The differential displacement can be written as d\vec{r} = \langle dx, dy \rangle = \hat{T} \, ds, where \hat{T} is the unit tangent vector and ds is the arc length element.
+ 
+Thus, the line integral becomes:
+ 
+
+\int_C \vec{F} \cdot d\vec{r} = \int_C M \, dx + N \, dy = \int_C \vec{F} \cdot \hat{T} \, ds
+
+ 
+ 
+ 
+Examples
+ 
+1. Case 1:
+- C: Circle of radius a at the origin, traversed counterclockwise.
+- \vec{F} = x\hat{i} + y\hat{j}
+- Here, \vec{F} is perpendicular to \hat{T} (\vec{F} \perp \hat{T}), so \vec{F} \cdot \hat{T} = 0.
+- Therefore:
+
+\int_C \vec{F} \cdot \hat{T} \, ds = 0
+
+2. Case 2:
+- Same curve C, but \vec{F} = -y\hat{i} + x\hat{j}
+- Now, \vec{F} is parallel to \hat{T} (\vec{F} \parallel \hat{T}), and \vec{F} \cdot \hat{T} = |\vec{F}| = a.
+- Therefore:
+
+\int_C \vec{F} \cdot \hat{T} \, ds = \int_C a \, ds = a \cdot \text{length}(C) = a \cdot 2\pi a = 2\pi a^2
+
+- Alternatively, using direct computation with x = a\cos\theta, y = a\sin\theta for 0 \le \theta \le 2\pi:
+
+\begin{align*}
+\int_C -y \, dx + x \, dy &= \int_0^{2\pi} - (a\sin\theta)(-a\sin\theta \, d\theta) + (a\cos\theta)(a\cos\theta \, d\theta) \\
+&= \int_0^{2\pi} a^2 (\sin^2\theta + \cos^2\theta) \, d\theta \\
+&= \int_0^{2\pi} a^2 \, d\theta = 2\pi a^2
+\end{align*}
+
+Lec 20: Line Integrals for Work
+ 
+ 
+ 
+Recall the line integral for work:
+ 
+
+\int_C \vec{F} \cdot d\vec{r} = \int_C \vec{F} \cdot \hat{T} \, ds = \int_C M \, dx + N \, dy
+
+ 
+where \vec{F} = \langle M, N \rangle.
+ 
+ 
+ 
+Example
+ 
+Given \vec{F} = \langle x, y \rangle, compute \int_C \vec{F} \cdot d\vec{r} over the closed curve C = C_1 + C_2 + C_3 enclosing a sector of the unit disk with 0 \le \theta \le \frac{\pi}{4}. We need to compute \int_{C_i} y \, dx + x \, dy for each segment.
+ 
+1. Segment C_1: x-axis from (0,0) to (1,0)
+- On the x-axis, y = 0, so dy = 0.
+- The integral becomes:
+
+\int_{C_1} y \, dx + x \, dy = \int_{C_1} 0 \, dx + 0 = 0
+
+- Geometrically: On the x-axis, \vec{F} is parallel to \hat{j}, so \vec{F} \cdot \hat{T} = 0.
+2. Segment C_2: Portion of the unit circle
+- Parameterize as x = \cos\theta, y = \sin\theta for 0 \le \theta \le \frac{\pi}{4}.
+- Then dx = -\sin\theta \, d\theta, dy = \cos\theta \, d\theta.
+- The integral becomes:
+
+\begin{align*}
+\int_{C_2} y \, dx + x \, dy &= \int_0^{\frac{\pi}{4}} \sin\theta(-\sin\theta \, d\theta) + \cos\theta(\cos\theta \, d\theta) \\
+&= \int_0^{\frac{\pi}{4}} (\cos^2\theta - \sin^2\theta) \, d\theta \\
+&= \int_0^{\frac{\pi}{4}} \cos(2\theta) \, d\theta \\
+&= \left[ \frac{1}{2} \sin(2\theta) \right]_0^{\frac{\pi}{4}} = \frac{1}{2}
+\end{align*}
+
+3. Segment C_3: Line from (1,0) to (\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}})
+- Instead of parameterizing C_3 directly, we compute the integral over the reversed path -C_3 (from (\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}) to (0,0)) and take the negative.
+- Parameterize -C_3 as x = t, y = t for t from 0 to \frac{1}{\sqrt{2}}. Then dx = dt, dy = dt.
+- The integral over -C_3 is:
+
+\begin{align*}
+\int_{-C_3} y \, dx + x \, dy &= \int_0^{\frac{1}{\sqrt{2}}} t \, dt + t \, dt \\
+&= \int_0^{\frac{1}{\sqrt{2}}} 2t \, dt \\
+&= \left[ t^2 \right]_0^{\frac{1}{\sqrt{2}}} = \frac{1}{2}
+\end{align*}
+
+- Therefore, \int_{C_3} y \, dx + x \, dy = -\frac{1}{2}.
+ 
+ 
+ 
+Total Work
+ 
+
+\int_C \vec{F} \cdot d\vec{r} = \int_{C_1} + \int_{C_2} + \int_{C_3} = 0 + \frac{1}{2} - \frac{1}{2} = 0
+
+Lec 20-2
+ 
+ 
+ 
+Special case:
+ 
+Say \vec{F} = \nabla f (gradient field, f(x,y) is called potential)
+ 
+Then we can simplify evaluation of \int_C \vec{F} \cdot d\vec{r}
+ 
+Fundamental theorem of calculus for line integrals
+ 
+
+\int_C \nabla f \cdot d\vec{r} = f(P_1) - f(P_0)
+
+ 
+
+\int_C f_x dx + f_y dy = \int_C df = f(P_1) - f(P_0)
+
+ 
+ 
+ 
+Proof:
+ 
+
+\begin{align*}
+\int_C \nabla f \cdot d\vec{r} &= \int_C f_x dx + f_y dy \\
+C: x=x(t), y=y(t) \quad (t_0 \le t \le t_1) \\
+dx = x'(t)dt, \ dy = y'(t)dt \\
+\int_C \nabla f \cdot d\vec{r} &= \int_C \left( f_x \frac{dx}{dt} + f_y \frac{dy}{dt} \right) dt \\
+&= \int_C \frac{df}{dt} dt = \int_{t_0}^{t_1} \frac{df}{dt} dt \\
+&= \left[ f(x(t), y(t)) \right]_{t_0}^{t_1} = f(P_1) - f(P_0)
+\end{align*}
+
+ 
+ 
+ 
+Example:
+ 
+\vec{F} = \langle y, x \rangle = \nabla f, f(x,y) = xy
+ 
+So:
+ 
+
+\int_{C_2} \vec{F} \cdot d\vec{r} = f\left( \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} \right) - f(1,0) = \frac{1}{2} - 0 = \frac{1}{2}
+
+ 
+ 
+ 
+WARNING:
+ 
+Everything today only applies if \vec{F} is a gradient field! Not true otherwise.
+ 
+ 
+ 
+Consequences of fund. theorem:
+ 
+If \vec{F} is a gradient field:
+ 
+- Path-independence: \int_{C_1} \vec{F} \cdot d\vec{r} = \int_{C_2} \vec{F} \cdot d\vec{r} (if C_1, C_2 have same start-end points)
+- \vec{F} = \nabla f is conservative
+- For closed curve C: \int_C \vec{F} \cdot d\vec{r} = 0
+(\int_{C \ \text{closed}} \nabla f \cdot d\vec{r} = f(\text{end}) - f(\text{start}) = 0)
+
+Lec 20-3
+ 
+ 
+ 
+Remark
+ 
+For \vec{F} = \langle -y, x \rangle and C the unit circle:
+ 
+
+\int_C \vec{F} \cdot \hat{T} \, ds = \int_C 1 \, ds = 2\pi \neq 0
+
+ 
+On the unit circle, \vec{F} \parallel \hat{T} and \vec{F} \cdot \hat{T} = |\vec{F}| = 1.
+ 
+This field is:
+ 
+- NOT conservative
+- NOT path-independent
+- NOT a gradient field
+ 
+ 
+ 
+Physics Connection
+ 
+If a force \vec{F} is the gradient of a potential: \vec{F} = \nabla f
+ 
+- The work done by \vec{F} equals the change in the value of the potential.
+- Example: gravitational field vs. gravitational potential; electrical field vs. electrical potential.
+- Conservativeness means no energy can be extracted from the field "for free".
+- Total energy is conserved.
+ 
+ 
+ 
+Equivalent Properties
+ 
+The following are equivalent:
+ 
+1. \vec{F} is conservative: \int_C \vec{F} \cdot d\vec{r} = 0 along all closed curves C.
+2. \int_C \vec{F} \cdot d\vec{r} is path-independent (if C_1, C_2 have the same start and end points, then \int_{C_1} \vec{F} \cdot d\vec{r} = \int_{C_2} \vec{F} \cdot d\vec{r}).
+3. \vec{F} is a gradient field: \vec{F} = \langle f_x, f_y \rangle.
+4. M \, dx + N \, dy is an exact differential: M \, dx + N \, dy = df.
