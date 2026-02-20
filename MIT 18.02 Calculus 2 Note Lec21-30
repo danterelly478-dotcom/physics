@@ -243,3 +243,392 @@ Analogous to:
  
 
 \frac{\text{force}}{\text{mass}} = \frac{d}{dt}(\text{velocity})
+
+
+Lec 22
+ 
+
+ curl(F) = N_x - M_y 
+ F = (M, N) 
+ 
+GREEN'S THEOREM
+ 
+If  C  is a closed curve, enclosing a region  R , traversed counterclockwise,
+and  \vec{F}  is a vector field defined and differentiable on  R ,
+then:
+ 
+
+\oint_C \vec{F} \cdot d\vec{r} = \iint_R \text{curl}\,\vec{F}\,dA
+
+ 
+
+\oint_C M\,dx + N\,dy = \iint_R \left(N_x - M_y\right) dA
+
+ 
+Warning: Only for closed curves.
+ 
+ 
+ 
+Example
+ 
+Let  C  be the circle of radius 1 centered at  (2, 0) , traversed counterclockwise.
+ 
+Compute:
+ 
+
+\oint_C y e^{-x} dx + \left(\frac{1}{2}x^2 - e^{-x}\right) dy
+
+ 
+Direct computation:
+ 
+Parametrize  C :
+ 
+
+\begin{cases}
+x = 2 + \cos\theta, & dx = -\sin\theta\,d\theta \\
+y = \sin\theta, & dy = \cos\theta\,d\theta
+\end{cases}
+
+ 
+Green's Theorem:
+ 
+Instead, compute:
+ 
+
+\begin{aligned}
+\iint_R \left(N_x - M_y\right) dA &= \iint_R \left[\left(x + e^{-x}\right) - e^{-x}\right] dA \\
+&= \iint_R x\,dA
+\end{aligned}
+
+ 
+By symmetry, the centroid  \bar{x}  of the circle is at  x = 2 .
+ 
+
+\iint_R x\,dA = \text{Area}(R) \cdot \bar{x} = \pi \cdot 2 = 2\pi
+
+ 
+Recall:
+ 
+
+\bar{x} = \frac{1}{\text{Area}} \iint x\,dA \quad \left(\frac{1}{\text{mass}} \iint x\,\delta\,dA\right)
+
+
+Lec 22-2
+ 
+ 
+ 
+Special Case: Conservative Vector Fields
+ 
+If  \text{curl}\,\vec{F} = 0 , then...  \vec{F}  is conservative?
+ 
+From Green's Theorem:
+ 
+
+\oint_C \vec{F} \cdot d\vec{r} = \iint_R \text{curl}\,\vec{F}\,dA
+
+ 
+If  \text{curl}\,\vec{F} = 0 , then:
+ 
+
+\oint_C \vec{F} \cdot d\vec{r} = 0
+
+ 
+This proves:
+ 
+If  \text{curl}\,\vec{F} = 0  everywhere in region  R , then  \oint_C \vec{F} \cdot d\vec{r} = 0  for any closed curve  C \subset R .
+ 
+ 
+ 
+Consequence
+ 
+
+\begin{cases}
+\text{If } \vec{F} \text{ is defined everywhere in the plane}, \\
+\text{and } \text{curl}\,\vec{F} = 0, \\
+\text{then } \vec{F} \text{ is conservative (path-independent)}.
+\end{cases}
+
+ 
+ 
+ 
+Proof
+ 
+
+\oint_C \vec{F} \cdot d\vec{r} = \iint_R \text{curl}\,\vec{F}\,dA = \iint_R 0\,dA = 0
+
+ 
+⚠️ Important Note: Green’s Theorem cannot be applied to vector fields that are not defined everywhere in  R . For example, it cannot be used for the vector field in Pset 8 Problem 2 when the curve  C  encloses the origin.
+ 
+ 
+ 
+Proof of Green’s Theorem
+ 
+We start with the statement:
+ 
+
+\oint_C M\,dx + N\,dy = \iint_R \left(N_x - M_y\right) dA
+
+ 
+Step 1: Special Case ( N = 0 )
+ 
+First, consider the special case where  N = 0 :
+ 
+
+\oint_C M\,dx = \iint_R -M_y\,dA
+
+ 
+A similar argument shows:
+ 
+
+\oint_C N\,dy = \iint_R N_x\,dA
+
+ 
+Summing these two results gives Green’s Theorem:
+ 
+
+\oint_C M\,dx + N\,dy = \iint_R \left(N_x - M_y\right) dA
+
+ 
+Step 2: Decomposition of Region  R 
+ 
+We can decompose a complex region  R  into simpler subregions  R_1  and  R_2 .
+If we prove:
+ 
+
+\oint_{C_1} M\,dx = \iint_{R_1} -M_y\,dA \quad \text{and} \quad \oint_{C_2} M\,dx = \iint_{R_2} -M_y\,dA
+
+ 
+Then:
+ 
+
+\oint_C M\,dx = \oint_{C_1} + \oint_{C_2} = \iint_{R_1} + \iint_{R_2} = \iint_R -M_y\,dA
+
+ 
+This works because the line integrals along the shared boundary of  R_1  and  R_2  cancel out due to their opposite orientations.
+
+Lec 22-3
+ 
+ 
+ 
+Vertically Simple Regions
+ 
+Cut region  R  into "vertically simple" regions, defined by:
+ 
+
+a < x < b, \quad f_1(x) < y < f_2(x)
+
+ 
+Main Step: Prove  \oint_C M\,dx = \iint_R -M_y\,dA 
+ 
+For a vertically simple region  R , with boundary  C  traversed counterclockwise:
+ 
+1. Decompose the boundary  C  into four parts:  C_1, C_2, C_3, C_4 .
+-  C_1 :  y = f_1(x) ,  x  from  a  to  b 
+-  C_2 :  x = b ,  dx = 0  ⇒  \oint_{C_2} M\,dx = 0 
+-  C_3 :  y = f_2(x) ,  x  from  b  to  a 
+-  C_4 :  x = a ,  dx = 0  ⇒  \oint_{C_4} M\,dx = 0 
+2. Compute the line integral:
+
+\begin{aligned}
+\oint_C M\,dx &= \oint_{C_1} M\,dx + \oint_{C_3} M\,dx \\
+&= \int_a^b M(x, f_1(x))\,dx + \int_b^a M(x, f_2(x))\,dx \\
+&= \int_a^b M(x, f_1(x))\,dx - \int_a^b M(x, f_2(x))\,dx
+\end{aligned}
+
+3. Compute the double integral:
+
+\begin{aligned}
+\iint_R -M_y\,dA &= -\int_a^b \int_{f_1(x)}^{f_2(x)} \frac{\partial M}{\partial y}\,dy\,dx \\
+&= -\int_a^b \left[ M(x, f_2(x)) - M(x, f_1(x)) \right] dx \\
+&= \int_a^b M(x, f_1(x))\,dx - \int_a^b M(x, f_2(x))\,dx
+\end{aligned}
+
+4. Conclusion:
+The line integral equals the double integral:
+
+\oint_C M\,dx = \iint_R -M_y\,dA
+
+ 
+ 
+ 
+Area Formula
+ 
+As a useful application, we get the area formula for region  R :
+ 
+
+\oint_C x\,dy = \iint_R 1\,dA = \text{Area}(R)
+
+
+Lec 23
+ 
+ 
+ 
+Flux: Another Line Integral
+ 
+Let  C  be a plane curve, and  \vec{F}  a vector field.
+ 
+The flux of  \vec{F}  across  C  is defined as:
+ 
+
+\text{Flux} = \int_C \vec{F} \cdot \hat{n}\,ds
+
+ 
+where  \hat{n}  is the unit normal vector to  C , oriented 90° clockwise from the unit tangent vector  \hat{T} .
+ 
+If we break  C  into small pieces  \Delta s , the flux is the limit:
+ 
+
+\text{Flux} = \lim_{\Delta s \to 0} \left( \sum \vec{F} \cdot \hat{n}\,\Delta s \right)
+
+ 
+ 
+ 
+Comparison with Work
+ 
+- Work:
+
+\int_C \vec{F} \cdot d\vec{r} = \int_C \vec{F} \cdot \hat{T}\,ds
+
+ 
+This sums the tangential component of  \vec{F} .
+- Flux:
+
+\int_C \vec{F} \cdot \hat{n}\,ds
+
+ 
+This sums the normal component of  \vec{F} .
+ 
+ 
+ 
+Interpretation
+ 
+If  \vec{F}  is a velocity field, the flux measures how much fluid passes through  C  per unit time.
+ 
+- The amount of fluid passing through a small portion  \Delta s  of  C  in unit time is given by the area of a parallelogram:
+
+\text{Area} = \text{base} \cdot \text{height} = \Delta s \, (\vec{F} \cdot \hat{n})
+
+- Sign convention:
+- Flow across  C  from left-to-right is counted positively.
+- Flow across  C  from right-to-left is counted negatively.
+
+Lec 23-2
+ 
+ 
+ 
+Example 1
+ 
+Let  C  be the circle of radius  a  centered at the origin, traversed counterclockwise.
+Let  \vec{F} = x\hat{i} + y\hat{j} .
+ 
+- Along  C ,  \vec{F} \parallel \hat{n} .
+-  \vec{F} \cdot \hat{n} = |\vec{F}| \cdot |\hat{n}| = a .
+- The flux is:
+ 
+
+\int_C \vec{F} \cdot \hat{n}\,ds = \int_C a\,ds = a \cdot \text{length}(C) = a \cdot 2\pi a = 2\pi a^2
+
+ 
+ 
+ 
+Example 2
+ 
+For the same circle  C , let  \vec{F} = \langle -y, x \rangle .
+ 
+-  \vec{F}  is tangent to  C .
+-  \vec{F} \cdot \hat{n} = 0 .
+- Therefore, the flux is:
+ 
+
+\text{Flux} = 0
+
+ 
+ 
+ 
+Calculation Using Components
+ 
+Recall:
+ 
+
+d\vec{r} = \hat{T}\,ds = \langle dx, dy \rangle
+
+ 
+The unit normal vector  \hat{n}  is  \hat{T}  rotated 90° clockwise, so:
+ 
+
+\hat{n}\,ds = \langle dy, -dx \rangle
+
+ 
+For a vector field  \vec{F} = \langle P, Q \rangle , the flux integral becomes:
+ 
+
+\int_C \vec{F} \cdot \hat{n}\,ds = \int_C \langle P, Q \rangle \cdot \langle dy, -dx \rangle = \int_C -Q\,dx + P\,dy
+
+ 
+For a vector field  \vec{F} = \langle M, N \rangle , this is:
+ 
+
+\int_C \vec{F} \cdot \hat{n}\,ds = \int_C -N\,dx + M\,dy
+
+ 
+ 
+ 
+Green's Theorem for Flux (Divergence Theorem in 2D)
+ 
+If  C  is a closed curve enclosing a region  R , traversed counterclockwise, and  \vec{F} = \langle P, Q \rangle  is defined and differentiable in  R , then:
+ 
+
+\oint_C \vec{F} \cdot \hat{n}\,ds = \iint_R \text{div}\,\vec{F}\,dA
+
+ 
+where the divergence of  \vec{F}  is defined as:
+ 
+
+\text{div}\langle P, Q \rangle = P_x + Q_y
+
+ 
+This is Green's theorem in normal form, which measures the total flux out of region  R  through the boundary  C .
+
+Lec 23-3
+ 
+ 
+ 
+Given  \vec{F} = \langle P, Q \rangle , we have:
+ 
+
+\oint_C -Q\,dx + P\,dy = \iint_R (P_x + Q_y)\,dA
+
+ 
+Let  M = -Q  and  N = P . Then, by Green's theorem:
+ 
+
+\oint_C M\,dx + N\,dy = \iint_R (N_x - M_y)\,dA
+
+ 
+For a general vector field  \vec{F} = \langle M, N \rangle , the flux integral becomes:
+ 
+
+\oint_C -N\,dx + M\,dy = \iint_R (M_x + N_y)\,dA
+
+ 
+ 
+ 
+Example
+ 
+Let  \vec{F} = x\hat{i} + y\hat{j} , and  C  be a circle of radius  a .
+ 
+1. Compute the divergence:
+
+\text{div}\,\vec{F} = \frac{\partial}{\partial x}(x) + \frac{\partial}{\partial y}(y) = 1 + 1 = 2
+
+2. Compute the flux using Green's theorem:
+
+\oint_C \vec{F} \cdot \hat{n}\,ds = \iint_R 2\,dA = 2 \cdot \text{Area}(R) = 2 \cdot \pi a^2 = 2\pi a^2
+
+ 
+ 
+ 
+Interpretation of  \text{div}\,\vec{F} 
+ 
+1. It measures how much the flow is "expanding" at a point.
+2. It represents the "source rate": the amount of fluid added to the system per unit time and per unit area.
