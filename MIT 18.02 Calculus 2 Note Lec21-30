@@ -632,3 +632,833 @@ Interpretation of  \text{div}\,\vec{F}
  
 1. It measures how much the flow is "expanding" at a point.
 2. It represents the "source rate": the amount of fluid added to the system per unit time and per unit area.
+
+
+Lec 24
+ 
+ 
+ 
+More about Validity of Green's Theorem
+ 
+We have seen Green's Theorem in two forms:
+ 
+
+\oint_C \vec{F} \cdot \hat{T} \, ds = \iint_R \text{curl}\vec{F} \, dA
+
+ 
+(24.1)
+ 
+
+\oint_C \vec{F} \cdot \hat{n} \, ds = \iint_R \text{div}\vec{F} \, dA
+
+ 
+(24.2)
+ 
+ 
+ 
+Key Validity Condition
+ 
+Green's Theorem only works if \vec{F} (and its derivatives) are defined everywhere in the region R.
+ 
+ 
+ 
+Illustrative Example
+ 
+Consider the vector field:
+ 
+
+\vec{F} = \frac{-y\hat{i} + x\hat{j}}{x^2 + y^2}
+
+ 
+(24.3)
+ 
+- \vec{F} is not defined at the origin (0,0).
+- \text{curl}\vec{F} = 0 everywhere else.
+ 
+For a closed curve C that does not enclose the origin:
+ 
+
+\oint_C \vec{F} \cdot d\vec{r} = \iint_R \text{curl}\vec{F} \, dA = 0
+
+ 
+(24.4)
+ 
+For a closed curve C' that encloses the origin, we cannot use Green's Theorem directly. Instead, we use the curve splitting method:
+ 
+
+\oint_{C'} \vec{F} \cdot d\vec{r} - \oint_{C''} \vec{F} \cdot d\vec{r} = \iint_R \text{curl}\vec{F} \, dA
+
+ 
+(24.5)
+ 
+In our case, this equals 0. The total line integral over the contour formed by C', -C'', and two horizontal line segments (which cancel out) gives this result.
+ 
+ 
+ 
+Definition of Simply Connected Region
+ 
+A connected region in the plane is simply connected if the interior of any closed curve in R is also contained in R.
+ 
+- Simply connected: No "holes".
+- Not simply connected: Contains "holes".
+ 
+ 
+ 
+Core Conclusion
+ 
+If the domain where \vec{F} is defined (and differentiable) is simply connected, then Green's Theorem can always be applied to any closed curve in that domain.
+
+Lec 24-2
+ 
+ 
+ 
+Key Theorem: Conservative Vector Fields
+ 
+If \text{curl}\vec{F} = 0 and the domain where \vec{F} is defined is simply connected, then \vec{F} is conservative and a gradient.
+ 
+ 
+ 
+Two Main Objects of Study
+ 
+1. Double integrals: \iint_R f \, dA
+2. Line integrals: \oint_C \vec{F} \cdot \hat{T} \, ds or \oint_C \vec{F} \cdot \hat{n} \, ds
+ 
+ 
+ 
+Setting Up Double Integrals
+ 
+To set up \iint_R f \, dA:
+ 
+1. Draw a picture of the region R.
+2. Take slices to convert it into an iterated integral.
+ 
+Example 1 (Problem 1):
+The region is bounded by y=x, y=2x, and x=1. The iterated integral can be written as:
+ 
+
+\int_0^1 \int_x^{2x} dy \, dx
+
+ 
+(24.6)
+ 
+Exchanging the Order of Integration:
+For the same region, the integral can also be expressed by splitting it into two parts:
+ 
+
+\int_0^1 \int_{y/2}^y f \, dx \, dy + \int_1^2 \int_{y/2}^1 f \, dx \, dy
+
+ 
+(24.7)
+ 
+ 
+ 
+Polar Coordinates (Problem 2)
+ 
+The transformation from Cartesian to polar coordinates is:
+ 
+
+x = r\cos\theta
+
+ 
+
+y = r\sin\theta
+
+ 
+
+dxdy = r \, dr d\theta
+
+ 
+(24.8)
+ 
+Important Reminder:
+The area of a region R is given by:
+ 
+
+\text{Area}(R) = \iint_R 1 \, dA
+
+ 
+(24.9)
+ 
+ 
+ 
+Applications of Double Integrals
+ 
+Double integrals are used to compute:
+ 
+- Mass
+- Average value of a function \vec{F} (in particular, \bar{x}, \bar{y} for the center of mass)
+- Polar moment of inertia: I_0 = \iint_R (x^2 + y^2) \delta \, dA, and I_x, I_y
+ 
+ 
+ 
+Evaluating Integrals
+ 
+MUST KNOW techniques:
+ 
+- Usual integration rules
+- Easy trigonometric identities
+- Substitution (e.g., \int_0^1 \frac{t \, dt}{\sqrt{1 + t^2}} with u = 1 + t^2)
+- Integration by parts:
+ 
+
+\int u \, dv = uv - \int v \, du
+
+ 
+(24.10)
+ 
+ 
+ 
+Change of Variables
+ 
+For a transformation u = u(x,y), v = v(x,y):
+ 
+1. Compute the Jacobian determinant:
+ 
+
+\frac{\partial(u,v)}{\partial(x,y)} = \begin{vmatrix} u_x & u_y \\ v_x & v_y \end{vmatrix}
+
+ 
+(24.11)
+ 
+2. The area element transforms as:
+ 
+
+du \, dv = \left| \frac{\partial(u,v)}{\partial(x,y)} \right| dx \, dy
+
+ 
+(24.12)
+ 
+3. Substitute x,y in the integrand with u,v.
+4. Set up the new bounds of integration for u and v.
+
+Lec 24-3
+ 
+ 
+ 
+Line Integrals
+ 
+For a vector field \vec{F} = \langle M, N \rangle:
+ 
+- Tangential line integral:
+
+\int_C \vec{F} \cdot d\vec{r} = \int_C M \, dx + N \, dy
+
+ 
+(24.13)
+- Normal line integral:
+
+\int_C \vec{F} \cdot \hat{n} \, ds = \int_C -N \, dx + M \, dy
+
+ 
+(24.14)
+ 
+ 
+ 
+Evaluation of Line Integrals
+ 
+To evaluate a line integral, reduce it to a single parameter t:
+ 
+1. Parameterize the curve C as x = x(t), y = y(t).
+2. Express the integral in terms of t:
+
+\int_C \vec{F} \cdot d\vec{r} = \int_{t_0}^{t_1} \vec{F}(x(t), y(t)) \cdot \langle x'(t), y'(t) \rangle \, dt
+
+ 
+(24.15)
+ 
+ 
+ 
+Conservative Vector Fields
+ 
+If \text{curl}(\vec{F}) = N_x - M_y = 0 and the domain is simply connected, then \vec{F} is a gradient field (\vec{F} = \nabla f). This is verified by solving:
+ 
+
+\begin{cases}
+f_x = M \\
+f_y = N
+\end{cases}
+
+ 
+(24.16)
+ 
+ 
+ 
+Fundamental Theorem of Calculus (F.T.C.) for Line Integrals
+ 
+For a gradient field \vec{F} = \nabla f:
+ 
+
+\int_C \nabla f \cdot d\vec{r} = f(P_1) - f(P_0)
+
+ 
+(24.17)
+where P_0 is the starting point and P_1 is the ending point of the curve C.
+ 
+ 
+ 
+Green's Theorem
+ 
+- Tangential form:
+
+\oint_C \vec{F} \cdot d\vec{r} = \iint_R \text{curl}\vec{F} \, dA = \iint_R (N_x - M_y) \, dA
+
+ 
+(24.18)
+- Normal form:
+
+\oint_C \vec{F} \cdot \hat{n} \, ds = \iint_R \text{div}\vec{F} \, dA = \iint_R (M_x + N_y) \, dA
+
+ 
+(24.19)
+ 
+where R is the region enclosed by the closed curve C.
+
+
+
+Lec 25
+ 
+ 
+ 
+Triple Integrals
+ 
+The general form of a triple integral is:
+ 
+
+\iiint_R f \, dV
+
+ 
+(25.1)
+where the volume element in Cartesian coordinates is:
+ 
+
+dV = dx \, dy \, dz
+
+ 
+(25.2)
+ 
+ 
+ 
+Example 1: Volume Between Paraboloids
+ 
+Find the volume of the region bounded by the paraboloids:
+ 
+- Bottom: z = x^2 + y^2
+- Top: z = 4 - x^2 - y^2
+ 
+The volume is given by:
+ 
+
+V = \iiint_R 1 \, dV
+
+ 
+(25.3)
+ 
+Step 1: Find the projection onto the xy-plane
+The intersection occurs where x^2 + y^2 = 4 - x^2 - y^2, which simplifies to x^2 + y^2 < 2. This is a disk of radius \sqrt{2}.
+ 
+Step 2: Set up the Cartesian integral
+ 
+
+V = \int_{-\sqrt{2}}^{\sqrt{2}} \int_{-\sqrt{2 - x^2}}^{\sqrt{2 - x^2}} \int_{x^2 + y^2}^{4 - x^2 - y^2} dz \, dy \, dx
+
+ 
+(25.4)
+ 
+Step 3: Evaluate the inner integral
+ 
+
+\int_{x^2 + y^2}^{4 - x^2 - y^2} dz = (4 - x^2 - y^2) - (x^2 + y^2) = 4 - 2x^2 - 2y^2
+
+ 
+(25.5)
+ 
+Step 4: Switch to Cylindrical Coordinates (Better approach)
+Using x^2 + y^2 = r^2 and dV = r \, dz \, dr \, d\theta:
+ 
+
+V = \int_0^{2\pi} \int_0^{\sqrt{2}} \int_{r^2}^{4 - r^2} r \, dz \, dr \, d\theta
+
+ 
+(25.6)
+ 
+ 
+ 
+Cylindrical Coordinates
+ 
+The transformation from Cartesian to cylindrical coordinates is:
+ 
+
+\begin{cases}
+x = r\cos\theta \\
+y = r\sin\theta \\
+z = z
+\end{cases}
+
+ 
+(25.7)
+The volume element is:
+ 
+
+dV = r \, dz \, dr \, d\theta
+
+ 
+(25.8)
+This is particularly useful for problems with rotational symmetry around the z-axis.
+
+Lec 25-2
+ 
+ 
+ 
+Volume Element in Cylindrical Coordinates
+ 
+In cylindrical coordinates, the volume element is:
+ 
+
+dx \, dy \, dz = r \, dr \, d\theta \, dz
+
+ 
+(25.9)
+This can be understood as \Delta V = \Delta A \cdot \Delta z, where dV = dA \cdot dz.
+ 
+ 
+ 
+Applications of Triple Integrals
+ 
+1. Mass
+ 
+- Density: \delta = \frac{\Delta m}{\Delta V}
+- Mass element: dm = \delta \, dV
+- Total mass:
+
+\text{Mass} = \iiint_R \delta \, dV
+
+ 
+(25.10)
+ 
+2. Average Value
+ 
+- Unweighted average of f(x,y,z) over region R:
+
+\bar{f} = \frac{1}{\text{Vol}(R)} \iiint_R f \, dV
+
+ 
+(25.11)
+- Weighted average (with density \delta):
+
+\bar{f} = \frac{1}{\text{Mass}(R)} \iiint_R f \delta \, dV
+
+ 
+(25.12)
+ 
+3. Center of Mass (\bar{x}, \bar{y}, \bar{z})
+ 
+
+\bar{x} = \frac{1}{\text{Mass}} \iiint_R x \delta \, dV
+
+ 
+(25.13)
+ 
+
+\bar{y} = \frac{1}{\text{Mass}} \iiint_R y \delta \, dV
+
+ 
+(25.14)
+ 
+
+\bar{z} = \frac{1}{\text{Mass}} \iiint_R z \delta \, dV
+
+ 
+(25.15)
+(Note: In symmetric cases, \bar{x} = \bar{y} = 0 by symmetry.)
+ 
+4. Moment of Inertia about an Axis
+The moment of inertia is defined as:
+ 
+
+I = \iiint_R (\text{distance to axis})^2 \delta \, dV
+
+ 
+(25.16)
+ 
+- About the z-axis:
+
+I_z = \iiint_R r^2 \delta \, dV = \iiint_R (x^2 + y^2) \delta \, dV
+
+ 
+(25.17)
+- About the x-axis:
+
+I_x = \iiint_R (y^2 + z^2) \delta \, dV
+
+ 
+(25.18)
+- About the y-axis:
+
+I_y = \iiint_R (x^2 + z^2) \delta \, dV
+
+ 
+(25.19)
+ 
+ 
+ 
+Example 2: Moment of Inertia of a Solid Cone
+ 
+Find I_z for a solid cone between z = ar and z = b (with \delta = 1).
+ 
+- Equation of the cone: z = ar \implies r = \frac{z}{a}
+- Set up the integral in cylindrical coordinates:
+
+I_z = \int_a^b \int_0^{2\pi} \int_0^{z/a} r^2 \cdot r \, dr \, d\theta \, dz
+
+ 
+(25.20)
+- The final result is:
+
+I_z = \frac{\pi b^5}{10 a^4}
+
+Lec 25-3
+ 
+ 
+ 
+Example 3: Setting Up a Triple Integral
+ 
+Set up the triple integral for the region where z > 1 - y inside the unit ball centered at the origin, defined by x^2 + y^2 + z^2 < 1.
+ 
+The integral can be expressed in Cartesian coordinates as:
+ 
+
+\int_{0}^{1} \int_{-\sqrt{1 - 2y^2}}^{\sqrt{1 - 2y^2}} \int_{1 - y}^{\sqrt{1 - x^2 - y^2}} dz \, dx \, dy
+
+ 
+This setup is based on the condition that the plane z = 1 - y lies below the sphere, which requires:
+ 
+
+1 - y < \sqrt{1 - x^2 - y^2}
+
+ 
+Squaring both sides gives x^2 + 2y^2 - 2y < 0, which defines the projection onto the xy-plane.
+ 
+ 
+ 
+Lec 26
+ 
+ 
+ 
+Spherical Coordinates
+ 
+Spherical coordinates (\rho, \phi, \theta) are defined as follows:
+ 
+- \rho (rho): Distance from the origin.
+- \phi (phi): Angle down from the positive z-axis, where 0 \le \phi \le \pi.
+- \theta (theta): Angle counterclockwise from the positive x-axis in the xy-plane.
+ 
+Geometric Interpretation:
+ 
+- \phi \longleftrightarrow Latitude
+- \theta \longleftrightarrow Longitude
+ 
+Coordinate Transformations:
+From the "polar coordinates" view in the rz-plane:
+ 
+
+z = \rho \cos\phi
+
+ 
+
+r = \rho \sin\phi
+
+ 
+Combined with the polar coordinate transformation x = r\cos\theta, y = r\sin\theta, we get:
+ 
+
+x = \rho \sin\phi \cos\theta
+
+ 
+
+y = \rho \sin\phi \sin\theta
+
+ 
+
+z = \rho \cos\phi
+
+ 
+The radial distance is:
+ 
+
+\rho = \sqrt{r^2 + z^2} = \sqrt{x^2 + y^2 + z^2}
+
+ 
+Key Surfaces:
+ 
+- \rho = a: Sphere of radius a centered at the origin.
+- \phi = \frac{\pi}{4}: Cone with half-angle \frac{\pi}{4}.
+- \phi = \frac{\pi}{2}: The xy-plane.
+
+Lec 26-2
+ 
+ 
+ 
+Triple Integrals in Spherical Coordinates
+ 
+To find the volume element dV in spherical coordinates:
+ 
+1. Surface area element on a sphere of radius a:
+- The infinitesimal surface area \Delta S is approximated by the product of two arc lengths:
+
+\Delta S \approx (a \sin\phi \, \Delta\theta) \cdot (a \, \Delta\phi) = a^2 \sin\phi \, \Delta\phi \, \Delta\theta
+
+- The surface area element is:
+
+dS = a^2 \sin\phi \, d\phi \, d\theta
+
+2. Volume element dV:
+- The volume element is the product of the radial thickness \Delta\rho and the surface area element \Delta S:
+
+\Delta V \approx \Delta\rho \cdot \Delta S = \rho^2 \sin\phi \, \Delta\rho \, \Delta\phi \, \Delta\theta
+
+- The volume element in spherical coordinates is:
+
+dV = \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta
+
+ 
+ 
+ 
+Example: Volume of a Portion of the Unit Sphere
+ 
+Find the volume of the portion of the unit sphere (\rho = 1) above the plane z = \frac{1}{\sqrt{2}}.
+ 
+1. Set up the integral:
+- The plane z = \frac{1}{\sqrt{2}} in spherical coordinates is \rho \cos\phi = \frac{1}{\sqrt{2}}, which gives \rho = \frac{1}{\sqrt{2} \cos\phi}.
+- The limits for \phi are found by \cos\phi = \frac{1}{\sqrt{2}}, so \phi = \frac{\pi}{4}.
+- The volume integral is:
+
+V = \int_0^{2\pi} \int_0^{\frac{\pi}{4}} \int_{\frac{1}{\sqrt{2} \cos\phi}}^1 \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta
+
+2. Evaluation:
+- The final volume is:
+
+V = \frac{2\pi}{3} - \frac{5\pi}{6\sqrt{2}}
+
+Lec 26-3
+ 
+ 
+ 
+Applications: Gravitational Attraction
+ 
+Consider a mass element \Delta M at position (X,Y,Z) exerting a gravitational force on a mass m at the origin.
+ 
+- Magnitude of the force:
+
+|\vec{F}| = \frac{G \cdot \Delta M \cdot m}{\rho^2}
+
+- Direction of the force:
+
+\text{dir}\ \vec{F} = \frac{\langle X,Y,Z \rangle}{\rho} \quad (\text{unit vector})
+
+- Force vector:
+
+\vec{F} = \frac{G \cdot \Delta M \cdot m}{\rho^3} \langle X,Y,Z \rangle
+
+ 
+To find the total gravitational force from a solid body, we integrate over the entire volume, where \Delta M \approx \delta \, dV:
+ 
+
+\vec{F} = \iiint \frac{Gm \langle X,Y,Z \rangle}{\rho^3} \delta \, dV
+
+ 
+ 
+ 
+Setup with Symmetry
+ 
+If we place the solid such that the z-axis is an axis of symmetry, the x and y components of the force will cancel out, leaving only the z-component:
+ 
+
+\vec{F} = \langle 0, 0, F \rangle
+
+ 
+The z-component is:
+ 
+
+F = Gm \iiint \frac{z}{\rho^3} \delta \, dV
+
+ 
+ 
+ 
+Using Spherical Coordinates
+ 
+In spherical coordinates, z = \rho \cos\phi and dV = \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta. Substituting these into the integral:
+ 
+
+F = Gm \iiint \frac{\rho \cos\phi}{\rho^3} \delta \cdot \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta
+
+ 
+This simplifies to:
+ 
+
+F = Gm \iiint \cos\phi \, \delta \, \sin\phi \, d\rho \, d\phi \, d\theta
+
+ 
+ 
+ 
+Example: Newton's Theorem
+ 
+Newton's theorem states that the gravitational attraction of a spherical planet with uniform density is equal to that of a point mass with the same total mass located at the center of the sphere.
+
+
+
+Lec 27
+ 
+ 
+ 
+Vector Fields in Space
+ 
+At every point in space, a vector field is defined as:
+ 
+
+\vec{F} = \langle P, Q, R \rangle
+
+ 
+where P, Q, R are scalar functions of x, y, z.
+ 
+ 
+ 
+Examples of Vector Fields
+ 
+1. Force fields
+- Example: Gravitational attraction of a solid mass at (0,0,0) on a mass m at (x,y,z).
+- The force \vec{F} is directed towards the origin, with magnitude proportional to \frac{1}{\rho^2}.
+- Force vector:
+
+\vec{F} = -c \frac{\langle x,y,z \rangle}{\rho^3}
+
+- Other examples: Electric fields, magnetic fields.
+2. Velocity fields \vec{v}
+3. Gradient fields
+- For a scalar function u = u(x,y,z), the gradient is:
+
+\nabla u = \langle u_x, u_y, u_z \rangle
+
+ 
+ 
+ 
+Flux
+ 
+- In 2D: Flux is defined as the line integral:
+
+\int_C \vec{F} \cdot \hat{n} \, ds
+
+- In 3D: Flux through a surface S is a surface integral.
+- \vec{F}: Vector field.
+- S: Surface in space.
+- \hat{n}: Unit normal vector to S. There are two choices for \hat{n}, corresponding to the two sides of the surface. This choice is called the "orientation" of the surface.
+- The flux is given by:
+
+\text{Flux} = \iint_S \vec{F} \cdot \hat{n} \, dS
+
+ 
+where dS is the surface area element.
+- Notation:
+
+d\vec{S} = \hat{n} \, dS
+
+Lec 27-2
+ 
+ 
+ 
+Examples: Flux Calculations
+ 
+1. Flux of \vec{F} = \langle x, y, z \rangle through a Sphere of Radius a (Centered at Origin)
+ 
+- Unit Normal Vector:
+
+\hat{n} = \frac{\langle x, y, z \rangle}{a}
+
+- Dot Product: Since \vec{F} is parallel to \hat{n} (\vec{F} \parallel \hat{n}), the flux simplifies to the magnitude of \vec{F}:
+
+\vec{F} \cdot \hat{n} = |\vec{F}| = a
+
+- Flux Integral:
+
+\iint_S \vec{F} \cdot \hat{n} \, dS = \iint_S a \, dS = a \cdot \text{Area}(S)
+
+- Result:
+
+\text{Flux} = a \cdot 4\pi a^2 = 4\pi a^3
+
+ 
+2. Flux of \vec{H} = z\hat{k} through the Same Sphere
+ 
+- Unit Normal: \hat{n} = \frac{\langle x, y, z \rangle}{a} (unchanged from Example 1)
+- Dot Product:
+
+\vec{H} \cdot \hat{n} = \langle 0, 0, z \rangle \cdot \frac{\langle x, y, z \rangle}{a} = \frac{z^2}{a}
+
+- Surface Element in Spherical Coordinates: dS = a^2 \sin\phi \, d\phi \, d\theta, with z = a\cos\phi
+- Substitution:
+
+\frac{z^2}{a} = \frac{a^2 \cos^2\phi}{a} = a \cos^2\phi
+
+- Flux Integral:
+
+\iint_S \frac{z^2}{a} \, dS = \int_0^{2\pi} \int_0^\pi a \cos^2\phi \cdot a^2 \sin\phi \, d\phi \, d\theta
+
+- Result:
+
+\text{Flux} = \frac{4}{3}\pi a^3
+
+ 
+ 
+ 
+Conclusion: Key Surface Integral Setups
+ 
+- Horizontal Plane (z=a):
+- Unit normal: \hat{n} = \pm \hat{k}
+- Surface element: dS = dx \, dy
+- Sphere (Radius a):
+- Unit normal: \hat{n} = \pm \frac{\langle x, y, z \rangle}{a}
+- Surface element: dS = a^2 \sin\phi \, d\phi \, d\theta
+- Cylinder (Radius a):
+- Unit normal: \hat{n} = \pm \frac{\langle x, y, 0 \rangle}{a}
+- Surface element: dS = a \, d\theta \, dz
+
+Lec 27-3
+ 
+ 
+ 
+Cylinder & Graph Surface Flux Setup
+ 
+1. Cylinder (Radius a)
+ 
+- Unit normal vector:
+
+\hat{n} = \pm \frac{\langle x, y, 0 \rangle}{a}
+
+- Surface area element:
+
+dS = a \, d\theta \, dz
+
+ 
+2. Graph Surface z = f(x, y)
+ 
+- Normal vector element (not unit normal \hat{n}):
+
+\vec{n} dS = \pm \langle -f_x, -f_y, 1 \rangle dxdy
+
+- Note: \hat{n} dS \neq \vec{n} dS (distinguishes unit normal from vector element)
+ 
+ 
+ 
+Setting Up Bounds for Surface Integrals
+ 
+For integrals of the form \iint_S \dots dxdy, determine bounds by examining the shadow (projection) of surface S onto the xy-plane.
+ 
+ 
+ 
+Geometric Interpretation of Flux
+ 
+If \vec{F} is a velocity field, the flux through surface S represents the amount of matter passing through S per unit time.
+ 
+- Geometric breakdown for flux volume:
+- Base = \Delta S (surface element)
+- Height = \vec{F} \cdot \hat{n} (normal component of the field)
+- Volume = \Delta S \cdot (\vec{F} \cdot \hat{n})
