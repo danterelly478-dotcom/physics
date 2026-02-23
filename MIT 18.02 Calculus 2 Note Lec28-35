@@ -1,0 +1,493 @@
+Lec 28
+ 
+ 
+ 
+Flux of \vec{F} through surface is
+ 
+
+\iint_S \vec{F} \cdot \hat{n} \, dS
+
+ 
+ 
+ 
+- If S is graph of z = f(x,y)
+ 
+
+\hat{n} \, dS = \pm \langle -f_x, -f_y, 1 \rangle \, dx \, dy
+
+ 
+ 
+ 
+
+\pm \vec{U} \times \vec{V} = \Delta S \cdot \hat{n}
+
+ 
+\vec{U}: from (x,y,f(x,y))
+to (x+\Delta x,y,f(x+\Delta x,y))
+\approx f(x,y) + \Delta x \cdot f_x
+ 
+
+\vec{U} \approx \langle \Delta x, 0, f_x \Delta x \rangle = \langle 1, 0, f_x \rangle \Delta x
+
+ 
+\vec{V} \approx \langle 0, \Delta y, f_y \Delta y \rangle = \langle 0, 1, f_y \rangle \Delta y
+ 
+ 
+ 
+(with \hat{n} upwards)
+ 
+
+\hat{n} \, \Delta S = \vec{U} \times \vec{V} = \begin{vmatrix}
+\vec{i} & \vec{j} & \vec{k} \\
+1 & 0 & f_x \\
+0 & 1 & f_y
+\end{vmatrix} \Delta x \Delta y = \langle -f_x, -f_y, 1 \rangle \Delta x \Delta y
+
+Lec 28-2
+ 
+ 
+ 
+Example:
+\vec{F} = z \hat{k} through portion of paraboloid z = x^2 + y^2 above unit disk, normal upwards (should be >0)
+ 
+
+\begin{align*}
+\iint_S \vec{F} \cdot \hat{n} \, dS
+&= \iint \langle 0, 0, z \rangle \cdot \langle -2x, -2y, 1 \rangle \, dxdy \\
+&= \iint_S z \, dxdy = \iint_S (x^2 + y^2) \, dxdy \\
+&= \int_0^{2\pi} \int_0^1 r^2 \cdot r \, dr d\theta = \frac{\pi}{2}
+\end{align*}
+
+ 
+ 
+ 
+More generally: given parametric description of S
+ 
+
+S: \begin{cases}
+x = x(u,v) \\
+y = y(u,v) \\
+z = z(u,v)
+\end{cases}
+
+ 
+\langle x,y,z \rangle = \vec{r} = \vec{r}(u,v)
+ 
+
+\hat{n} \, dS = \pm \left( \frac{\partial \vec{r}}{\partial u} \times \frac{\partial \vec{r}}{\partial v} \right) du dv
+
+ 
+ 
+ 
+- If we know a normal vector \vec{N} (not necessarily unit) to the surface S:
+1. Plane: ax + by + cz = d \implies \vec{N} = \langle a,b,c \rangle
+2. S given by equation: g(x,y,z) = 0 \implies \vec{N} = \nabla g
+ 
+Surface element: \Delta A = \Delta S \cos \alpha, where \cos \alpha = \frac{\vec{N} \cdot \hat{n}}{|\vec{N}|}
+ 
+So:
+ 
+
+\Delta S = \frac{1}{\cos \alpha} \Delta A = \frac{|\vec{N}|}{\vec{N} \cdot \hat{n}} \Delta A
+
+ 
+
+\hat{n} \, dS = \frac{|\vec{N}| \hat{n}}{\vec{N} \cdot \hat{n}} \Delta A = \pm \frac{\vec{N}}{\vec{N} \cdot \hat{k}} \Delta A
+
+ 
+
+\hat{n} \, dS = \pm \frac{\vec{N}}{\vec{N} \cdot \hat{k}} \, dxdy
+
+Lec 28-3
+ 
+ 
+ 
+Example:
+S: \underbrace{z - f(x,y) = 0}_{g(x,y,z)}
+ 
+
+\vec{N} = \nabla g = \langle -f_x, -f_y, 1 \rangle
+
+ 
+
+\frac{\vec{N}}{\vec{N} \cdot \hat{k}} \, dxdy = \langle -f_x, -f_y, 1 \rangle \, dxdy
+
+ 
+ 
+ 
+DIVERGENCE THM: ("Gauss–Green thm")
+(3D analogue of Green for flux)
+ 
+If S is a closed surface enclosing a region D, oriented with \hat{n} outwards, and \vec{F} is defined and differentiable everywhere in D, then:
+ 
+where
+ 
+
+\operatorname{div}\left(P\hat{i} + Q\hat{j} + R\hat{k}\right) = P_x + Q_y + R_z
+
+ 
+ 
+ 
+Example:
+Last time: flux of z\hat{k} through sphere radius a was \frac{4}{3}\pi a^3.
+ 
+
+\iint_S z\hat{k} \cdot \hat{n} \, dS = \iiint_D \operatorname{div}(z\hat{k}) \, dV = \iiint_D dV = \operatorname{vol}(D)
+
+ 
+
+\operatorname{div}(z\hat{k}) = 0 + 0 + 1 = 1
+
+
+Lec 29
+ 
+ 
+ 
+Divergence Theorem
+ 
+- Vector form:
+ ∮∮_S F · dS = ∭_D div F dV 
+- Component form:
+ ∮∮_S <P, Q, R> · n̂ dS = ∭_D (∂P/∂x + ∂Q/∂y + ∂R/∂z) dV 
+ 
+ 
+ 
+"∇" notation:
+\nabla ("del") = \left\langle \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right\rangle
+ 
+- \nabla f = \left\langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right\rangle (gradient)
+- \nabla \cdot \vec{F} = \left\langle \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right\rangle \cdot \langle P, Q, R \rangle = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} (divergence)
+ 
+ 
+ 
+Physical interpretation:
+\operatorname{div}(\vec{F}) = "source rate" = amount of flux generated per unit volume
+ 
+- Incompressible fluid flow: (Given mass occupies a fixed volume)
+Velocity field \vec{F}
+ 
+ 
+ 
+Proof sketch for 
+(General case follows by summing three such identities, one for each component.)
+ 
+- If region D is vertically simple:
+Right-hand side:
+$$\iiint_D R_z , dV = \iint_U \left( \int_{z_1(x,y)}^{z_2(x,y)} R_z , dz \right) dxdy
+= \iint_U \left[ R(x,y,z_2(x,y)) - R(x,y,z_1(x,y)) \right] dxdy$$
+
+Lec 29-2
+ 
+ 
+ 
+Top: graph z = z_2(x,y)
+ 
+
+\hat{n} \, dS = \left\langle -\frac{\partial z_2}{\partial x}, -\frac{\partial z_2}{\partial y}, 1 \right\rangle dxdy
+
+ 
+
+\langle 0, 0, R \rangle \cdot \hat{n} \, dS = R \, dxdy \implies \iint_{\text{top}} \langle 0, 0, R \rangle \cdot \hat{n} \, dS = \iint_{\text{top}} R \, dxdy = \iint_U R(x,y,z_2(x,y)) \, dxdy
+
+ 
+Bottom: graph z = z_1(x,y)
+ 
+
+\hat{n} \, dS = \left\langle +\frac{\partial z_1}{\partial x}, +\frac{\partial z_1}{\partial y}, -1 \right\rangle dxdy
+
+ 
+
+\iint_{\text{bottom}} \langle 0, 0, R \rangle \cdot \hat{n} \, dS = \iint_{\text{bottom}} -R \, dxdy = \iint_U -R(x,y,z_1(x,y)) \, dxdy
+
+ 
+Sides: are vertical. \langle 0, 0, R \rangle is tangent to sides, so flux through sides = 0.
+ 
+So:
+ 
+If D is not vertically simple, decompose it into simple pieces.
+ 
+ 
+ 
+Diffusion equation (Heat equation)
+Governs motion of smoke in air, dye in solution (immobile case).
+ 
+- t: temperature
+- u: concentration at a given point = u(x,y,z,t)
+ 
+
+\frac{\partial u}{\partial t} = k \nabla^2 u = k \nabla \cdot (\nabla u) = k\left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}\right)
+
+ 
+where \nabla^2 is the Laplacian, and \vec{F} is the flow of smoke.
+ 
+Physics (and common sense): smoke flows from high concentration towards low concentration regions.
+
+Lec 29-3
+ 
+ 
+ 
+So \vec{F} is directed along -\nabla u.
+ 
+In fact:
+\vec{F} = -k \nabla u
+ 
+2. Relate \vec{F} and \frac{\partial u}{\partial t}? Math — divergence!
+ 
+Flux out of D through S:
+ 
+By Divergence Theorem:
+ 
+For any region D:
+\frac{1}{\operatorname{vol}(D)} \iiint_D \operatorname{div} \vec{F} \, dV = \frac{1}{\operatorname{vol}(D)} \iiint_D -\frac{\partial u}{\partial t} \, dV
+Average of (\operatorname{div} \vec{F}) in D = average of \left(-\frac{\partial u}{\partial t}\right) in D
+ 
+Thus:
+\operatorname{div} \vec{F} = -\frac{\partial u}{\partial t}
+ 
+ 
+ 
+Lec 30
+ 
+ 
+ 
+Diffusion equation:
+ 
+- u = concentration of substance
+- \vec{F} = flow of substance
+ 
+1. Physics:
+\vec{F} = -k \nabla u
+2. Divergence theorem:
+\operatorname{div} \vec{F} = -\frac{\partial u}{\partial t}
+ 
+ 
+ 
+Substitute \vec{F} = -k \nabla u into \operatorname{div} \vec{F} = -\frac{\partial u}{\partial t}:
+\frac{\partial u}{\partial t} = -\operatorname{div} \vec{F} = +k \operatorname{div}(\nabla u) = k \nabla^2 u
+ 
+Final diffusion equation:
+\frac{\partial u}{\partial t} = k \nabla^2 u
+
+Lec 30-1
+ 
+ 
+ 
+LINE INTEGRALS
+ 
+Vector field \vec{F} = P\hat{i} + Q\hat{j} + R\hat{k} (force), d\vec{r} = \langle dx, dy, dz \rangle
+ 
+For a curve C in space:
+Work = \int_C \vec{F} \cdot d\vec{r} = \int_C P \, dx + Q \, dy + R \, dz
+ 
+To evaluate: parameterize C, express x, y, z and dx, dy, dz in terms of the parameter.
+ 
+ 
+ 
+Ex 1:
+\vec{F} = \langle yz, xz, xy \rangle
+ 
+C: x = t^3, y = t^2, z = t, 0 \le t \le 1
+dx = 3t^2 dt, dy = 2t dt, dz = dt
+ 
+
+\begin{align*}
+\int_C \vec{F} \cdot d\vec{r} &= \int_C yz \, dx + xz \, dy + xy \, dz \\
+&= \int_0^1 t^3 \cdot 3t^2 dt + t^4 \cdot 2t dt + t^5 dt \\
+&= \int_0^1 6t^5 dt = \left[ t^6 \right]_0^1 = 1
+\end{align*}
+
+ 
+ 
+ 
+Ex 2:
+Same \vec{F}, curve C' = C_1 + C_2 + C_3
+ 
+- For C_1, C_2: in the xy-plane, z = 0, dz = 0
+\Rightarrow \int yz \, dx + xz \, dy + xy \, dz = 0
+- For C_3: x = 1, dx = 0; y = 1, dy = 0; z from 0 to 1
+
+\int_{C_3} \vec{F} \cdot d\vec{r} = \int_{C_3} xy \, dz = \int_0^1 1 \, dz = 1
+
+ 
+Thus:
+\int_{C'} \vec{F} \cdot d\vec{r} = \int_{C_1} + \int_{C_2} + \int_{C_3} = 0 + 0 + 1 = 1
+ 
+In fact, \vec{F} is conservative:
+\vec{F} = \nabla(xyz) = \langle yz, xz, xy \rangle
+with f(x,y,z) = xyz
+so \int_C \vec{F} \cdot d\vec{r} = \int_{C'} \vec{F} \cdot d\vec{r}
+
+Lec 30-3
+ 
+ 
+ 
+CURL IN 3D
+ 
+For a vector field \vec{F} = P\hat{i} + Q\hat{j} + R\hat{k}:
+\operatorname{curl} \vec{F} = (R_y - Q_z)\hat{i} + (P_z - R_x)\hat{j} + (Q_x - P_y)\hat{k}
+ 
+Key Theorem
+ 
+If \vec{F} is defined in a simply-connected region:
+\vec{F} \text{ is conservative} \iff \operatorname{curl} \vec{F} = \vec{0}
+ 
+ 
+ 
+∇ Operator Recap
+ 
+\nabla = \left\langle \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right\rangle
+ 
+- Gradient:
+\nabla f = \left\langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right\rangle
+- Divergence:
+\nabla \cdot \langle P, Q, R \rangle = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} = \operatorname{div} \vec{F}
+ 
+Curl via Cross Product
+ 
+$$\nabla \times \vec{F} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \
+P & Q & R
+\end{vmatrix}
+= \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right)\hat{i}
+ 
+- \left( \frac{\partial R}{\partial x} - \frac{\partial P}{\partial z} \right)\hat{j}
+ 
+- \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)\hat{k}
+= \operatorname{curl} \vec{F}$$
+ 
+ 
+ 
+Geometric Interpretation
+ 
+"Curl measures the rotation component in a velocity field."
+ 
+- Rotation about the z-axis at angular velocity \omega:
+\vec{V} = \langle -\omega y, \omega x, 0 \rangle \implies \operatorname{curl} \vec{V} = 2\omega \hat{k}
+ 
+ 
+ 
+Lec 31
+ 
+ 
+ 
+Recall:
+$$\operatorname{curl} \vec{F} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \
+P & Q & R
+\end{vmatrix}
+= \langle R_y - Q_z, P_z - R_x, Q_x - P_y \rangle$$
+ 
+Measures the rotational part of a velocity field:
+ 
+- Direction = axis of rotation
+- Magnitude = "twice" the angular velocity
+ 
+Examples
+ 
+- \vec{F} = \langle a, b, c \rangle (constant field): \operatorname{curl} \vec{F} = \vec{0}
+- \vec{F} = \langle \otimes x, 0, 0 \rangle: \operatorname{curl} \vec{F} = \vec{0} (but \operatorname{div} \vec{F} = 1)
+- \vec{F} = \langle -y, x, 0 \rangle: \operatorname{curl} \vec{F} = 2\hat{k}
+
+Lec 31-1
+ 
+ 
+ 
+STOKES' THEOREM
+ 
+If C is a closed curve, and S is any surface bounded by C, then:
+\oint_C \vec{F} \cdot d\vec{r} = \iint_S (\nabla \times \vec{F}) \cdot \hat{n} \, dS
+(provided \vec{F} is defined everywhere on S)
+ 
+Orientation
+ 
+The orientations of C and S must be compatible:
+ 
+- If you walk along C in the positive direction, with S to your left, then \hat{n} points upward for you.
+- Or, by the right-hand rule:
+- Thumb along C in the positive direction.
+- Index finger tangent to S (towards the interior of S).
+- Middle finger is parallel to \hat{n}.
+ 
+ 
+ 
+Comparing Stokes' with Green's Theorem
+ 
+Let S be a portion of the xy-plane, bounded by a counter-clockwise curve C.
+ 
+Stokes' Theorem:
+\oint_C \vec{F} \cdot d\vec{r} = \oint_C P \, dx + Q \, dy = \iint_S (\nabla \times \vec{F}) \cdot \hat{n} \, dS
+ 
+For \vec{F} = \langle P, Q, R \rangle with z = 0 and dz = 0:
+(\nabla \times \vec{F}) \cdot \hat{k} = \iint_S (Q_x - P_y) \, dxdy
+ 
+This shows that Green's Theorem is a special case of Stokes' Theorem in the xy-plane.
+ 
+ 
+ 
+Why Stokes' Theorem is true
+ 
+1. We know it holds for curves C and surfaces S in the xy-plane.
+2. The concepts of work, flux, and curl are intrinsic to the geometry and make sense in any plane, independently of the coordinate system.
+3. Therefore, the theorem generalizes to curves and surfaces in any orientation.
+
+Lec 31-2
+ 
+ 
+ 
+Intuition for Stokes' Theorem
+ 
+Given any surface S:
+ 
+- Decompose it into tiny, almost flat pieces.
+- The sum of work around each piece equals the work along the boundary curve C.
+- The sum of flux through each piece equals the flux through S.
+ 
+ 
+ 
+Example: Work of \vec{F} = z\hat{i} + x\hat{j} + y\hat{k} around the unit circle in the xy-plane (counter-clockwise)
+ 
+Method 1: Direct computation
+ 
+Parameterize C:
+x = \cos t, y = \sin t, z = 0, 0 \le t \le 2\pi
+dx = -\sin t \, dt, dy = \cos t \, dt, dz = 0
+ 
+
+\begin{align*}
+\oint_C \vec{F} \cdot d\vec{r} &= \oint_C z \, dx + x \, dy + y \, dz \\
+&= \int_0^{2\pi} 0 \cdot (-\sin t \, dt) + \cos t \cdot \cos t \, dt + \sin t \cdot 0 \\
+&= \int_0^{2\pi} \cos^2 t \, dt = \pi
+\end{align*}
+
+ 
+Method 2: Using Stokes' Theorem
+ 
+Choose S as the paraboloid z = 1 - x^2 - y^2 bounded by C.
+ 
+1. Compute \nabla \times \vec{F}:
+
+\nabla \times \vec{F} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+z & x & y
+\end{vmatrix}
+= \langle 1 - 0, -(0 - 1), 1 - 0 \rangle = \langle 1, 1, 1 \rangle
+
+2. Compute \hat{n} \, dS for S:
+z = 1 - x^2 - y^2 \implies f(x,y) = 1 - x^2 - y^2
+
+\hat{n} \, dS = \langle -f_x, -f_y, 1 \rangle dxdy = \langle 2x, 2y, 1 \rangle dxdy
+
+3. Compute the surface integral:
+
+\iint_S (\nabla \times \vec{F}) \cdot \hat{n} \, dS = \iint_D \langle 1, 1, 1 \rangle \cdot \langle 2x, 2y, 1 \rangle dxdy = \iint_D (2x + 2y + 1) dxdy
+
+ 
+Switching to polar coordinates over the unit disk D:
+
+\iint_D (2x + 2y + 1) dxdy = \int_0^{2\pi} \int_0^1 (2r\cos\theta + 2r\sin\theta + 1) r \, dr d\theta = \pi
+
+ 
+Both methods give the same result, confirming Stokes' Theorem.
