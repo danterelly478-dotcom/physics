@@ -491,3 +491,644 @@ Switching to polar coordinates over the unit disk D:
 
  
 Both methods give the same result, confirming Stokes' Theorem.
+
+
+
+Lec 32
+ 
+ 
+ 
+Stokes' Theorem
+ 
+
+\oint_C \vec{F} \cdot d\vec{r} = \iint_S (\nabla \times \vec{F}) \cdot \hat{n} \, dS
+
+ 
+ 
+ 
+Simply-Connected Region
+ 
+Definition: A region is simply-connected if every closed loop inside it bounds a surface entirely inside the region.
+ 
+- Space with the origin removed: simply-connected
+- Space with the z-axis removed: not simply-connected
+ 
+ 
+ 
+Recall
+ 
+If \vec{F} = \nabla f (a gradient field), then \nabla \times \vec{F} = \mathbf{0}.
+ 
+ 
+ 
+Theorem
+ 
+If \vec{F} is defined in a simply-connected region, and \nabla \times \vec{F} = \mathbf{0}, then:
+ 
+- \vec{F} is a gradient field (\vec{F} = \nabla f)
+- The line integral \int_C \vec{F} \cdot d\vec{r} is path-independent
+ 
+ 
+ 
+Proof
+ 
+Assume \nabla \times \vec{F} = \mathbf{0}.
+ 
+Let C = C_1 - C_2 be a closed curve formed by two paths C_1, C_2 from P_0 to P_1.
+ 
+By Stokes' theorem:
+ 
+
+\int_{C_1} \vec{F} \cdot d\vec{r} - \int_{C_2} \vec{F} \cdot d\vec{r}
+= \oint_C \vec{F} \cdot d\vec{r}
+= \iint_S (\nabla \times \vec{F}) \cdot d\vec{S}
+= \iint_S \mathbf{0} \cdot d\vec{S}
+= 0
+
+ 
+We can find such a surface S because the region is simply-connected.
+ 
+ 
+ 
+Can find S because region is simply-connected.
+
+Lec 32-2
+ 
+ 
+ 
+Remark: Topology
+ 
+Topology classifies surfaces in space:
+ 
+- Surface of a sphere: simply-connected
+- Surface of a torus: not simply-connected (contains two "independent" loops that do not bound a surface)
+ 
+ 
+ 
+Orientability
+ 
+- Non-orientable surface (e.g., Möbius strip): flux cannot be defined consistently.
+ 
+ 
+ 
+Stokes' Theorem and "Surface Independence"
+ 
+Stokes' theorem:
+ 
+
+\oint_C \vec{F} \cdot d\vec{r} = \iint_{S_1} (\nabla \times \vec{F}) \cdot \hat{n} \, dS = \iint_{S_2} (\nabla \times \vec{F}) \cdot \hat{n} \, dS
+
+ 
+Why are these integrals equal?
+ 
+Consider:
+ 
+
+\iint_{S_1} (\nabla \times \vec{F}) \cdot dS - \iint_{S_2} (\nabla \times \vec{F}) \cdot dS
+= \iint_{S = S_1 - S_2} (\nabla \times \vec{F}) \cdot dS
+
+ 
+By the divergence theorem (applied to the closed surface S = S_1 - S_2):
+ 
+
+\iint_S (\nabla \times \vec{F}) \cdot dS = \iiint_D \operatorname{div}(\nabla \times \vec{F}) \, dV
+
+ 
+We can verify that \operatorname{div}(\nabla \times \vec{F}) = 0 always holds.
+ 
+ 
+ 
+Proof that \operatorname{div}(\nabla \times \vec{F}) = 0
+ 
+Let \vec{F} = \langle P, Q, R \rangle. Then:
+ 
+
+\nabla \times \vec{F} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+P & Q & R
+\end{vmatrix}
+= \langle R_y - Q_z,\, P_z - R_x,\, Q_x - P_y \rangle
+
+ 
+Compute the divergence:
+ 
+
+\operatorname{div}(\nabla \times \vec{F}) = \frac{\partial}{\partial x}(R_y - Q_z) + \frac{\partial}{\partial y}(P_z - R_x) + \frac{\partial}{\partial z}(Q_x - P_y)
+
+ 
+
+= (R_{yx} - Q_{zx}) + (P_{zy} - R_{xy}) + (Q_{xz} - P_{yz})
+
+ 
+By Clairaut's theorem, mixed partial derivatives are equal:
+ 
+
+R_{yx} = R_{xy},\quad Q_{zx} = Q_{xz},\quad P_{zy} = P_{yz}
+
+ 
+Thus:
+ 
+
+\operatorname{div}(\nabla \times \vec{F}) = 0
+
+ 
+Note: For "real" vectors, \vec{u} \cdot (\vec{u} \times \vec{v}) = 0, and \nabla \cdot (\nabla \times \vec{F}) = 0 is a vector calculus identity.
+ 
+ 
+ 
+\nabla \cdot (\nabla \times \vec{F}) = 0 always!
+
+Lec 32-3
+ 
+ 
+ 
+1. Triple Integral: \iiint_E f \, dV
+ 
+Volume Elements (dV)
+ 
+- Rectangular coordinates: dV = dz \, dy \, dx
+- Cylindrical coordinates: dV = dz \, r \, dr \, d\theta
+- Spherical coordinates: dV = \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta
+ 
+Applications
+ 
+- Mass
+- Average value of f
+- Moment of inertia
+- Gravitational attraction on mass at origin
+ 
+ 
+ 
+2. Surface Integral: \iint_S \vec{F} \cdot d\vec{S}
+ 
+Simplified dS for Standard Planes
+ 
+- Horizontal plane: dS = dx \, dy
+- yz-plane: dS = dy \, dz
+ 
+Special Surfaces (Centered at Origin)
+ 
+- Sphere/cylinder (on z-axis):
+- Radius: r = \sqrt{x^2 + y^2}, unit normal \hat{n} = \frac{\langle x, y, z \rangle}{r}
+- Spherical dS = a^2 \sin\phi \, d\phi \, d\theta; Cylindrical dS = a \, dz \, d\theta
+ 
+General Cases
+ 
+1. Surface z = Z(x, y): d\vec{S} = \pm \langle -Z_x, -Z_y, 1 \rangle \, dx \, dy
+2. Given normal vector \vec{N}: d\vec{S} = \pm \frac{\vec{N}}{|\vec{N}|} \, dS = \pm \frac{\vec{N}}{|\vec{N}|} \, dx \, dy
+ 
+ 
+ 
+3. Line Integral: \int_C \vec{F} \cdot d\vec{r}
+ 
+- Expanded form: \int_C \vec{F} \cdot d\vec{r} = \int_C P \, dx + Q \, dy + R \, dz
+- Method: Parameterize curve C and express the integral in terms of a single variable.
+ 
+ 
+ 
+4. Core Theorems of Vector Calculus
+ 
+1. Divergence Theorem: \iint_{\partial E} \vec{F} \cdot d\vec{S} = \iiint_E \operatorname{div}(\vec{F}) \, dV
+2. Fundamental Theorem for Line Integrals: f(P_1) - f(P_0) = \int_C \nabla f \cdot d\vec{r}
+- Application: Find the potential function of \vec{F} when \operatorname{curl}(\vec{F}) = 0.
+3. Stokes' Theorem: \oint_C \vec{F} \cdot d\vec{r} = \iint_S (\nabla \times \vec{F}) \cdot d\vec{S}
+ 
+ 
+ 
+5. Key Identity
+ 
+\nabla \cdot (\nabla \times \vec{F}) = 0
+
+
+
+Lec 33
+ 
+ 
+ 
+Curl of a Vector Field
+ 
+Recall: For a velocity field \vec{v}, \nabla \times \vec{v} measures twice the angular velocity (the rotational part of the motion).
+ 
+Example: Uniform rotation about the z-axis
+ 
+- Velocity field: \vec{v} = \omega(-y\hat{i} + x\hat{j})
+​
+- Curl: \nabla \times \vec{v} = 2\omega \hat{k}
+ 
+ 
+ 
+Curl in Mechanics
+ 
+- Translation: \frac{\text{Force}}{\text{Mass}} = \text{Acceleration}
+​
+- Rotation: \frac{\text{Torque}}{\text{Moment of Inertia}} = \text{Angular Acceleration} = \frac{d}{dt}(\text{Angular Velocity})
+​
+- For a force field: \text{curl} = \frac{d}{dt}(\text{Velocity}), and Torque \vec{\tau} = \vec{r} \times \vec{F}_{\Delta m}
+ 
+Consequence: If a force \vec{F} is derived from a potential, then \nabla \times \vec{F} = \mathbf{0}, meaning \vec{F} does not induce any rotational motion.
+ 
+ 
+ 
+Electric and Magnetic Fields (Maxwell's Equations)
+ 
+- Electric field: \vec{F} = q\vec{E}
+​
+- Magnetic field: \vec{F} = q\vec{v} \times \vec{B}
+ 
+ 
+ 
+Divergence and Curl of \vec{E}
+ 
+Gauss–Coulomb Law:
+
+\nabla \cdot \vec{E} = \frac{\rho}{\varepsilon_0}
+
+where \rho is the electric charge density, and \varepsilon_0 is a constant.
+ 
+By the divergence theorem:
+
+where Q is the total electric charge inside region D.
+
+Lec 33-2
+ 
+ 
+ 
+Faraday's Law
+ 
+
+\nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}
+
+ 
+By Stokes' theorem:
+ 
+
+\oint_C \vec{E} \cdot d\vec{r} = \iint_S (\nabla \times \vec{E}) \cdot d\vec{S} = \iint_S \left(-\frac{\partial \vec{B}}{\partial t}\right) \cdot d\vec{S}
+
+ 
+ 
+ 
+Remarks
+ 
+- \nabla \cdot \vec{B} = 0
+- Ampère–Maxwell law:
+ 
+
+\nabla \times \vec{B} = \mu_0 \vec{J} + \varepsilon_0 \mu_0 \frac{\partial \vec{E}}{\partial t}
+
+ 
+where \vec{J} is the vector current density.
+ 
+ 
+ 
+Lec 34
+ 
+ 
+ 
+Unit 1: Vectors
+ 
+Dot Product
+ 
+
+\vec{A} \cdot \vec{B} = \sum a_i b_i = |\vec{A}||\vec{B}|\cos\theta
+
+ 
+Cross Product
+ 
+- \vec{A} \times \vec{B} represents the area in space spanned by \vec{A} and \vec{B}
+- The resulting vector is perpendicular to both \vec{A} and \vec{B}
+ 
+ 
+ 
+Equations of Planes
+ 
+- Plane equation: ax + by + cz = d
+- Normal vector: \langle a, b, c \rangle
+ 
+ 
+ 
+Equations of Lines
+ 
+- Parametric form:
+ 
+
+\begin{cases}
+x = x_0 + at \\
+y = y_0 + bt \\
+z = z_0 + ct
+\end{cases}
+
+ 
+- (x_0, y_0, z_0): a point on the line
+- \langle a, b, c \rangle: a vector parallel to the line
+ 
+ 
+ 
+Parametric Equations of Curves
+ 
+- Decompose the position vector into a sum of components.
+ 
+ 
+ 
+Velocity and Acceleration
+ 
+- Velocity: \vec{v} = \frac{d\vec{r}}{dt} (tangent to the trajectory)
+- Speed: |\vec{v}|
+- Relation: \vec{v} = \hat{T} \frac{ds}{dt}, where speed = |\vec{v}|
+- Acceleration: \vec{a} = \frac{d\vec{v}}{dt}
+ 
+ 
+ 
+\vec{v} = \hat{T} \frac{ds}{dt} \leftarrow \text{speed} = |\vec{v}|
+
+Lec 34-2
+ 
+ 
+ 
+Matrices, Determinants, and Linear Systems
+ 
+- A 3×3 linear system can be written as:
+
+A\vec{X} = \vec{B}
+
+ 
+where A is a 3×3 matrix, \vec{X} is a column vector of unknowns, and \vec{B} is a column vector.
+ 
+Inverting 2×2 or 3×3 Matrices
+ 
+1. Compute minors: 2×2 determinants formed by deleting one row and one column from A.
+2. Form the cofactor matrix: apply a checkerboard sign pattern \begin{bmatrix}+ & - & + \\ - & + & - \\ + & - & +\end{bmatrix} to the minors.
+3. Compute the adjugate matrix: transpose the cofactor matrix.
+4. The inverse is:
+
+A^{-1} = \frac{1}{\det(A)} \cdot \text{adj}(A)
+
+ 
+- A is invertible if and only if \det(A) \neq 0.
+- If \det(A) \neq 0, then A\vec{X} = \vec{B} has a unique solution \vec{X} = A^{-1}\vec{B}.
+- Otherwise, A\vec{X} = \vec{B} has either no solution or infinitely many solutions.
+ 
+ 
+ 
+Unit 2: Multivariable Calculus
+ 
+Viewing f(x, y)
+ 
+- Graph: The surface z = f(x, y) in 3D space.
+- Contour plot: Curves in the xy-plane where f(x, y) = c (constant).
+ 
+Partial Derivatives
+ 
+
+f_x = \frac{\partial f}{\partial x}, \quad f_y = \frac{\partial f}{\partial y}
+
+ 
+- Linear approximation:
+
+\Delta f \approx f_x \Delta x + f_y \Delta y
+
+ 
+This is the equation of the tangent plane to the graph of f.
+ 
+Differentials and Chain Rules
+ 
+- Differential:
+
+df = f_x dx + f_y dy
+
+- Chain rule for x = x(t), y = y(t):
+
+\frac{df}{dt} = f_x \frac{dx}{dt} + f_y \frac{dy}{dt}
+
+ 
+Gradient Vector
+ 
+
+\nabla f = \langle f_x, f_y \rangle
+
+ 
+- For a surface/curve f = c, \nabla f is a normal vector to the surface at any point.
+- The unit normal vector is:
+
+\hat{n} = \frac{\nabla f}{|\nabla f|}
+
+ 
+Directional Derivative
+ 
+For a unit vector \hat{u}, the directional derivative in the direction of \hat{u} is:
+ 
+
+\frac{df}{ds_{\hat{u}}} = \nabla f \cdot \hat{u}
+
+ 
+\frac{df}{ds_{\hat{u}}} = \nabla f \cdot \hat{u}
+
+
+Lec 34-3
+ 
+ 
+ 
+Max/Min Problems
+ 
+- Critical points: Solve \nabla f = \mathbf{0}.
+- Second derivative test: Classifies critical points as local minimum, local maximum, or saddle point.
+- Also check values of f on the boundary and as x \to \infty.
+ 
+ 
+ 
+Max/Min with Non-Independent Variables (g = c)
+ 
+- Use Lagrange multipliers:
+
+\begin{cases}
+\nabla f = \lambda \nabla g \\
+g = c
+\end{cases}
+
+- Note: The second derivative test does not apply here.
+ 
+ 
+ 
+Constrained Partial Derivatives
+ 
+Given constraint g(x, y, z) = c, compute \frac{\partial f}{\partial x}:
+ 
+- Formal partial derivative: x varies, y, z held constant.
+- \left(\frac{\partial f}{\partial x}\right)_y: y held constant, z depends on x, y, x varies.
+- \left(\frac{\partial f}{\partial x}\right)_z: y depends on x, z.
+ 
+ 
+ 
+Lec 35
+ 
+ 
+ 
+Units 3 and 4: Double Integrals
+ 
+Setting Up Bounds
+ 
+
+\iint_R f(x, y) \, dy \, dx = \int_{x_{\min}}^{x_{\max}} \int_{y_{\min}(x)}^{y_{\max}(x)} f(x, y) \, dy \, dx
+
+ 
+Polar Coordinates
+ 
+- Area element: dA = r \, dr \, d\theta
+- Example: Circle r = 2\cos\theta
+- Cartesian form: (x-1)^2 + y^2 = 1
+- Derived from r^2 - 2r\cos\theta = 0 \implies r = 2\cos\theta
+- Integral: \int_{\theta = -\pi/2}^{\pi/2} \int_{r=0}^{2\cos\theta} f(\cdots) r \, dr \, d\theta
+ 
+Change of Variables to uv-Coordinates
+ 
+- Jacobian determinant:
+
+\frac{\partial(u, v)}{\partial(x, y)} = \begin{vmatrix}
+u_x & u_y \\
+v_x & v_y
+\end{vmatrix}
+
+- Area element transformation:
+
+du \, dv = \left|\frac{\partial(u, v)}{\partial(x, y)}\right| dx \, dy
+
+Lec 35
+ 
+ 
+ 
+Triple Integrals
+ 
+Volume Elements
+ 
+- Rectangular coordinates: dV = dz \, dy \, dx
+- Cylindrical coordinates: dV = dz \, r \, dr \, d\theta
+- Spherical coordinates: dV = \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta
+ 
+Applications
+ 
+- Area/Volume/Mass:
+\iint 1 \, dA, \iiint 1 \, dV, \iiint \delta \, dA or \iiint \delta \, dV
+- Average value of a function f:
+\bar{f} = \frac{1}{\text{Vol}} \iiint_D f \, dV, or weighted average: \frac{1}{\text{Mass}} \iiint f \delta \, dV
+- Center of mass: (\bar{x}, \bar{y}, \bar{z})
+- Moment of inertia: I_z = \iiint (x^2 + y^2) \delta \, dV
+- Gravitational attraction: F = Gm \iiint \frac{\delta \cos\phi}{\rho^2} \, dV
+ 
+ 
+ 
+Work and Line Integrals (in plane and space)
+ 
+- Line integral: \int_C \vec{F} \cdot d\vec{r} = \int_C M \, dx + N \, dy
+where \vec{F} = \langle M, N \rangle. Express x and y in terms of a single parameter.
+ 
+Gradient Fields & Path Independence
+ 
+- If \operatorname{curl} \vec{F} = \mathbf{0} and \vec{F} is defined in a simply-connected region, then \vec{F} is a gradient field: \vec{F} = \nabla f for some scalar function f.
+- In 2D: 1 condition N_x = M_y
+- In 3D: 3 conditions
+
+Lec 35-2
+ 
+ 
+ 
+How to Find the Potential (2 methods)
+ 
+- Method A: Compute the line integral \int_{C_1 + C_2} \vec{F} \cdot d\vec{r} along a path from (0,0) to (x_1, y_1) to get f(x_1, y_1).
+- Method B: Start with f_x = M, integrate with respect to x:
+
+f = \int M \, dx + g(y) \quad \text{or} \quad \int M \, dx + g(y, z)
+
+ 
+Then determine g(y) or g(y, z) using the other partial derivatives.
+ 
+Once a potential f is found, we use the Fundamental Theorem of Calculus (FTC):
+ 
+
+\int_C \nabla f \cdot d\vec{r} = f(P_1) - f(P_0)
+
+ 
+ 
+ 
+Flux in Plane & Space
+ 
+In the Plane
+ 
+- Flux integral: \int_C \vec{F} \cdot \hat{n} \, ds = \int_C -Q \, dx + P \, dy
+- For \vec{F} = \langle P, Q \rangle, the outward normal vector element is:
+
+\hat{n} \, ds = \langle dy, -dx \rangle
+
+ 
+(This is the tangent vector \hat{T} rotated 90° clockwise.)
+ 
+In Space
+ 
+To compute \iint_S \vec{F} \cdot \hat{n} \, dS:
+ 
+1. Set up geometrically: Express \hat{n} and dS based on the surface S.
+2. If S is given by z = f(x, y):
+- Unit normal: \hat{n} = \pm \frac{\langle -f_x, -f_y, 1 \rangle}{\sqrt{f_x^2 + f_y^2 + 1}}
+- Surface element: dS = \sqrt{f_x^2 + f_y^2 + 1} \, dx \, dy
+- Combined: \hat{n} \, dS = \langle -f_x, -f_y, 1 \rangle \, dx \, dy
+3. If a normal vector \vec{N} is known:
+
+\hat{n} \, dS = \pm \frac{\vec{N}}{\vec{N} \cdot \hat{k}} \, dx \, dy
+
+ 
+(Applies to slanted planes or surfaces S: g(x, y, z) = 0.)
+
+Lec 35-3
+ 
+ 
+ 
+Work in 2D (Green's Theorem)
+ 
+- Curl of \vec{F} = \langle M, N \rangle: \operatorname{curl} \vec{F} = N_x - M_y
+- Green's Theorem for work:
+
+\oint_C \vec{F} \cdot d\vec{r} = \iint_R \operatorname{curl} \vec{F} \, dA
+
+ 
+Expanded:
+
+\oint_C M \, dx + N \, dy = \iint_R (N_x - M_y) \, dA
+
+ 
+ 
+ 
+Work in 3D (Stokes' Theorem)
+ 
+- Curl of \vec{F} = \langle P, Q, R \rangle:
+
+\nabla \times \vec{F} = \langle R_y - Q_z,\, P_z - R_x,\, Q_x - P_y \rangle
+
+ 
+Which can be written as the determinant:
+
+\nabla \times \vec{F} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+P & Q & R
+\end{vmatrix}
+
+- Stokes' Theorem:
+
+\oint_C \vec{F} \cdot d\vec{r} = \iint_S (\nabla \times \vec{F}) \cdot \hat{n} \, dS
+
+ 
+ 
+ 
+Flux in 2D (Green's Theorem)
+ 
+- Divergence of \vec{F} = \langle M, N \rangle: \operatorname{div} \vec{F} = M_x + N_y
+- Green's Theorem for flux:
+
+\oint_C \vec{F} \cdot \hat{n} \, ds = \iint_R \operatorname{div} \vec{F} \, dA
+
+ 
+ 
+ 
+Flux in 3D (Divergence Theorem)
+ 
+- Divergence of \vec{F} = \langle P, Q, R \rangle: \operatorname{div} \vec{F} = P_x + Q_y + R_z
+- Divergence Theorem:∮∮_S F · n̂ dS = ∭_R div F dV
